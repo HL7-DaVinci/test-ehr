@@ -1,0 +1,13 @@
+{
+  "resourceType": "Patient",
+  "id": "pat1234",
+  "gender": "male",
+  "birthDate": "1996-12-23",
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "state": "MA"
+    }
+  ]
+}
