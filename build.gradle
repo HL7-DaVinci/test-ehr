@@ -83,7 +83,7 @@ task loadData{
             println 'Trying to load '+file.name
             def resource = new groovy.json.JsonSlurper().parseText(file.text)
             http.put {
-                request.uri.path = '/ehr-server/stu3/'+resource.resourceType+'/'+resource.id
+                request.uri.path = '/test-ehr/stu3/'+resource.resourceType+'/'+resource.id
                 request.body = file.text
                 response.success {
                     println '... success. '
@@ -121,7 +121,7 @@ void setup() {
 
 void cleanup(){
 
-        def folder = new File(rootProject.projectDir.absolutePath + "/ehr-server/src/main/webapp/WEB-INF/build")
+        def folder = new File(rootProject.projectDir.absolutePath + "/src/main/webapp/WEB-INF/build")
         if(folder.exists()) {
             exec {
                 workingDir 'src/main/webapp/'
