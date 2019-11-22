@@ -1,10 +1,10 @@
 package org.hl7.davinci.ehrserver;
 
-import ca.uhn.fhir.jpa.config.BaseJavaConfigDstu3;
+import ca.uhn.fhir.jpa.config.BaseJavaConfigR4;
 import ca.uhn.fhir.jpa.dao.DaoConfig;
 import ca.uhn.fhir.jpa.search.LuceneSearchMappingFactory;
 import ca.uhn.fhir.jpa.util.DerbyTenSevenHapiFhirDialect;
-import ca.uhn.fhir.jpa.util.SubscriptionsRequireManualActivationInterceptorDstu3;
+import ca.uhn.fhir.jpa.util.SubscriptionsRequireManualActivationInterceptorR4;
 import ca.uhn.fhir.rest.server.interceptor.IServerInterceptor;
 import ca.uhn.fhir.rest.server.interceptor.LoggingInterceptor;
 import ca.uhn.fhir.rest.server.interceptor.ResponseHighlighterInterceptor;
@@ -29,7 +29,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement()
 @ComponentScan(basePackages = "org.hl7.davinci.ehrserver.authproxy")
-public class FhirServerConfig extends BaseJavaConfigDstu3 {
+public class FhirServerConfig extends BaseJavaConfigR4 {
   static final Logger logger = LoggerFactory.getLogger(FhirServerConfig.class);
 
   /**
@@ -121,7 +121,7 @@ public class FhirServerConfig extends BaseJavaConfigDstu3 {
   @Bean(autowire = Autowire.BY_TYPE)
   public IServerInterceptor subscriptionSecurityInterceptor() {
     logger.info("FhirServerConfig::subscriptionSecurityInterceptor()");
-    return new SubscriptionsRequireManualActivationInterceptorDstu3();
+    return new SubscriptionsRequireManualActivationInterceptorR4();
   }
 
 
