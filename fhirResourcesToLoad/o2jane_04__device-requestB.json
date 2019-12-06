@@ -1,6 +1,6 @@
 {
   "resourceType": "DeviceRequest",
-  "id": "devreq013",
+  "id": "devreq236",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/davinci-crd/R4/StructureDefinition/profile-devicerequest-r4"
@@ -10,27 +10,27 @@
     {
       "url": "http://build.fhir.org/ig/HL7/davinci-crd/R4/ext-insurance.html",
       "valueReference": {
-        "reference": "Coverage/cov013"
+        "reference": "Coverage/cov016"
       }
     }
   ],
   "insurance": [
     {
-      "reference": "Coverage/cov013"
+      "reference": "Coverage/cov016"
     }
   ],
   "status": "draft",
   "codeCodeableConcept": {
     "coding": [
       {
-        "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
-        "code": "E0424",
-        "display": "Stationary Compressed Gaseous Oxygen System, Rental"
+        "system": "http://www.ama-assn.org/go/cpt",
+        "code": "95259",
+        "display": "Home Blood Glucose Monitor"
       }
     ]
   },
   "subject": {
-    "reference": "Patient/pat013"
+    "reference": "Patient/pat016"
   },
   "performer": {
     "reference": "Practitioner/pra1234"

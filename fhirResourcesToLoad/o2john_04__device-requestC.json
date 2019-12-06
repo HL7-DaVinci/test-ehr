@@ -1,6 +1,6 @@
 {
   "resourceType": "DeviceRequest",
-  "id": "devreq013",
+  "id": "devreq037",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/davinci-crd/R4/StructureDefinition/profile-devicerequest-r4"
@@ -23,9 +23,9 @@
   "codeCodeableConcept": {
     "coding": [
       {
-        "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
-        "code": "E0424",
-        "display": "Stationary Compressed Gaseous Oxygen System, Rental"
+        "system": "http://www.ama-assn.org/go/cpt",
+        "code": "95259",
+        "display": "Home Blood Glucose Monitor"
       }
     ]
   },

@@ -26,7 +26,7 @@ apply plugin: 'war'
 apply from: 'https://raw.github.com/gretty-gradle-plugin/gretty/master/pluginScripts/gretty.plugin'
 
 gretty {
-    servletContainer = 'tomcat8'
+    servletContainer = 'tomcat9'
 }
 
 dependencies {
@@ -83,7 +83,7 @@ task loadData{
             println 'Trying to load '+file.name
             def resource = new groovy.json.JsonSlurper().parseText(file.text)
             http.put {
-                request.uri.path = '/test-ehr/stu3/'+resource.resourceType+'/'+resource.id
+                request.uri.path = '/test-ehr/r4/'+resource.resourceType+'/'+resource.id
                 request.body = file.text
                 response.success {
                     println '... success. '
