@@ -2,6 +2,9 @@
 {
   "resourceType": "Coverage",
   "id": "cov014",
+  "beneficiary": {
+    "reference": "Patient/pat014"
+  },
   "subscriberId": "10A3D58WH1600",
   "status": "active",
   "class": [

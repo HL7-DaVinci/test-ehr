@@ -1,6 +1,9 @@
 {
   "resourceType": "Coverage",
   "id": "cov1234",
+  "beneficiary": {
+    "reference": "Patient/pat1234"
+  },
   "class": [
     {
       "type": {
