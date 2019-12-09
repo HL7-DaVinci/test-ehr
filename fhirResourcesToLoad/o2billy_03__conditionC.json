@@ -1,8 +1,20 @@
 {
   "resourceType": "Condition",
   "id": "cond015c",
-  "clinicalStatus": "active",
-  "verificationStatus": "confirmed",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "code": "confirmed"
+      }
+    ]
+  },
   "category": [
     {
       "coding": [
