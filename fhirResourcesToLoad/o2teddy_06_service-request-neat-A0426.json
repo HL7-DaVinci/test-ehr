@@ -1,0 +1,38 @@
+{
+    "resourceType": "SeviceRequest",
+    "id": "sevreq01",
+    "meta": {
+        "profile": [
+            "http://hl7.org/fhir/us/davinci-crd/R4/StructureDefinition/profile-servicerequest-r4"
+        ]
+    },
+    "extension": [
+        {
+            "url": "http://build.fhir.org/ig/HL7/davinci-crd/R4/ext-insurance.html",
+            "valueReference": {
+                "reference": "Coverage/cov014"
+            }
+        }
+    ],
+    "insurance": [
+        {
+            "reference": "Coverage/cov014"
+        }
+    ],
+    "status": "draft",
+    "codeCodeableConcept": {
+        "coding": [
+            {
+                "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+                "code": "A0426",
+                "display": "Ambulance service, advanced life support, non-emergency transport, level 1 (als 1)"
+            }
+        ]
+    },
+    "subject": {
+        "reference": "Patient/pat014"
+    },
+    "performer": {
+        "reference": "Practitioner/pra1255"
+    }
+}
