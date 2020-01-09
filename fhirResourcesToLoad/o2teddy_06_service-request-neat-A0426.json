@@ -1,5 +1,5 @@
 {
-    "resourceType": "SeviceRequest",
+    "resourceType": "ServiceRequest",
     "id": "sevreq01",
     "meta": {
         "profile": [
