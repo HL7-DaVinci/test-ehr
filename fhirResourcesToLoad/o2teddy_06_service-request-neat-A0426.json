@@ -1,0 +1,49 @@
+{
+    "resourceType": "ServiceRequest",
+    "id": "servreq01",
+    "status": "draft",
+    "intent": "order",
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "386053000",
+                    "display": "Evaluation procedure (procedure)"
+                }
+            ],
+            "text": "Evaluation"
+        }
+    ],
+    "code": {
+        "coding": [
+            {
+                "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+                "code": "A0426",
+                "display": "Ambulance service, advanced life support, non-emergency transport, level 1 (als 1)"
+            }
+        ],
+        "text": "Ambulance service Non-Emergency Transport"
+    },
+    "subject": {
+        "reference": "Patient/pat014"
+    },
+    "occurrenceDateTime": "2016-09-27",
+    "authoredOn": "2016-09-20",
+    "requester": {
+        "display": "Smythe Juliette, MD"
+    },
+    "performer": {
+        "reference": "Practitioner/pra1255"
+    },
+    "insurance": [
+        {
+            "reference": "Coverage/cov014"
+        }
+    ],
+    "reasonCode": [
+        {
+            "text": "Physical Therapy for Hip Fracture "
+        }
+    ]
+}
