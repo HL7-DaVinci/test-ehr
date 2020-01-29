@@ -33,9 +33,11 @@
     "requester": {
         "display": "Smythe Juliette, MD"
     },
-    "performer": {
-        "reference": "Practitioner/pra1255"
-    },
+    "performer": [
+        {
+            "reference": "Practitioner/pra1255"
+        }
+    ],
     "insurance": [
         {
             "reference": "Coverage/cov014"
