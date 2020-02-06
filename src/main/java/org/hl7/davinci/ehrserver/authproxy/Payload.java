@@ -34,6 +34,12 @@ public class Payload {
   }
 
   public String getTemplate() {
+    System.out.println("zzzzzzzzzzzzzzzzzzzzzzzzzzzz start");
+    String[] bits = parameters.getAppContext().split("&");
+    for (String bit : bits) {
+      System.out.println("zzzz: bit: " + bit);
+    }
+    System.out.println("zzzzzzzzzzzzzzzzzzzzzzzzzzzz end");
     return parameters.getAppContext().split("&")[0].split("=")[1];
   }
 
@@ -41,7 +47,9 @@ public class Payload {
     return parameters.getAppContext().split("&")[1].split("=")[1];
   }
 
-  public String getFilepath() { return parameters.getAppContext().split("&")[2].split("=")[1]; }
+  public String getPriorauth() { return parameters.getAppContext().split("&")[2].split("=")[1]; }
+
+  public String getFilepath() { return parameters.getAppContext().split("&")[3].split("=")[1]; }
 
   public String getLaunchId() {
     return launchId;

@@ -4,6 +4,7 @@ public class AppContext {
 
   private String template;
   private String request;
+  private String priorauth;
   private String filepath;
 
   public String getRequest() {
@@ -13,6 +14,8 @@ public class AppContext {
   public String getTemplate() {
     return template;
   }
+
+  public String getPriorauth() { return priorauth; }
 
   public String getFilepath() { return filepath; }
 
@@ -24,12 +27,16 @@ public class AppContext {
     this.template = template;
   }
 
+  public void setPriorauth(String priorauth) {
+    this.priorauth = priorauth;
+  }
+
   public void setFilepath(String filepath) {
     this.filepath = filepath;
   }
 
   @Override
   public String toString() {
-    return "template=" + template + "&request=" + request + "&filepath=" + filepath;
+    return "template=" + template + "&request=" + request + "&priorauth=" + priorauth + "&filepath=" + filepath;
   }
 }
