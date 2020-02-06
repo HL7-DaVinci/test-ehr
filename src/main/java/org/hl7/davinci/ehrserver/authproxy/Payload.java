@@ -33,15 +33,7 @@ public class Payload {
     return parameters.getPatientId();
   }
 
-  public String getTemplate() {
-    System.out.println("zzzzzzzzzzzzzzzzzzzzzzzzzzzz start");
-    String[] bits = parameters.getAppContext().split("&");
-    for (String bit : bits) {
-      System.out.println("zzzz: bit: " + bit);
-    }
-    System.out.println("zzzzzzzzzzzzzzzzzzzzzzzzzzzz end");
-    return parameters.getAppContext().split("&")[0].split("=")[1];
-  }
+  public String getTemplate() { return parameters.getAppContext().split("&")[0].split("=")[1]; }
 
   public String getRequest() {
     return parameters.getAppContext().split("&")[1].split("=")[1];
