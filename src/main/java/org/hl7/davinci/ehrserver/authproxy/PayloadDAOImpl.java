@@ -32,7 +32,7 @@ public class PayloadDAOImpl implements PayloadDAO {
     // create table
     Statement stmt = conn.createStatement();
     try {
-      jdbcTemplate.execute("Create table appcontext (launchId varchar(255) primary key, launchUrl varchar(212) NOT NULL, patientId varchar(128) NOT NULL, template varchar(128), request varchar(8192), launchCode varchar(512), redirectUri varchar(512), priorauth varchar(128), filepath varchar(128))");
+      jdbcTemplate.execute("Create table appcontext (launchId varchar(255) primary key, launchUrl varchar(212) NOT NULL, patientId varchar(128) NOT NULL, appContext varchar(8192), launchCode varchar(512), redirectUri varchar(512))");
 
       logger.info("PayloadDAOImpl: AppContext table created in database");
 
@@ -46,8 +46,8 @@ public class PayloadDAOImpl implements PayloadDAO {
 
   @Override
   public void createPayload(Payload payload) {
-    String sql = "insert into appcontext (launchId, launchUrl, patientId, template, request, priorauth, filepath) values (?, ?, ?, ?, ?, ?, ?)";
-    jdbcTemplate.update(sql, payload.getLaunchId(), payload.getLaunchUrl(),payload.getPatientId(), payload.getTemplate(), payload.getRequest(), payload.getPriorauth(), payload.getFilepath());
+    String sql = "insert into appcontext (launchId, launchUrl, patientId, appContext) values (?, ?, ?, ?)";
+    jdbcTemplate.update(sql, payload.getLaunchId(), payload.getLaunchUrl(), payload.getPatientId(), payload.getAppContext());
     logger.info("Created payload: " + payload.toString());
   }
 

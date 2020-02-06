@@ -33,15 +33,6 @@ public class Payload {
     return parameters.getPatientId();
   }
 
-  public String getTemplate() { return parameters.getAppContext().split("&")[0].split("=")[1]; }
-
-  public String getRequest() {
-    return parameters.getAppContext().split("&")[1].split("=")[1];
-  }
-
-  public String getPriorauth() { return parameters.getAppContext().split("&")[2].split("=")[1]; }
-
-  public String getFilepath() { return parameters.getAppContext().split("&")[3].split("=")[1]; }
 
   public String getLaunchId() {
     return launchId;
