@@ -1,0 +1,38 @@
+{
+  "resourceType": "DeviceRequest",
+  "id": "devreq-013-e0250",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-crd/R4/StructureDefinition/profile-devicerequest-r4"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://build.fhir.org/ig/HL7/davinci-crd/R4/ext-insurance.html",
+      "valueReference": {
+        "reference": "Coverage/cov013"
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/cov013"
+    }
+  ],
+  "status": "draft",
+  "codeCodeableConcept": {
+    "coding": [
+      {
+        "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+        "code": "E0250",
+        "display": "Hospital bed fixed height with any type of side rails, mattress"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat013"
+  },
+  "performer": {
+    "reference": "Practitioner/pra1234"
+  }
+}
