@@ -7,18 +7,23 @@
     {
       "use": "home",
       "type": "both",
-      "state": "VT"
+      "state": "NY",
+      "city": "Buffalo",
+      "postalCode": "14203",
+      "line": ["55 E Huron Street"]
     }
   ],
   "name": [
     {
       "use": "official",
       "family": "Wilson",
-      "given": [
-        "Ada",
-        "Lovelace",
-        "Wilson"
-      ]
+      "given": ["Ada", "Lovelace", "Wilson"]
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-medicare",
+      "value": "98127643501AA"
     }
   ]
 }
