@@ -7,16 +7,28 @@
       "value": "1122334455"
     }
   ],
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "state": "NY",
+      "city": "Buffalo",
+      "postalCode": "14210",
+      "line": ["840 Seneca St"]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "716-873-1557"
+    }
+  ],
   "name": [
     {
       "use": "official",
       "family": "Doe",
-      "given": [
-        "Jane", "Betty"
-      ],
-      "prefix": [
-        "Dr."
-      ]
+      "given": ["Jane", "Betty"],
+      "prefix": ["Dr."]
     }
   ]
 }

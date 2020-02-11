@@ -7,18 +7,23 @@
     {
       "use": "home",
       "type": "both",
-      "state": "MA"
+      "state": "MA",
+      "city": "Bedford",
+      "postalCode": "01730",
+      "line": ["202 Burlington Road"]
     }
   ],
   "name": [
     {
       "use": "official",
       "family": "Oster",
-      "given": [
-        "William",
-        "Hale",
-        "Oster"
-      ]
+      "given": ["William", "Hale", "Oster"]
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-medicare",
+      "value": "3435500006FW"
     }
   ]
 }

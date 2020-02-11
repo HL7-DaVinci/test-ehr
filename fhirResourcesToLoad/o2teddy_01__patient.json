@@ -7,18 +7,23 @@
     {
       "use": "home",
       "type": "both",
-      "state": "VA"
+      "state": "VA",
+      "city": "McLean",
+      "postalCode": "22102",
+      "line": ["7525 Colshire Dr"]
     }
   ],
   "name": [
     {
       "use": "official",
       "family": "Roosevelt",
-      "given": [
-        "Theodor",
-        "Alan",
-        "Roosevelt"
-      ]
+      "given": ["Theodor", "Alan", "Roosevelt"]
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-medicare",
+      "value": "84612900001NF"
     }
   ]
 }

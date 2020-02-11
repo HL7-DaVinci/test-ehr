@@ -7,15 +7,27 @@
       "value": "348074389"
     }
   ],
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "state": "MA",
+      "city": "Burlington",
+      "postalCode": "01803",
+      "line": ["108 Middlesex Turnpike"]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "781-229-3911"
+    }
+  ],
   "name": [
     {
       "family": "Smythe",
-      "given": [
-        "Juliette"
-      ],
-      "prefix": [
-        "Dr."
-      ]
+      "given": ["Juliette"],
+      "prefix": ["Dr."]
     }
   ]
 }
