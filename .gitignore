@@ -20,6 +20,11 @@
 gradle/gradle-4.10.1/*
 request-generator/*
 server/src/main/resources/react/node_modules/*
+target/*
+.classpath
+bin/main/*
+.settings/*
+
 
 # CMake
 cmake-build-*/
@@ -135,3 +140,5 @@ gradle-app.setting
 
 # End of https://www.gitignore.io/api/osx,java,gradle,intellij
 
+
+bin/main/fhirServer.properties
