@@ -7,18 +7,17 @@
     {
       "use": "home",
       "type": "both",
-      "state": "NY"
+      "state": "VA",
+      "city": "Reston",
+      "postalCode": "20190",
+      "line": ["11951 Freedom Drive Suite 1322"]
     }
   ],
   "name": [
     {
       "use": "official",
       "family": "Quinton",
-      "given": [
-        "Vlad",
-        "Alan",
-        "Nestor"
-      ]
+      "given": ["Vlad", "Alan", "Nestor"]
     }
   ],
   "identifier": [

@@ -1,0 +1,41 @@
+{
+  "resourceType": "Condition",
+  "id": "cond016-g12",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "G12.0",
+        "display": "Infantile spinal muscular atrophy, type I"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat016"
+  }
+}
