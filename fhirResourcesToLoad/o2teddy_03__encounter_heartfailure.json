@@ -40,8 +40,7 @@
   "participant": [
     {
       "individual": {
-        "reference": "Practitioner/pra1234",
-        "display": "Dr. Jane Joe"
+        "reference": "Practitioner/pra1234"
       }
     }
   ],
