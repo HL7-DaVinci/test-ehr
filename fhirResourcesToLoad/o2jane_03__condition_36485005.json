@@ -1,0 +1,41 @@
+{
+  "resourceType": "Condition",
+  "id": "cond016-36485005",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "36485005",
+        "display": "Restrictive lung disease"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat016"
+  }
+}
