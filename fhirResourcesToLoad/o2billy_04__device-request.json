@@ -35,15 +35,31 @@
       "coding": [
         {
           "system": "http://hl7.org/fhir/request-intent",
-            "code": "original-order",
-            "display": "Original Order"
+          "code": "original-order",
+          "display": "Original Order"
         }
       ]
     }
   },
   "occurrenceTiming" : { 
-    "repeat": {
-      "count": "9"
-    }
+    "repeat": [
+      {
+        "count": 9
+      },
+      {
+          "when": [
+            {
+              "system": "http://hl7.org/fhir/v3/TimingEvent",
+              "code": "WAKE",
+              "display": "WAKE"
+            },
+            {
+              "system": "http://hl7.org/fhir/event-timing",
+              "code": "NIGHT",
+              "display": "NIGHT"
+            }
+        ]
+      }
+    ]
   }
 }
