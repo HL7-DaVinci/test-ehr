@@ -1,19 +1,19 @@
 {
   "resourceType": "Observation",
-  "id": "obs-pat015-partialpressure",
-  "status": "final",
+  "id": "obs-pat015-pao2",
   "category": [
     {
       "coding": [
         {
           "system": "http://hl7.org/fhir/observation-category",
-          "code": "vital-signs",
-          "display": "Vital Signs"
+          "code": "procedure",
+          "display": "Procedure"
         }
       ],
-      "text": "Vital Signs"
+      "text": "Procedure"
     }
   ],
+  "status": "final",
   "code": {
     "coding": [
       {
@@ -26,7 +26,7 @@
   "subject": {
     "reference": "Patient/pat015"
   },
-  "issued": "2020-1-20T15:30:10+01:00",
+  "issued": "2020-01-20T15:30:10+01:00",
   "valueQuantity": {
     "value": 65,
     "unit": "mm[Hg]",
