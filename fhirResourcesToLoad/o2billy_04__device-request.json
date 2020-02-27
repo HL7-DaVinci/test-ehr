@@ -29,5 +29,21 @@
   },
   "performer": {
     "reference": "Practitioner/pra1234"
+  },
+  "intent": {
+    "codeCodeableConcept":  {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/request-intent",
+            "code": "original-order",
+            "display": "Original Order"
+        }
+      ]
+    }
+  },
+  "occurrenceTiming" : { 
+    "repeat": {
+      "count": "9"
+    }
   }
 }

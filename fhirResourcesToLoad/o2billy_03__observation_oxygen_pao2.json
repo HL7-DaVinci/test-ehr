@@ -6,11 +6,11 @@
       "coding": [
         {
           "system": "http://hl7.org/fhir/observation-category",
-          "code": "procedure",
-          "display": "Procedure"
+          "code": "laboratory",
+          "display": "Laboratory"
         }
       ],
-      "text": "Procedure"
+      "text": "Laboratory"
     }
   ],
   "status": "final",
