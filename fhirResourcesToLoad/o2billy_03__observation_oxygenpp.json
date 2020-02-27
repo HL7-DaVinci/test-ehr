@@ -1,60 +1,61 @@
 {
   "resourceType": "Observation",
-  "id": "obs015B",
+  "id": "obs-pat015-partialpressure",
   "status": "final",
   "category": [
     {
       "coding": [
         {
           "system": "http://hl7.org/fhir/observation-category",
-          "code": "laboratory",
-          "display": "laboratory"
+          "code": "vital-signs",
+          "display": "Vital Signs"
         }
       ],
-      "text": "Laboratory"
+      "text": "Vital Signs"
     }
   ],
   "code": {
     "coding": [
       {
         "system": "http://loinc.org",
-        "code": "31100-1",
-        "display": "Hematocrit [Volume Fraction] of Blood by Impedance"
+        "code": "2703-7",
+        "display": "Oxygen (BldA) [Partial pressure]"
       }
     ]
   },
   "subject": {
     "reference": "Patient/pat015"
   },
-  "issued": "2020-01-20T15:30:10+01:00",
+  "issued": "2020-1-20T15:30:10+01:00",
   "valueQuantity": {
-    "value": 69,
-    "unit": "%",
+    "value": 65,
+    "unit": "mm[Hg]",
     "system": "http://unitsofmeasure.org",
-    "code": "%"
+    "code": "mm[Hg]"
   },
   "interpretation": {
     "coding": [
       {
         "system": "http://hl7.org/fhir/v2/0078",
-        "code": "H",
-        "display": "High"
+        "code": "L",
+        "display": "LOW"
       }
-    ]
+    ],
+    "text": "Normal (applies to non-numeric results)"
   },
   "referenceRange": [
     {
       "low": {
-        "value": 42,
-        "unit": "%",
+        "value": 75,
+        "unit": "mm[Hg]",
         "system": "http://unitsofmeasure.org",
-        "code": "%"
+        "code": "mm[Hg]"
       },
       "high": {
-        "value": 54,
-        "unit": "%",
+        "value": 100,
+        "unit": "mm[Hg]",
         "system": "http://unitsofmeasure.org",
-        "code": "%"
+        "code": "mm[Hg]"
       }
     }
   ]
