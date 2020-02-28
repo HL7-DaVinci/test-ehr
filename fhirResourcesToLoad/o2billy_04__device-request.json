@@ -19,8 +19,7 @@
     "coding": [
       {
         "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
-        "code": "E0424",
-        "display": "Stationary Compressed Gaseous Oxygen System, Rental"
+        "code": "E0424"
       }
     ]
   },
@@ -47,16 +46,10 @@
         "unit": "mo",
         "system": "http://unitsofmeasure.org",
         "code": "mo"
-      },
-      "when": "HS"
+      }
     },
     "code": {
-      "text": "During Sleep",
-      "coding": [
-        {
-          "code": "during-sleep"
-        }
-      ]
+      "text": "During sleep AND During exertion"
     }
   }
 }
