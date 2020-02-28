@@ -1,0 +1,35 @@
+{
+  "resourceType": "Observation",
+  "id": "obs014BodyWeight",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "29463-7",
+        "display": "Body Weight"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat014"
+  },
+  "issued": "2020-02-11T15:40:10+01:00",
+  "valueQuantity": {
+    "value": 175,
+    "unit": "[lb_av]",
+    "system": "http://unitsofmeasure.org",
+    "code": "[lb_av]"
+  }
+}
