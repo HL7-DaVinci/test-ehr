@@ -29,5 +29,34 @@
   },
   "performer": {
     "reference": "Practitioner/pra1234"
+  },
+  "intent": {
+    "text": "Original Order",
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/request-intent",
+        "code": "original-order",
+        "display": "Original Order"
+      }
+    ]
+  },
+  "occurrenceTiming" : {
+    "repeat": {
+      "boundsDuration": {
+        "value": 8,
+        "unit": "mo",
+        "system": "http://unitsofmeasure.org",
+        "code": "mo"
+      },
+      "when": "HS"
+    },
+    "code": {
+      "text": "During Sleep",
+      "coding": [
+        {
+          "code": "during-sleep"
+        }
+      ]
+    }
   }
 }

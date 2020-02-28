@@ -1,25 +1,25 @@
 {
   "resourceType": "Observation",
-  "id": "obs015B",
+  "id": "obs015",
   "status": "final",
   "category": [
     {
       "coding": [
         {
           "system": "http://hl7.org/fhir/observation-category",
-          "code": "laboratory",
-          "display": "laboratory"
+          "code": "vital-signs",
+          "display": "Vital Signs"
         }
       ],
-      "text": "Laboratory"
+      "text": "Vital Signs"
     }
   ],
   "code": {
     "coding": [
       {
         "system": "http://loinc.org",
-        "code": "31100-1",
-        "display": "Hematocrit [Volume Fraction] of Blood by Impedance"
+        "code": "59408-5",
+        "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
       }
     ]
   },
@@ -28,7 +28,7 @@
   },
   "issued": "2020-01-20T15:30:10+01:00",
   "valueQuantity": {
-    "value": 69,
+    "value": 91,
     "unit": "%",
     "system": "http://unitsofmeasure.org",
     "code": "%"
@@ -37,21 +37,22 @@
     "coding": [
       {
         "system": "http://hl7.org/fhir/v2/0078",
-        "code": "H",
-        "display": "High"
+        "code": "N",
+        "display": "Normal"
       }
-    ]
+    ],
+    "text": "Normal (applies to non-numeric results)"
   },
   "referenceRange": [
     {
       "low": {
-        "value": 42,
+        "value": 90,
         "unit": "%",
         "system": "http://unitsofmeasure.org",
         "code": "%"
       },
       "high": {
-        "value": 54,
+        "value": 99,
         "unit": "%",
         "system": "http://unitsofmeasure.org",
         "code": "%"
