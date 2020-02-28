@@ -47,16 +47,10 @@
         "unit": "mo",
         "system": "http://unitsofmeasure.org",
         "code": "mo"
-      },
-      "when": "HS"
+      }
     },
     "code": {
-      "text": "During Sleep",
-      "coding": [
-        {
-          "code": "during-sleep"
-        }
-      ]
+      "text": "During sleep AND During exertion"
     }
   }
 }
