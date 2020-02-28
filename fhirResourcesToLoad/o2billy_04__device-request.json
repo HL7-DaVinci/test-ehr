@@ -31,35 +31,32 @@
     "reference": "Practitioner/pra1234"
   },
   "intent": {
-    "codeCodeableConcept":  {
+    "text": "Original Order",
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/request-intent",
+        "code": "original-order",
+        "display": "Original Order"
+      }
+    ]
+  },
+  "occurrenceTiming" : {
+    "repeat": {
+      "boundsDuration": {
+        "value": 8,
+        "unit": "mo",
+        "system": "http://unitsofmeasure.org",
+        "code": "mo"
+      },
+      "when": "HS"
+    },
+    "code": {
+      "text": "During Sleep",
       "coding": [
         {
-          "system": "http://hl7.org/fhir/request-intent",
-          "code": "original-order",
-          "display": "Original Order"
+          "code": "during-sleep"
         }
       ]
     }
-  },
-  "occurrenceTiming" : { 
-    "repeat": [
-      {
-        "count": 9
-      },
-      {
-          "when": [
-            {
-              "system": "http://hl7.org/fhir/v3/TimingEvent",
-              "code": "WAKE",
-              "display": "WAKE"
-            },
-            {
-              "system": "http://hl7.org/fhir/event-timing",
-              "code": "NIGHT",
-              "display": "NIGHT"
-            }
-        ]
-      }
-    ]
   }
 }
