@@ -19,8 +19,7 @@
     "coding": [
       {
         "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
-        "code": "E0424",
-        "display": "Stationary Compressed Gaseous Oxygen System, Rental"
+        "code": "E0424"
       }
     ]
   },
