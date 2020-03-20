@@ -18,8 +18,8 @@
       "coding": [
         {
           "system": "http://snomed.info/sct",
-          "code": "84114007",
-          "display": "Heart Failure"
+          "code": "185349003",
+          "display": "Encounter for check up"
         }
       ]
     }
@@ -50,17 +50,24 @@
     "system": "http://unitsofmeasure.org",
     "code": "min"
   },
-  "period" : {
+  "period": {
     "start": "2020-01-15T12:40:10+01:00"
   },
-  "reasonCode": [
+  "reason": [
     {
-      "text": "The patient is treated for wheezing."
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "42343007",
+          "display": "Congestive heart failure (disorder)"
+        }
+      ]
     }
   ],
   "diagnosis": [
     {
       "condition": {
+        "reference": "Condition/cond014a",
         "display": "Complications from infection on January 9th, 2020"
       },
       "use": {
@@ -76,6 +83,7 @@
     },
     {
       "condition": {
+        "reference": "Condition/cond014a",
         "display": "The patient is treated for wheezing"
       },
       "use": {

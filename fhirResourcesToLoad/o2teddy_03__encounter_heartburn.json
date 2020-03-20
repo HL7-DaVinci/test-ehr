@@ -18,8 +18,8 @@
       "coding": [
         {
           "system": "http://snomed.info/sct",
-          "code": "82272006",
-          "display": "Common Cold"
+          "code": "185345009",
+          "display": "Encounter for symptom"
         }
       ]
     }
@@ -54,15 +54,22 @@
     "start": "2020-02-14T10:40:10+01:00",
     "end": "2020-02-14T12:40:10+01:00"
   },
-  "reasonCode": [
+  "reason": [
     {
-      "text": "The patient is treated for cold."
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "82272006",
+          "display": "Common cold (disorder)"
+        }
+      ]
     }
   ],
   "diagnosis": [
     {
       "condition": {
-        "display": "Having fever, muscle ache for two days"
+        "reference": "Condition/cond014b",
+        "display": "The patient is treated for heartburn"
       },
       "use": {
         "coding": [
@@ -77,7 +84,8 @@
     },
     {
       "condition": {
-        "display": "The patient is treated for cold"
+        "reference": "Condition/cond014b",
+        "display": "The patient is treated for heartburn"
       },
       "use": {
         "coding": [
