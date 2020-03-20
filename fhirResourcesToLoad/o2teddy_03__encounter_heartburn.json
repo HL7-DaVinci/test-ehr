@@ -65,6 +65,17 @@
       ]
     }
   ],
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "82272006",
+          "display": "Common cold (disorder)"
+        }
+      ]
+    }
+  ],
   "diagnosis": [
     {
       "condition": {

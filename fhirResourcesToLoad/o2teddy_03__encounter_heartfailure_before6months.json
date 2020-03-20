@@ -65,6 +65,17 @@
       ]
     }
   ],
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "42343007",
+          "display": "Congestive heart failure (disorder)"
+        }
+      ]
+    }
+  ],
   "diagnosis": [
     {
       "condition": {
