@@ -1,12 +1,6 @@
 {
   "resourceType": "Encounter",
   "id": "enc-pat014-cold",
-  "identifier": [
-    {
-      "use": "temp",
-      "value": "Encounter_Roel_20130127"
-    }
-  ],
   "status": "finished",
   "class": {
     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
