@@ -46,7 +46,7 @@
   ],
   "length": {
     "value": 2,
-    "unit": "minutes",
+    "unit": "days",
     "system": "http://unitsofmeasure.org",
     "code": "day"
   },
