@@ -53,17 +53,6 @@
   "period": {
     "start": "2020-01-15T12:40:10+01:00"
   },
-  "reason": [
-    {
-      "coding": [
-        {
-          "system": "http://snomed.info/sct",
-          "code": "42343007",
-          "display": "Congestive heart failure (disorder)"
-        }
-      ]
-    }
-  ],
   "reasonCode": [
     {
       "coding": [
