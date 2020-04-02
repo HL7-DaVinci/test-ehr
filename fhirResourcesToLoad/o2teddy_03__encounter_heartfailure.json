@@ -1,12 +1,6 @@
 {
   "resourceType": "Encounter",
   "id": "enc-pat014",
-  "identifier": [
-    {
-      "use": "temp",
-      "value": "Encounter_Roel_20130128"
-    }
-  ],
   "status": "finished",
   "class": {
     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
@@ -18,8 +12,8 @@
       "coding": [
         {
           "system": "http://snomed.info/sct",
-          "code": "84114007",
-          "display": "Heart Failure"
+          "code": "185349003",
+          "display": "Encounter for check up"
         }
       ]
     }
@@ -50,17 +44,25 @@
     "system": "http://unitsofmeasure.org",
     "code": "min"
   },
-  "period" : {
-    "start": "2020-01-15T12:40:10+01:00"
+  "period": {
+    "start": "2020-01-15T12:40:10+01:00",
+    "end": "2020-01-15T13:40:10+01:00"
   },
   "reasonCode": [
     {
-      "text": "The patient is treated for wheezing."
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "42343007",
+          "display": "Congestive heart failure (disorder)"
+        }
+      ]
     }
   ],
   "diagnosis": [
     {
       "condition": {
+        "reference": "Condition/cond014a",
         "display": "Complications from infection on January 9th, 2020"
       },
       "use": {
@@ -76,6 +78,7 @@
     },
     {
       "condition": {
+        "reference": "Condition/cond014a",
         "display": "The patient is treated for wheezing"
       },
       "use": {
