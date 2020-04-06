@@ -1,0 +1,62 @@
+{
+  "resourceType": "Observation",
+  "id": "obs014-pao2",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "2703-7",
+        "display": "Oxygen (BldA) [Partial pressure]"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat014"
+  },
+  "issued": "2020-04-05T15:30:10+01:00",
+  "valueQuantity": {
+    "value": 65,
+    "unit": "mm[Hg]",
+    "system": "http://unitsofmeasure.org",
+    "code": "mm[Hg]"
+  },
+  "interpretation": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v2/0078",
+        "code": "L",
+        "display": "LOW"
+      }
+    ],
+    "text": "Low (applies to non-numeric results)"
+  },
+  "referenceRange": [
+    {
+      "low": {
+        "value": 75,
+        "unit": "mm[Hg]",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      },
+      "high": {
+        "value": 100,
+        "unit": "mm[Hg]",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      }
+    }
+  ]
+}

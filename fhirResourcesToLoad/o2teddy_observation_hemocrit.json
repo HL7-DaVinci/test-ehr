@@ -1,7 +1,19 @@
 {
   "resourceType": "Observation",
-  "id": "obs014B",
+  "id": "obs014-hemocrit-test",
   "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/observation-category",
+          "code": "laboratory",
+          "display": "laboratory"
+        }
+      ],
+      "text": "Laboratory"
+    }
+  ],
   "code": {
     "coding": [
       {
@@ -14,9 +26,9 @@
   "subject": {
     "reference": "Patient/pat014"
   },
-  "issued": "2020-04-06T15:40:10+01:00",
+  "issued": "2020-04-05T15:30:10+01:00",
   "valueQuantity": {
-    "value": 70,
+    "value": 72,
     "unit": "%",
     "system": "http://unitsofmeasure.org",
     "code": "%"

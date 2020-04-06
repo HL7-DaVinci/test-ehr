@@ -1,0 +1,50 @@
+{
+  "resourceType": "Observation",
+  "id": "obs014-pap",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "8414-5",
+        "display": "Pulmonary artery Mean blood pressure"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat014"
+  },
+  "issued": "2020-04-05T15:30:10+01:00",
+  "valueQuantity": {
+    "value": 25,
+    "unit": "mm[Hg]",
+    "system": "http://unitsofmeasure.org",
+    "code": "mm[Hg]"
+  },
+  "interpretation": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v2/0078",
+        "code": "H",
+        "display": "HIGH"
+      }
+    ],
+    "text": "High (applies to non-numeric results)"
+  },
+  "referenceRange": [
+    {
+      "low": {
+        "value": 8,
+        "unit": "mm[Hg]",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      },
+      "high": {
+        "value": 20,
+        "unit": "mm[Hg]",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      }
+    }
+  ]
+}
