@@ -1,0 +1,39 @@
+{
+  "resourceType": "DeviceRequest",
+  "id": "devreqe0470",
+  "status": "draft",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-crd/R4/StructureDefinition/profile-devicerequest-r4"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://build.fhir.org/ig/HL7/davinci-crd/R4/ext-insurance.html",
+      "valueReference": {
+        "reference": "Coverage/cov1234"
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/cov1234"
+    }
+  ],
+  "codeCodeableConcept": {
+    "coding": [
+      {
+        "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+        "code": "E0470",
+        "display": "Respiratory Assist Device"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat015"
+  },
+  "authoredOn": "2020-03-08",
+  "performer": {
+    "reference": "Practitioner/pra1234"
+  }
+}
