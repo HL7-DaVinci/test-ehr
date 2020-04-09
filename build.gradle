@@ -1,6 +1,12 @@
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            url = 'https://oss.sonatype.org/content/repositories/snapshots/'
+        }
+        maven {
+            url = 'http://repo.maven.apache.org/maven2'
+        }
     }
     dependencies {
         classpath group: 'io.github.http-builder-ng', name: 'http-builder-ng-core', version: '1.0.3'
@@ -10,12 +16,9 @@ buildscript {
 
 plugins {
     id 'java'
-
-
 }
 
 version 'unspecified'
-
 sourceCompatibility = 1.8
 
 repositories {
@@ -34,43 +37,47 @@ gretty {
 }
 
 dependencies {
+    compile 'org.eclipse.jetty.websocket:websocket-api:9.4.24.v20191120'
+    compile 'org.eclipse.jetty.websocket:websocket-client:9.4.24.v20191120'
+    compile 'mysql:mysql-connector-java:8.0.11'
+    compile 'org.postgresql:postgresql:42.2.9'
+    compile 'com.sun.mail:javax.mail:1.6.1'
+    compile 'ca.uhn.hapi.fhir:hapi-fhir-base:4.2.0'
+    compile 'ca.uhn.hapi.fhir:hapi-fhir-jpaserver-base:4.2.0'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
+    compile 'org.springframework:spring-web:5.2.3.RELEASE'
+    compile 'org.springframework:spring-jdbc:5.2.3.RELEASE'
+    compile 'org.apache.commons:commons-dbcp2:2.7.0'
+    compile 'com.h2database:h2:1.4.200'
+    compile 'org.webjars:bootstrap:3.3.7'
+    compile 'org.webjars:Eonasdan-bootstrap-datetimepicker:4.17.43'
+    compile 'org.webjars:font-awesome:5.8.2'
+    compile 'org.webjars.bower:awesome-bootstrap-checkbox:1.0.1'
+    compile 'org.webjars:jstimezonedetect:1.0.6'
+    compile 'org.webjars:select2:4.0.3'
+    compile 'org.webjars.bower:jquery:3.3.1'
+    compile 'org.webjars.bower:moment:2.15.1'
 
-    compile 'ca.uhn.hapi.fhir:hapi-fhir-base:3.6.0'
-    compile 'ca.uhn.hapi.fhir:hapi-fhir-structures-r4:3.6.0'
-    compile 'ca.uhn.hapi.fhir:hapi-fhir-jpaserver-base:3.6.0'
-    compile 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:3.6.0:classes'
-
-    compile 'org.apache.commons:commons-dbcp2:2.5.0'
     compile 'org.ebaysf.web:cors-filter:1.0.1'
-
     compile 'org.apache.derby:derby:10.14.2.0'
     compile 'org.apache.derby:derbynet:10.14.2.0'
     compile 'org.apache.derby:derbyclient:10.14.2.0'
 
+    testCompile 'org.eclipse.jetty:jetty-servlets:9.4.24.v20191120'
+    testCompile 'org.eclipse.jetty:jetty-servlet:9.4.24.v20191120'
+    testCompile 'org.eclipse.jetty.websocket:websocket-server:9.4.24.v20191120'
+    testCompile 'org.eclipse.jetty:jetty-server:9.4.24.v20191120'
+    testCompile 'org.eclipse.jetty:jetty-util:9.4.24.v20191120'
+    testCompile 'org.eclipse.jetty:jetty-webapp:9.4.24.v20191120'
+    testCompile 'ca.uhn.hapi.fhir:hapi-fhir-test-utilities:4.2.0'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
+    testCompile 'org.mockito:mockito-core:3.2.0'
+    //compile 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:war'
+    compile 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:classes'
     compile 'javax.servlet:javax.servlet-api:3.1.0'
-
-
-    compile "org.eclipse.jetty.websocket:websocket-api:9.4.12.v20180830"
-    compile "org.eclipse.jetty.websocket:websocket-client:9.4.12.v20180830"
-    compile "mysql:mysql-connector-java:6.0.5"
-    compile "ch.qos.logback:logback-classic:1.2.3"
-    compile "javax.servlet:javax.servlet-api:4.0.1"
-    compile "org.thymeleaf:thymeleaf:3.0.9.RELEASE"
-    compile "org.springframework:spring-web:5.0.9.RELEASE"
-    compile "org.springframework:spring-jdbc:5.0.9.RELEASE"
-
-
-
-    testCompile "org.eclipse.jetty:jetty-servlets:9.4.12.v20180830"
-    testCompile "org.eclipse.jetty:jetty-servlet:9.4.12.v20180830"
-    testCompile "org.eclipse.jetty.websocket:websocket-server:9.4.12.v20180830"
-    testCompile "org.eclipse.jetty:jetty-server:9.4.12.v20180830"
-    testCompile "org.eclipse.jetty:jetty-util:9.4.12.v20180830"
-    testCompile "org.eclipse.jetty:jetty-webapp:9.4.12.v20180830"
-    compile "com.helger:ph-schematron:5.0.6"
-    compile "javax.interceptor:javax.interceptor-api:3.1"
-
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'javax.interceptor:javax.interceptor-api:1.2.2'
 }
 
 task loadData{
@@ -118,9 +125,6 @@ void setup() {
         workingDir 'src/main/webapp/tempFolder'
         commandLine 'npm','run-script', 'build'
     }
-
-
-
 }
 
 void cleanup(){

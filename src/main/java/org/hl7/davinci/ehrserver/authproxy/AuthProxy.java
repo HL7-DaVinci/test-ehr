@@ -35,7 +35,7 @@ public class AuthProxy {
 
   @Autowired
   private PayloadDAOImpl payloadDAO;
-
+  
   /**
    * Proxies the auth request, which returns the auth code.  The proxy changes the redirect url to
    * a different endpoint which will save the returned code and associate it with the launch id
