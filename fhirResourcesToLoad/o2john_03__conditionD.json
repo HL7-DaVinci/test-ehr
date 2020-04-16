@@ -1,0 +1,42 @@
+{
+  "resourceType": "Condition",
+  "id": "cond013d",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "version": "2020-03",
+        "code": "195985008",
+        "display": "Post-infective bronchiectasis (disorder)"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat013"
+  }
+}
