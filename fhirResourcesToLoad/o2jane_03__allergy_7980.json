@@ -1,0 +1,30 @@
+{
+  "resourceType": "AllergyIntolerance",
+  "id": "allergy016",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "code": "confirmed"
+      }
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "7980",
+        "display": "Penicillin G"
+      }
+    ]
+  },
+  "patient": {
+    "reference": "Patient/pat016"
+  }
+}
