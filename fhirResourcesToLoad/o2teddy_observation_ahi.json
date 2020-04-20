@@ -1,0 +1,34 @@
+{
+  "resourceType": "Observation",
+  "id": "obs014-ahi",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "LP145624-5",
+        "display": "Apnea hypopnea index"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat014"
+  },
+  "issued": "2020-04-05T15:30:10+01:00",
+  "valueQuantity": {
+    "value": 25,
+    "unit": "/h",
+    "system": "http://unitsofmeasure.org",
+    "code": "/h"
+  },
+  "interpretation": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v2/0078",
+        "code": "H",
+        "display": "HIGH"
+      }
+    ],
+    "text": "High (applies to non-numeric results)"
+  }
+}
