@@ -1,0 +1,57 @@
+{
+    "resourceType": "AllergyIntolerance",
+    "id": "allergy-pat014-penicillin",
+    "clinicalStatus": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+                "code": "active",
+                "display": "Active"
+            }
+        ]
+    },
+    "verificationStatus": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+                "code": "confirmed",
+                "display": "Confirmed"
+            }
+        ]
+    },
+    "type": "allergy",
+    "category": [
+        "medication"
+    ],
+    "criticality": "high",
+    "code": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "7980",
+                "display": "Penicillin G"
+            }
+        ]
+    },
+    "patient": {
+        "reference": "Patient/pat014"
+    },
+    "onsetDateTime": "2004",
+    "recordedDate": "2014-10-09T14:58:00+11:00",
+    "lastOccurrence": "2020-04",
+    "reaction": [
+        {
+            "manifestation": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "247472004",
+                            "display": "Hives"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
