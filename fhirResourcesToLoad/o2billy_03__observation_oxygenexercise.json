@@ -1,25 +1,25 @@
 {
   "resourceType": "Observation",
-  "id": "obs015B",
-  "status": "final",
+  "id": "obs-pat015-o2excercise",
   "category": [
     {
       "coding": [
         {
-          "system": "http://hl7.org/fhir/observation-category",
-          "code": "laboratory",
-          "display": "laboratory"
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
         }
       ],
-      "text": "Laboratory"
+      "text": "Vital Signs"
     }
   ],
+  "status": "final",
   "code": {
     "coding": [
       {
         "system": "http://loinc.org",
-        "code": "31100-1",
-        "display": "Hematocrit [Volume Fraction] of Blood by Impedance"
+        "code": "89276-0",
+        "display": "Oxygen saturation with exercise"
       }
     ]
   },
@@ -28,7 +28,7 @@
   },
   "issued": "2020-03-20T15:30:10+01:00",
   "valueQuantity": {
-    "value": 69,
+    "value": 80,
     "unit": "%",
     "system": "http://unitsofmeasure.org",
     "code": "%"
@@ -38,26 +38,27 @@
       "coding": [
         {
           "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
-          "code": "H",
-          "display": "High"
+          "code": "L",
+          "display": "LOW"
         }
-      ]
+      ],
+      "text": "Normal (applies to non-numeric results)"
     }
   ],
   "referenceRange": [
     {
       "low": {
-        "value": 42,
+        "value": 90,
         "unit": "%",
         "system": "http://unitsofmeasure.org",
         "code": "%"
       },
       "high": {
-        "value": 54,
+        "value": 99,
         "unit": "%",
         "system": "http://unitsofmeasure.org",
         "code": "%"
       }
     }
   ]
-}
+} 

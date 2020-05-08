@@ -34,5 +34,19 @@
   },
   "performer": {
     "reference": "Practitioner/pra1234"
+  },
+  "intent": "original-order",
+  "occurrenceTiming" : {
+    "repeat": {
+      "boundsDuration": {
+        "value": 8,
+        "unit": "mo",
+        "system": "http://unitsofmeasure.org",
+        "code": "mo"
+      }
+    },
+    "code": {
+      "text": "During sleep AND During exertion"
+    }
   }
 }
