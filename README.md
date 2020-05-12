@@ -2,10 +2,9 @@
 This subproject hosts a HAPI FHIR server that is based on the [hapi-fhir-jpaserver-example](https://github.com/jamesagnew/hapi-fhir/tree/master/hapi-fhir-jpaserver-example).
 
 ## Init the test-ehr 
-1. delete `target` folder from test-ehr 
-2. delete `build` folder from test-ehr 
-3. from Terminal (1) while in test-ehr folder: `gradle appRun`
-4. from Terminal (2) while in test-ehr folder:   `gradle loadData`
+1. delete `target` and `build` folders from test-ehr 
+2. from Terminal (1) while in test-ehr folder: `gradle appRun`
+3. from Terminal (2) while in test-ehr folder:   `gradle loadData`
 
 ## Running the server
 `gradle appRun`
