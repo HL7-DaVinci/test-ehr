@@ -16,7 +16,9 @@ This will start the server running on http://localhost:8080/test-ehr.
 The FHIR server will persist FHIR resources between restarts. You can delete the folder `target` to clear all resources.
 
 To load the data from the json files in fhirResourcesToLoad, run the following script:  
-`gradle loadData` (this must be run while the FHIR server is running and `use_oauth` is false in `src/main/resources/fhirServer.properties`)
+`gradle loadData` 
+
+Note: gradle loadData can only be run while the FHIR server is running and `use_oauth` is false in         `src/main/resources/fhirServer.properties`)
 
 ## Server endpoints
 |Relative URL|Endpoint Description|
