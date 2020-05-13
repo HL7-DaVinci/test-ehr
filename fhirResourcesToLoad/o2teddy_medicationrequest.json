@@ -16,18 +16,16 @@
       }
     }
   ],
-  "status": "active",
-  "intent": "order",
   "medicationReference": {
-    "reference": "#med-azathioprine",
-    "display": "Azathioprine, oral, 50 mg"
+    "reference": "Medication/med-azathioprine",
+    "display": "prescribed medication"
   },
   "subject": {
     "reference": "Patient/pat014",
     "display": "Theodor Roosevelt"
   },
   "authoredOn": "2020-05-11",
-  "performer": {
+  "requester": {
     "reference": "Practitioner/pra1234",
     "display": "Jane Doe"
   },
