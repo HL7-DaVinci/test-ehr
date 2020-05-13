@@ -24,4 +24,4 @@ To load the data from the json files in fhirResourcesToLoad, run the following s
 |----|----|
 |`/`|Web page with basic RI information|
 |`/test-ehr/`|Base server endpoint|
-|`/test-ehr/r4`|EHR FHIR Server endpoint|
+|`/test-ehr/r4`|EHR FHIR Server endpoint (will not resolve in browser)|
