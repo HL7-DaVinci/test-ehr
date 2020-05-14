@@ -1,24 +1,14 @@
 {
   "resourceType": "MedicationRequest",
   "id": "pat014-mr-azathioprine",
-  "contained": [
-    {
-      "resourceType": "Medication",
-      "id": "med-azathioprine",
-      "code": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/sid/ndc",
-            "code": "J7500",
-            "display": "Azathioprine, oral, 50 mg"
-          }
-        ]
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/ndc",
+        "code": "J7500",
+        "display": "Azathioprine, oral, 50 mg"
       }
-    }
-  ],
-  "medicationReference": {
-    "reference": "Medication/med-azathioprine",
-    "display": "prescribed medication"
+    ]
   },
   "subject": {
     "reference": "Patient/pat014",
@@ -38,6 +28,19 @@
           "display": "Systemic lupus erythematosus glomerulonephritis syndrome"
         }
       ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://build.fhir.org/ig/HL7/davinci-crd/R4/ext-insurance.html",
+      "valueReference": {
+        "reference": "Coverage/cov014"
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/cov014"
     }
   ],
   "dosageInstruction": [
