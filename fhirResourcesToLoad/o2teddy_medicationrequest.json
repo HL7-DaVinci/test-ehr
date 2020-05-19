@@ -4,7 +4,7 @@
   "medicationCodeableConcept": {
     "coding": [
       {
-        "system": "http://hl7.org/fhir/sid/ndc",
+        "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
         "code": "J7500",
         "display": "Azathioprine, oral, 50 mg"
       }
