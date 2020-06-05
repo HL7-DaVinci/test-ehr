@@ -1,0 +1,29 @@
+{
+  "resourceType": "Procedure",
+  "id": "proced014-kidney-transplant",
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "70536003",
+        "display": "Transplant of kidney"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat014"
+  },
+  "performedPeriod": {
+    "start": "2010-01-28T13:31:00+01:00",
+    "end": "2010-01-28T20:27:00+01:00"
+  },
+  "performer": [
+    {
+      "actor": {
+        "reference": "Practitioner/pra1255",
+        "display": "Dr Smythe Juliette"
+      }
+    }
+  ]
+}
