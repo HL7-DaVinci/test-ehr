@@ -37,7 +37,7 @@
   ],
   "basedOn": [
     {
-      "reference": "CarePlan/cp-pat014-hhs"
+      "reference": "CarePlan/careplan-pat014-hhs"
     }
   ]
 }

@@ -125,28 +125,62 @@
     ],
     "activity": [
       {
-        "outcomeReference": [
-          {
-            "reference": "Procedure/f201",
-            "display": "Roel's Chemotherapy"
+        "detail": {
+          "kind": "DeviceRequest",
+          "code": {
+            "coding": [
+              {
+                "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+                "code": "E0143",
+                "display": "Walker, folding, wheeled, adjustable or fixed height"
+              }
+            ]
+          },
+          "status": "completed",
+          "doNotPerform": false
+        }
+      },
+      {
+        "detail": {
+          "kind": "NutritionOrder",
+          "code": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "284093001",
+                "display": "Potassium supplementation"
+              }
+            ]
+          },
+          "status": "completed",
+          "doNotPerform": false,
+          "scheduledString": "daily",
+          "productReference": {
+            "reference": "Substance/f203",
+            "display": "Potassium"
+          },
+          "dailyAmount": {
+            "value": 80,
+            "unit": "mmol",
+            "system": "http://snomed.info/sct",
+            "code": "258718000"
           }
-        ],
+        }
+      },
+      {
         "detail": {
           "kind": "ServiceRequest",
           "code": {
             "coding": [
               {
                 "system": "http://snomed.info/sct",
-                "code": "367336001",
-                "display": "Chemotherapy"
+                "code": "306005",
+                "display": "Echography of kidney"
               }
             ]
           },
-          "status": "in-progress",
-          "doNotPerform": false,
-          "productReference": {
-            "reference": "#tpf"
-          }
+          "status": "completed",
+          "doNotPerform": false
         }
       }
     ]

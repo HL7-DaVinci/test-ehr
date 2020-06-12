@@ -1,0 +1,43 @@
+{
+  "resourceType": "Condition",
+  "id": "con-pat014-stroke",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "code": "active",
+        "system": "http://hl7.org/fhir/ValueSet/condition-clinical"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "code": "confirmed",
+        "system": "http://hl7.org/fhir/ValueSet/condition-ver-status"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "I63.9",
+        "display": "Cerebral infarction due to thrombosis of precerebral arteries"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat014"
+  }
+}
