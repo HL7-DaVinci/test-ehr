@@ -1,0 +1,60 @@
+{
+    "resourceType": "Provenance",
+    "id": "provenance-pat014-hhs",
+    "target": [
+      {
+        "reference": "Consent/pat014-consent"
+      }
+    ],
+    "recorded": "2029-06-08T00:41:10-04:00",
+    "agent": [
+      {
+        "role": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                "code": "AUT"
+              }
+            ]
+          }
+        ],
+        "who": {
+          "reference": "Patient/pat014"
+        }
+      },
+      {
+        "role": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                "code": "ENT"
+              }
+            ]
+          }
+        ],
+        "who": {
+          "reference": "Practitioner/pra1255"
+        }
+      }
+    ],
+    "signature": [
+      {
+        "type": [
+          {
+            "system": "urn:iso-astm:E1762-95:2013",
+            "code": "1.2.840.10065.1.12.1.1",
+            "display": "Author's Signature"
+          }
+        ],
+        "when": "2016-05-26T00:41:10-04:00",
+        "who": {
+          "reference": "Patient/pat014"
+        },
+        "targetFormat": "application/fhir+xml",
+        "sigFormat": "application/signature+xml",
+        "data": "dGhpcyBibG9iIGlzIHNuaXBwZWQ="
+      }
+    ]
+  }

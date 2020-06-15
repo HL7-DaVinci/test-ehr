@@ -39,5 +39,10 @@
     {
       "reference": "CarePlan/careplan-pat014-hhs"
     }
+  ],
+  "relevantHistory": [
+    {
+      "reference": "Provenance/provenance-pat014-hhs"
+    }
   ]
 }
