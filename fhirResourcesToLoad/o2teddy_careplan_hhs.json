@@ -1,187 +1,192 @@
 {
-    "resourceType": "CarePlan",
-    "id": "careplan-pat014-hhs",
-    "contained": [
-      {
-        "resourceType": "Medication",
-        "id": "doce",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "108806006",
-              "display": "Docetaxel"
-            }
-          ]
-        }
-      },
-      {
-        "resourceType": "Medication",
-        "id": "cisp",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "57066004",
-              "display": "Cisplatin"
-            }
-          ]
-        }
-      },
-      {
-        "resourceType": "Medication",
-        "id": "fluo",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "3127006",
-              "display": "Fluorouracil"
-            }
-          ]
-        }
-      },
-      {
-        "resourceType": "Medication",
-        "id": "tpf",
-        "code": {
-          "text": "TPF"
-        },
-        "ingredient": [
+  "resourceType": "CarePlan",
+  "id": "careplan-pat014-hhs",
+  "contained": [
+    {
+      "resourceType": "Medication",
+      "id": "doce",
+      "code": {
+        "coding": [
           {
-            "itemReference": {
-              "reference": "#doce"
-            }
-          },
-          {
-            "itemReference": {
-              "reference": "#cisp"
-            }
-          },
-          {
-            "itemReference": {
-              "reference": "#fluo"
-            }
-          }
-        ]
-      },
-      {
-        "resourceType": "CareTeam",
-        "id": "careteam",
-        "participant": [
-          {
-            "role": [
-              {
-                "coding": [
-                  {
-                    "system": "http://snomed.info/sct",
-                    "code": "28995006",
-                    "display": "Treated with"
-                  }
-                ]
-              }
-            ],
-            "member": {
-              "reference": "Practitioner/pra1255",
-              "display": "Dokter Bronsig"
-            }
-          }
-        ]
-      },
-      {
-        "resourceType": "Goal",
-        "id": "goal",
-        "lifecycleStatus": "active",
-        "description": {
-          "text": "Elimination of the spenoid bone tumor"
-        },
-        "subject": {
-          "reference": "Patient/pat014",
-          "display": "Roosevelt Theodor"
-        }
-      }
-    ],
-    "status": "active",
-    "intent": "plan",
-    "subject": {
-      "reference": "Patient/pat014",
-      "display": "Roosevelt Theodor"
-    },
-    "careTeam": [
-      {
-        "reference": "#careteam"
-      }
-    ],
-    "addresses": [
-      {
-        "reference": "Condition/f202",
-        "display": "Stroke"
-      }
-    ],
-    "goal": [
-      {
-        "reference": "#goal"
-      }
-    ],
-    "activity": [
-      {
-        "detail": {
-          "kind": "DeviceRequest",
-          "code": {
-            "coding": [
-              {
-                "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
-                "code": "E0143",
-                "display": "Walker, folding, wheeled, adjustable or fixed height"
-              }
-            ]
-          },
-          "status": "completed",
-          "doNotPerform": false
-        }
-      },
-      {
-        "detail": {
-          "kind": "NutritionOrder",
-          "code": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "284093001",
-                "display": "Potassium supplementation"
-              }
-            ]
-          },
-          "status": "completed",
-          "doNotPerform": false,
-          "scheduledString": "daily",
-          "productReference": {
-            "reference": "Substance/f203",
-            "display": "Potassium"
-          },
-          "dailyAmount": {
-            "value": 80,
-            "unit": "mmol",
             "system": "http://snomed.info/sct",
-            "code": "258718000"
+            "code": "108806006",
+            "display": "Docetaxel"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Medication",
+      "id": "cisp",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "57066004",
+            "display": "Cisplatin"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Medication",
+      "id": "fluo",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "3127006",
+            "display": "Fluorouracil"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Medication",
+      "id": "tpf",
+      "code": {
+        "text": "TPF"
+      },
+      "ingredient": [
+        {
+          "itemReference": {
+            "reference": "#doce"
+          }
+        },
+        {
+          "itemReference": {
+            "reference": "#cisp"
+          }
+        },
+        {
+          "itemReference": {
+            "reference": "#fluo"
           }
         }
+      ]
+    },
+    {
+      "resourceType": "CareTeam",
+      "id": "careteam",
+      "participant": [
+        {
+          "role": [
+            {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "28995006",
+                  "display": "Treated with"
+                }
+              ]
+            }
+          ],
+          "member": {
+            "reference": "Practitioner/pra1255",
+            "display": "Dokter Bronsig"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Goal",
+      "id": "goal",
+      "lifecycleStatus": "active",
+      "description": {
+        "text": "Elimination of the spenoid bone tumor"
       },
-      {
-        "detail": {
-          "kind": "ServiceRequest",
-          "code": {
-            "coding": [
-              {
-                "system": "http://snomed.info/sct",
-                "code": "306005",
-                "display": "Echography of kidney"
-              }
-            ]
-          },
-          "status": "completed",
-          "doNotPerform": false
+      "subject": {
+        "reference": "Patient/pat014",
+        "display": "Roosevelt Theodor"
+      }
+    }
+  ],
+  "status": "active",
+  "intent": "plan",
+  "subject": {
+    "reference": "Patient/pat014",
+    "display": "Roosevelt Theodor"
+  },
+  "careTeam": [
+    {
+      "reference": "#careteam"
+    }
+  ],
+  "addresses": [
+    {
+      "reference": "Condition/f202",
+      "display": "Stroke"
+    }
+  ],
+  "goal": [
+    {
+      "reference": "#goal"
+    }
+  ],
+  "encounter": [
+    {
+      "reference": "Encounter/enc-pat014-hhs"
+    }
+  ],
+  "activity": [
+    {
+      "detail": {
+        "kind": "DeviceRequest",
+        "code": {
+          "coding": [
+            {
+              "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+              "code": "E0143",
+              "display": "Walker, folding, wheeled, adjustable or fixed height"
+            }
+          ]
+        },
+        "status": "completed",
+        "doNotPerform": false
+      }
+    },
+    {
+      "detail": {
+        "kind": "NutritionOrder",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "284093001",
+              "display": "Potassium supplementation"
+            }
+          ]
+        },
+        "status": "completed",
+        "doNotPerform": false,
+        "scheduledString": "daily",
+        "productReference": {
+          "reference": "Substance/f203",
+          "display": "Potassium"
+        },
+        "dailyAmount": {
+          "value": 80,
+          "unit": "mmol",
+          "system": "http://snomed.info/sct",
+          "code": "258718000"
         }
       }
-    ]
-  }
+    },
+    {
+      "detail": {
+        "kind": "ServiceRequest",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "306005",
+              "display": "Echography of kidney"
+            }
+          ]
+        },
+        "status": "completed",
+        "doNotPerform": false
+      }
+    }
+  ]
+}

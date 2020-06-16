@@ -64,8 +64,14 @@
             }
         ]
     },
-    "medicationReference": {
-        "reference": "#med-azathioprine"
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/sid/ndc",
+                "code": "68462-502-01",
+                "display": "Azathioprine"
+            }
+        ]
     },
     "subject": {
         "reference": "Patient/pat014",
