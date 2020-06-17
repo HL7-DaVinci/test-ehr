@@ -1,0 +1,41 @@
+{
+  "resourceType": "Condition",
+  "id": "cond016-diabetes",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "E11.0",
+        "display": "Type 2 diabetes mellitus"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat016"
+  }
+}
