@@ -1,0 +1,24 @@
+{
+  "resourceType": "Observation",
+  "id": "obs013D",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "34059-6",
+        "display": "Random glucose [Mass/volume] in Serum or Plasma"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat016"
+  },
+  "issued": "2019-02-22T15:30:10+01:00",
+  "valueQuantity": {
+    "value": 150,
+    "unit": "mg/dl",
+    "system": "http://unitsofmeasure.org",
+    "code": "mg/dl"
+  }
+}

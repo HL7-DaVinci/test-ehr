@@ -1,0 +1,24 @@
+{
+  "resourceType": "Observation",
+  "id": "obs013F",
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "41995-2",
+        "display": "A1c level [%]"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat016"
+  },
+  "issued": "2019-02-22T15:30:10+01:00",
+  "valueQuantity": {
+    "value": 7,
+    "unit": "%",
+    "system": "http://unitsofmeasure.org",
+    "code": "%"
+  }
+}
