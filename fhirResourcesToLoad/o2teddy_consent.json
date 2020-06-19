@@ -81,12 +81,6 @@
             }
           }
         ],
-        "class": [
-          {
-            "system": "urn:ietf:bcp:13",
-            "code": "application/hl7-cda+xml"
-          }
-        ],
         "code": [
           {
             "coding": [
