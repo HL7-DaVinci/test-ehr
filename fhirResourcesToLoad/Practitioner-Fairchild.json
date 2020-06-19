@@ -1,0 +1,16 @@
+{
+    "resourceType": "Practitioner",
+    "id": "pra-hfairchild",
+    "name": [
+        {
+            "use": "official",
+            "family": "Fairchild",
+            "given": [
+                "Helen"
+            ],
+            "prefix": [
+                "Ms."
+            ]
+        }
+    ]
+}

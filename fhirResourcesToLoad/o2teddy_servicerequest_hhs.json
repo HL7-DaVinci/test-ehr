@@ -30,11 +30,9 @@
       "reference": "Coverage/cov014"
     }
   ],
-  "encounter": [
-    {
-      "reference": "Encounter/enc-pat014-hhs"
-    }
-  ],
+  "encounter": {
+    "reference": "Encounter/enc-pat014-hhs"
+  },
   "basedOn": [
     {
       "reference": "CarePlan/careplan-pat014-hhs"

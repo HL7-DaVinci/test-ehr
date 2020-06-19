@@ -1,133 +1,32 @@
 {
   "resourceType": "CarePlan",
   "id": "careplan-pat014-hhs",
-  "contained": [
-    {
-      "resourceType": "Medication",
-      "id": "doce",
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/sct",
-            "code": "108806006",
-            "display": "Docetaxel"
-          }
-        ]
-      }
-    },
-    {
-      "resourceType": "Medication",
-      "id": "cisp",
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/sct",
-            "code": "57066004",
-            "display": "Cisplatin"
-          }
-        ]
-      }
-    },
-    {
-      "resourceType": "Medication",
-      "id": "fluo",
-      "code": {
-        "coding": [
-          {
-            "system": "http://snomed.info/sct",
-            "code": "3127006",
-            "display": "Fluorouracil"
-          }
-        ]
-      }
-    },
-    {
-      "resourceType": "Medication",
-      "id": "tpf",
-      "code": {
-        "text": "TPF"
-      },
-      "ingredient": [
-        {
-          "itemReference": {
-            "reference": "#doce"
-          }
-        },
-        {
-          "itemReference": {
-            "reference": "#cisp"
-          }
-        },
-        {
-          "itemReference": {
-            "reference": "#fluo"
-          }
-        }
-      ]
-    },
-    {
-      "resourceType": "CareTeam",
-      "id": "careteam",
-      "participant": [
-        {
-          "role": [
-            {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "28995006",
-                  "display": "Treated with"
-                }
-              ]
-            }
-          ],
-          "member": {
-            "reference": "Practitioner/pra1255",
-            "display": "Dokter Bronsig"
-          }
-        }
-      ]
-    },
-    {
-      "resourceType": "Goal",
-      "id": "goal",
-      "lifecycleStatus": "active",
-      "description": {
-        "text": "Elimination of the spenoid bone tumor"
-      },
-      "subject": {
-        "reference": "Patient/pat014",
-        "display": "Roosevelt Theodor"
-      }
-    }
-  ],
   "status": "active",
   "intent": "plan",
   "subject": {
     "reference": "Patient/pat014",
-    "display": "Roosevelt Theodor"
+    "display": "Roosevelt Theodore"
   },
   "careTeam": [
     {
-      "reference": "#careteam"
+      "reference": "CareTeam/pat014-hhs-careteam"
     }
   ],
   "addresses": [
     {
-      "reference": "Condition/f202",
+      "reference": "Condition/con-pat014-stroke",
       "display": "Stroke"
     }
   ],
   "goal": [
     {
-      "reference": "#goal"
+      "reference": "Goal/pat014-hhs-careplan-goal"
     }
   ],
-  "encounter": [
-    {
-      "reference": "Encounter/enc-pat014-hhs"
-    }
-  ],
+  "encounter": {
+    "reference": "Encounter/enc-pat014-hhs"
+  },
+  "author": {},
   "activity": [
     {
       "detail": {
@@ -185,6 +84,28 @@
           ]
         },
         "status": "completed",
+        "doNotPerform": false
+      }
+    },
+    {
+      "detail": {
+        "kind": "Task",
+        "code": {
+          "text": "Secure carpets in hallways"
+        },
+        "status": "in-progress",
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+                "code": " C3824712",
+                "display": "Patients--Safety measures"
+              }
+            ],
+            "text": "Safety measures"
+          }
+        ],
         "doNotPerform": false
       }
     }
