@@ -23,8 +23,8 @@
   "codeCodeableConcept": {
     "coding": [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "code": "95259",
+        "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+        "code": "E0607",
         "display": "Home Blood Glucose Monitor"
       }
     ]
