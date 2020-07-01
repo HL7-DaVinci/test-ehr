@@ -25,18 +25,9 @@
       {
         "role": [
           {
-            "text": "responsiblePerson"
-          }
-        ],
-        "member": {
-          "reference": "Patient/pat014",
-          "display": "Roosevelt Theodore"
-        }
-      },
-      {
-        "role": [
-          {
-            "text": "registeredNurse"
+            "display": "Registered Nurse",
+            "system": "http://nucc.org/provider-taxonomy",
+            "code": "163W00000X"
           }
         ],
         "member": {
