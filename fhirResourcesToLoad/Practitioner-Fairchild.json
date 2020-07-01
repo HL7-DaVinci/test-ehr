@@ -1,6 +1,12 @@
 {
     "resourceType": "Practitioner",
     "id": "pra-hfairchild",
+    "identifier": [
+        {
+          "system": "http://hl7.org/fhir/sid/us-npi",
+          "value": "1122334467"
+        }
+      ],
     "name": [
         {
             "use": "official",

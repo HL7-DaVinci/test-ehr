@@ -1,6 +1,20 @@
 {
   "resourceType": "CarePlan",
   "id": "careplan-pat014-hhs",
+  "text": {
+    "status": "additional",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>An after acute care plan (for a stroke patient ).</p>\n      <p>The plan has activities to take medication, safety measures, schedule first antenatal,\n and (there would be lots of others of course)</p>\n      <p>Note that where is a proposed 'status' element against each activity</p>\n    </div>"
+  },
+  "category" : [
+    {
+      "coding" : [
+        {
+          "system" : "http://hl7.org/fhir/us/core/CodeSystem/careplan-category",
+          "code" : "assess-plan"
+        }
+      ]
+    }
+  ],
   "status": "active",
   "intent": "plan",
   "subject": {
@@ -18,6 +32,10 @@
       "display": "Stroke"
     }
   ],
+  "author": {
+    "reference": "Practitioner/pra1234",
+    "display": "Dr Jane Doe"
+  },
   "goal": [
     {
       "reference": "Goal/pat014-hhs-careplan-goal"
@@ -26,7 +44,6 @@
   "encounter": {
     "reference": "Encounter/enc-pat014-hhs"
   },
-  "author": {},
   "activity": [
     {
       "detail": {
@@ -99,7 +116,7 @@
             "coding": [
               {
                 "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
-                "code": " C3824712",
+                "code": "C3824712",
                 "display": "Patients--Safety measures"
               }
             ],
