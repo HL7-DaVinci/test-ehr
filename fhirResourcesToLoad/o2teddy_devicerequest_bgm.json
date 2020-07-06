@@ -40,7 +40,7 @@
     ],
     "occurrenceTiming": {
         "repeat": {
-            "frequency": "1",
+            "frequency": "3",
             "period": "1",
             "periodUnit": "d"
         },
