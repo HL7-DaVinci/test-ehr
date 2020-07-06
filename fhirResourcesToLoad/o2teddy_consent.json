@@ -73,7 +73,7 @@
             "role": {
               "coding": [
                 {
-                  "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-RoleClass",
                   "code": "AUT"
                 }
               ]
