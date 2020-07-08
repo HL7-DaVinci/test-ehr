@@ -1,6 +1,15 @@
 {
     "resourceType": "Goal",
     "id": "pat014-hhs-careplan-goal",
+    "lifeCycleStatus": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/goal-status",
+          "code": "planned",
+          "display": "Planned"
+        }
+      ]
+    },
     "achievementStatus": {
       "coding": [
         {
