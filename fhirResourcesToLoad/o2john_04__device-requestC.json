@@ -8,7 +8,7 @@
   },
   "extension": [
     {
-      "url": "http://build.fhir.org/ig/HL7/davinci-crd/R4/ext-insurance.html",
+      "url": "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/ext-insurance",
       "valueReference": {
         "reference": "Coverage/cov013"
       }
@@ -23,9 +23,9 @@
   "codeCodeableConcept": {
     "coding": [
       {
-        "system": "http://www.ama-assn.org/go/cpt",
-        "code": "95259",
-        "display": "Home Blood Glucose Monitor"
+        "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+        "code": "E0607",
+        "display": "Home blood glucose monitor"
       }
     ]
   },
