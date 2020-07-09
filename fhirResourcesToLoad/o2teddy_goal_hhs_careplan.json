@@ -1,43 +1,35 @@
 {
-    "resourceType": "Goal",
-    "id": "pat014-hhs-careplan-goal",
-    "lifeCycleStatus": {
+  "resourceType": "Goal",
+  "id": "pat014-hhs-careplan-goal",
+  "lifeCycleStatus": "planned",
+  "achievementStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/goal-achievement",
+        "code": "not-achieved",
+        "display": "Not achieved"
+      }
+    ],
+    "text": "Not achieved"
+  },
+  "description": {
+    "text": "Move without restriction"
+  },
+  "subject": {
+    "reference": "Patient/pat014",
+    "display": "Roosevelt Theodore"
+  },
+  "startDate": "2020-06-20",
+  "outcomeCode": [
+    {
       "coding": [
         {
-          "system": "http://hl7.org/fhir/goal-status",
-          "code": "planned",
-          "display": "Planned"
-        }
-      ]
-    },
-    "achievementStatus": {
-      "coding": [
-        {
-          "system": "http://terminology.hl7.org/CodeSystem/goal-achievement",
-          "code": "not-achieved",
-          "display": "Not achieved"
+          "system": "http://snomed.info/sct",
+          "code": "1670004",
+          "display": "Cerebral hemiparesis"
         }
       ],
-      "text": "Not achieved"
-    },
-    "description": {
-      "text": "Move without restriction"
-    },
-    "subject": {
-      "reference": "Patient/pat014",
-      "display": "Roosevelt Theodore"
-    },
-    "startDate": "2020-06-20",
-    "outcomeCode": [
-      {
-        "coding": [
-          {
-            "system": "http://snomed.info/sct",
-            "code": "1670004",
-            "display": "Cerebral hemiparesis"
-          }
-        ],
-        "text": "Cerebral hemiparesis"
-      }
-    ]
-  }
+      "text": "Cerebral hemiparesis"
+    }
+  ]
+}
