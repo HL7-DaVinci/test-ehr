@@ -35,5 +35,10 @@
   "authoredOn": "2020-03-08",
   "performer": {
     "reference": "Practitioner/pra1234"
-  }
+  },
+  "encounter": [
+    {
+      "reference": "Encounter/pat015-rad-encounter"
+    }
+  ]
 }
