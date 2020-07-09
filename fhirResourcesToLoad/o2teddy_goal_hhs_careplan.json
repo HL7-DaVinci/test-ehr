@@ -1,7 +1,7 @@
 {
   "resourceType": "Goal",
   "id": "pat014-hhs-careplan-goal",
-  "lifeCycleStatus": "planned",
+  "lifecycleStatus": "planned",
   "achievementStatus": {
     "coding": [
       {
