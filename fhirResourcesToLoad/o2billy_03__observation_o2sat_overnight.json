@@ -1,0 +1,40 @@
+{
+  "resourceType": "Observation",
+  "id": "obs015-o2sat-overnight",
+  "status": "final",
+  "contained": [
+    {
+      "resourceType": "Organization",
+      "id": "sleepstudy"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "252568001",
+        "display": "Overnight pulse oximetry (procedure)"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat015"
+  },
+  "issued": "2020-06-15T15:30:10+01:00",
+  "valueQuantity": {
+    "value": 90,
+    "unit": "%",
+    "system": "http://unitsofmeasure.org",
+    "code": "%"
+  },
+  "encounter": {
+    "reference": "Encounter/pat015-rad-encounter"
+  },
+  "performer": [
+    {
+      "reference": "#sleepstudy",
+      "display": "Tri-County Sleep Center",
+      "type": "Organization"
+    }
+  ]
+}

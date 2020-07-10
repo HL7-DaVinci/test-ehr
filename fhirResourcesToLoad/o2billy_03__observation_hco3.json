@@ -1,0 +1,65 @@
+{
+  "resourceType": "Observation",
+  "id": "obs015-hco3",
+  "status": "final",
+  "contained": [
+    {
+      "resourceType": "Practitioner",
+      "id": "dmorgan"
+    },
+    {
+      "resourceType": "Organization",
+      "id": "wlab"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "1960-4",
+        "display": "HCO3 BldA-sCnc"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat015"
+  },
+  "issued": "2020-07-01T15:30:10+01:00",
+  "valueQuantity": {
+    "value": 32,
+    "unit": "mmol/L",
+    "system": "http://unitsofmeasure.org",
+    "code": "mmol/L"
+  },
+  "encounter": {
+    "reference": "Encounter/pat015-rad-encounter"
+  },
+  "performer": [
+    {
+      "reference": "#dmorgan",
+      "display": "Mr. Dexter Morgan",
+      "type": "Practitioner"
+    },
+    {
+      "reference": "#wlab",
+      "display": "Gulf Coast Lab",
+      "type": "Organization"
+    }
+  ],
+  "referenceRange": [
+    {
+      "low": {
+        "value": 23,
+        "unit": "mmol/L",
+        "system": "http://unitsofmeasure.org",
+        "code": "mmol/L"
+      },
+      "high": {
+        "value": 30,
+        "unit": "mmol/L",
+        "system": "http://unitsofmeasure.org",
+        "code": "mmol/L"
+      }
+    }
+  ]
+}
