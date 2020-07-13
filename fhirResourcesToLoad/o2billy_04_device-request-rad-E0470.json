@@ -11,13 +11,13 @@
     {
       "url": "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/ext-insurance",
       "valueReference": {
-        "reference": "Coverage/cov1234"
+        "reference": "Coverage/cov015"
       }
     }
   ],
   "insurance": [
     {
-      "reference": "Coverage/cov1234"
+      "reference": "Coverage/cov015"
     }
   ],
   "codeCodeableConcept": {

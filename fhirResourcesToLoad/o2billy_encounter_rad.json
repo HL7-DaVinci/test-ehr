@@ -34,7 +34,17 @@
     "participant": [
         {
             "individual": {
-                "reference": "Practitioner/pra1255"
+                "reference": "Practitioner/pra-sstrange",
+                "display": "Dr. Stephen Strange"
+            },
+            "type": {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                        "code": "PPRF",
+                        "display": "primary performer"
+                    }
+                ]
             }
         }
     ],
