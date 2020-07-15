@@ -1,0 +1,50 @@
+{
+  "resourceType": "DeviceRequest",
+  "id": "devreqe-pat015-A7027",
+  "status": "draft",
+  "groupIdentifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-medicare",
+      "value": "45678900001RAD"
+    }
+  ],
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-crd/R4/StructureDefinition/profile-devicerequest-r4"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/ext-insurance",
+      "valueReference": {
+        "reference": "Coverage/cov015"
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/cov015"
+    }
+  ],
+  "codeCodeableConcept": {
+    "coding": [
+      {
+        "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+        "code": "A7027",
+        "display": "Combination oral/nasal mask"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat015"
+  },
+  "authoredOn": "2020-07-08",
+  "performer": {
+    "reference": "Practitioner/pra1234"
+  },
+  "encounter": [
+    {
+      "reference": "Encounter/pat015-rad-encounter"
+    }
+  ]
+}
