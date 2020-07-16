@@ -1,0 +1,45 @@
+{
+    "resourceType": "ServiceRequest",
+    "id": "servreq16-a4217",
+    "status": "draft",
+    "intent": "order",
+    "category": [
+        {
+            "coding": [
+                {
+                    "system": "http://snomed.info/sct",
+                    "code": "386053000",
+                    "display": "Evaluation procedure (procedure)"
+                }
+            ],
+            "text": "Evaluation"
+        }
+    ],
+    "code": {
+        "coding": [
+            {
+                "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+                "code": "A4217",
+                "display": "Sterile water/saline, 500 ml"
+            }
+        ]
+    },
+    "subject": {
+        "reference": "Patient/pat016"
+    },
+    "occurrenceDateTime": "2016-09-27",
+    "authoredOn": "2016-09-20",
+    "requester": {
+        "display": "Smythe Juliette, MD"
+    },
+    "performer": [
+        {
+            "reference": "Practitioner/pra1255"
+        }
+    ],  
+    "insurance": [
+        {
+          "reference": "Coverage/cov016"
+        }
+    ]
+}

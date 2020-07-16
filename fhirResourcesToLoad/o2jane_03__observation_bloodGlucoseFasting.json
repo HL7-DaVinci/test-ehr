@@ -14,6 +14,18 @@
   "subject": {
     "reference": "Patient/pat016"
   },
+  "performer": [
+    {
+      "reference": "Practitioner/pra1234",
+      "type": "Practitioner",
+      "display": "D Jefferson, Emma"
+    },
+    {
+      "reference": "Organization/org1234",
+      "type": "Organization",
+      "display": "Quest Labs"
+    }
+  ],
   "issued": "2019-02-22T15:30:10+01:00",
   "valueQuantity": {
     "value": 127,
