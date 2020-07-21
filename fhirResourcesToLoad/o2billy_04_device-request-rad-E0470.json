@@ -36,9 +36,7 @@
   "performer": {
     "reference": "Practitioner/pra1234"
   },
-  "encounter": [
-    {
-      "reference": "Encounter/pat015-rad-encounter"
-    }
-  ]
+  "encounter": {
+    "reference": "Encounter/pat015-rad-encounter"
+  }
 }
