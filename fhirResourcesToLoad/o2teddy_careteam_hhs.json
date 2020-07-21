@@ -1,0 +1,54 @@
+{
+  "resourceType": "CareTeam",
+  "id": "pat014-hhs-careteam",
+  "status": "active",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "LA28866-4",
+          "display": "Home & Community Based Services (HCBS)-focused care team"
+        }
+      ]
+    }
+  ],
+  "name": "Roosevelt Theodore's Care Team for Home Health Service",
+  "subject": {
+    "reference": "Patient/pat014",
+    "display": "Roosevelt Theodore"
+  },
+  "period": {
+    "end": "2021-06-01"
+  },
+  "participant": [
+    {
+      "role": [
+        {
+          "coding": [
+            {
+              "display": "Registered Nurse",
+              "system": "http://nucc.org/provider-taxonomy",
+              "code": "163W00000X"
+            }
+          ]
+        }
+      ],
+      "member": {
+        "reference": "Practitioner/pra-hfairchild",
+        "display": "Helen Fairchild"
+      },
+      "onBehalfOf": {
+        "reference": "Organization/org1234"
+      },
+      "period": {
+        "end": "2021-06-01"
+      }
+    }
+  ],
+  "managingOrganization": [
+    {
+      "reference": "Organization/org1234"
+    }
+  ]
+}

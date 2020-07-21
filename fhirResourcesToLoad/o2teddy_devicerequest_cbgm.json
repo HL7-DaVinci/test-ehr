@@ -1,0 +1,39 @@
+{
+    "resourceType": "DeviceRequest",
+    "id": "pat014-cbgm",
+    "meta": {
+      "profile": [
+        "http://hl7.org/fhir/us/davinci-crd/R4/StructureDefinition/profile-devicerequest-r4"
+      ]
+    },
+    "extension": [
+      {
+        "url": "http://build.fhir.org/ig/HL7/davinci-crd/R4/ext-insurance.html",
+        "valueReference": {
+          "reference": "Coverage/cov014"
+        }
+      }
+    ],
+    "insurance": [
+      {
+        "reference": "Coverage/cov014"
+      }
+    ],
+    "status": "draft",
+    "codeCodeableConcept": {
+      "coding": [
+        {
+          "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+          "code": "S1031",
+          "display": "Continuous noninvasive glucose monitoring device, rental, including sensor, sensor replacement, and download to monitor (for physician interpretation of data, use cpt code)"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/pat014"
+    },
+    "performer": {
+      "reference": "Practitioner/pra1255"
+    }
+  }
+  
