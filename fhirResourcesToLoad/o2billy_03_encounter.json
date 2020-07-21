@@ -62,6 +62,11 @@
   "diagnosis": [
     {
       "condition": {
+        "reference": "Condition/cond015cccc"
+      }
+    },
+    {
+      "condition": {
         "reference": "Condition/cond015a"
       }
     },
