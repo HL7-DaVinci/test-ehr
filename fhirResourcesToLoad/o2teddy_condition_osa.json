@@ -1,0 +1,44 @@
+{
+  "resourceType": "Condition",
+  "id": "pat014-cond-osa",
+  "clinicalStatus": {
+    "coding": [
+      {
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "G47.33",
+        "display": "Hypopnea, obstructive sleep apnea"
+      }
+    ]
+  },
+  "encounter": {
+    "reference": "Encounter/example"
+  },
+  "subject": {
+    "reference": "Patient/pat014"
+  }
+}
