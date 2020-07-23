@@ -22,7 +22,7 @@
   "authoredOn": "2018-08-08",
   "extension": [
     {
-      "url": "http://build.fhir.org/ig/HL7/davinci-crd/R4/ext-insurance.html",
+      "url": "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/ext-insurance",
       "valueReference": {
         "reference": "Coverage/cov1234"
       }
