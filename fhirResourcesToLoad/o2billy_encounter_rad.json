@@ -34,7 +34,7 @@
     "participant": [
         {
             "individual": {
-                "reference": "Practitioner/pra-sstrange",
+                "reference": "Practitioner/pra1234",
                 "display": "Dr. Stephen Strange"
             },
             "type": [
