@@ -1,9 +1,9 @@
 {
-    "resourceType": "ServiceRequest",
-    "id": "servreq16-a4217",
+    "resourceType": "DeviceRequest",
+    "id": "devreq16-a4217",
     "status": "draft",
     "intent": "order",
-    "code": {
+    "codeCodeableConcept": {
         "coding": [
             {
                 "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
@@ -25,6 +25,14 @@
             "reference": "Practitioner/pra1255"
         }
     ],  
+    "extension": [
+        {
+          "url": "http://build.fhir.org/ig/HL7/davinci-crd/R4/ext-insurance.html",
+          "valueReference": {
+            "reference": "Coverage/cov016"
+          }
+        }
+      ],
     "insurance": [
         {
           "reference": "Coverage/cov016"
