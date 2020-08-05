@@ -38,5 +38,6 @@
   },
   "encounter": {
     "reference": "Encounter/pat015-rad-encounter"
-  }
+  },
+  "intent": "original-order"
 }
