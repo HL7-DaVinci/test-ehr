@@ -7,14 +7,6 @@
       "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-devicerequest-r4"
     ]
   },
-  "extension": [
-    {
-      "url": "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/ext-insurance",
-      "valueReference": {
-        "reference": "Coverage/cov015"
-      }
-    }
-  ],
   "insurance": [
     {
       "reference": "Coverage/cov015"
@@ -39,5 +31,16 @@
   "encounter": {
     "reference": "Encounter/pat015-rad-encounter"
   },
-  "intent": "original-order"
+  "intent": "original-order",
+  "basedOn": [
+    {
+      "reference": "DeviceRequest/otherrequest"
+    }
+  ],
+  "instantiatesCanonical": [
+    "http://hl7.org/fhir/ig/rad/PlanDefinition/someplan"
+  ],
+  "requester": {
+    "reference": "Practitioner/pra1234"
+  }
 }
