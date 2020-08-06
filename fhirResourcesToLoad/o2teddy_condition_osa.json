@@ -4,14 +4,16 @@
   "clinicalStatus": {
     "coding": [
       {
-        "code": "active"
+        "code": "active",
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
       }
     ]
   },
   "verificationStatus": {
     "coding": [
       {
-        "code": "confirmed"
+        "code": "confirmed",
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
       }
     ]
   },
@@ -19,7 +21,7 @@
     {
       "coding": [
         {
-          "system": "http://hl7.org/fhir/condition-category",
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
           "code": "encounter-diagnosis",
           "display": "Encounter Diagnosis"
         }
