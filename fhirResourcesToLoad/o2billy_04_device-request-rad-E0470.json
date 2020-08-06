@@ -38,7 +38,7 @@
     }
   ],
   "instantiatesCanonical": [
-    "http://hl7.org/fhir/ig/rad/PlanDefinition/someplan"
+    "http://hapi.fhir.org/baseR4/PlanDefinition/1430"
   ],
   "requester": {
     "reference": "Practitioner/pra1234"
