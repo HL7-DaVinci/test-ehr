@@ -16,14 +16,13 @@
   },
   "performer": [
     {
-      "reference": "Practitioner/pra1234",
       "type": "Practitioner",
-      "display": "D Jefferson, Emma"
+      "reference": "Practitioner/pra1234",
+      "display": "THE DOC"
     },
     {
       "reference": "Organization/org1234",
-      "type": "Organization",
-      "display": "Quest Labs"
+      "display": "CMS"
     }
   ],
   "issued": "2019-02-22T15:30:10+01:00",
