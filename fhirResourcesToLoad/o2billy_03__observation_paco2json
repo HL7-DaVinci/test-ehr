@@ -1,6 +1,7 @@
 {
   "resourceType": "Observation",
-  "id": "obs-pat015-pao2",
+  "id": "obs015-paco2",
+  "status": "final",
   "category": [
     {
       "coding": [
@@ -13,13 +14,12 @@
       "text": "Laboratory"
     }
   ],
-  "status": "final",
   "code": {
     "coding": [
       {
         "system": "http://loinc.org",
-        "code": "2703-7",
-        "display": "Oxygen (BldA) [Partial pressure]"
+        "code": "2019-8",
+        "display": "Carbon dioxide [Partial pressure] in Arterial blood"
       }
     ]
   },
@@ -28,33 +28,36 @@
   },
   "issued": "2020-06-15T15:30:10+01:00",
   "valueQuantity": {
-    "value": 65,
+    "value": 45,
     "unit": "mm[Hg]",
     "system": "http://unitsofmeasure.org",
     "code": "mm[Hg]"
   },
-  "interpretation": [
+  "encounter": {
+    "reference": "Encounter/pat015-rad-encounter"
+  },
+  "performer": [
     {
-      "coding": [
-        {
-          "system": "http://terminology.hl7.org/CodeSystem/v2-0078",
-          "code": "L",
-          "display": "LOW"
-        }
-      ],
-      "text": "Normal (applies to non-numeric results)"
+      "reference": "Practitioner/pra-dmorgan",
+      "display": "Dexter Morgan",
+      "type": "Practitioner"
+    },
+    {
+      "reference": "Organization/org-lab",
+      "display": "Gulf Coast Lab",
+      "type": "Organization"
     }
   ],
   "referenceRange": [
     {
       "low": {
-        "value": 75,
+        "value": 38,
         "unit": "mm[Hg]",
         "system": "http://unitsofmeasure.org",
         "code": "mm[Hg]"
       },
       "high": {
-        "value": 100,
+        "value": 42,
         "unit": "mm[Hg]",
         "system": "http://unitsofmeasure.org",
         "code": "mm[Hg]"

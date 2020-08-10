@@ -1,62 +1,64 @@
 {
-    "resourceType": "Observation",
-    "id": "obs-pat014-o2excercise",
-    "category": [
-      {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/observation-category",
-            "code": "vital-signs",
-            "display": "Vital Signs"
-          }
-        ],
-        "text": "Vital Signs"
-      }
-    ],
-    "status": "final",
-    "code": {
+  "resourceType": "Observation",
+  "id": "obs-pat014-o2excercise",
+  "category": [
+    {
       "coding": [
         {
-          "system": "http://loinc.org",
-          "code": "89276-0",
-          "display": "Oxygen saturation with exercise"
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
         }
-      ]
-    },
-    "subject": {
-      "reference": "Patient/pat014"
-    },
-    "issued": "2020-04-06T15:30:10+01:00",
-    "valueQuantity": {
-      "value": 80,
-      "unit": "%",
-      "system": "http://unitsofmeasure.org",
-      "code": "%"
-    },
-    "interpretation": {
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "89276-0",
+        "display": "Oxygen saturation with exercise"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat014"
+  },
+  "issued": "2020-04-06T15:30:10+01:00",
+  "valueQuantity": {
+    "value": 80,
+    "unit": "%",
+    "system": "http://unitsofmeasure.org",
+    "code": "%"
+  },
+  "interpretation": [
+    {
       "coding": [
         {
-          "system": "http://hl7.org/fhir/v2/0078",
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0078",
           "code": "L",
           "display": "LOW"
         }
       ],
       "text": "Low (applies to non-numeric results)"
-    },
-    "referenceRange": [
-      {
-        "low": {
-          "value": 90,
-          "unit": "%",
-          "system": "http://unitsofmeasure.org",
-          "code": "%"
-        },
-        "high": {
-          "value": 99,
-          "unit": "%",
-          "system": "http://unitsofmeasure.org",
-          "code": "%"
-        }
+    }
+  ],
+  "referenceRange": [
+    {
+      "low": {
+        "value": 90,
+        "unit": "%",
+        "system": "http://unitsofmeasure.org",
+        "code": "%"
+      },
+      "high": {
+        "value": 99,
+        "unit": "%",
+        "system": "http://unitsofmeasure.org",
+        "code": "%"
       }
-    ]
-  }
+    }
+  ]
+}
