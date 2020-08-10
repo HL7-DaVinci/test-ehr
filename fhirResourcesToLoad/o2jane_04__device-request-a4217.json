@@ -20,19 +20,9 @@
     "requester": {
         "display": "Smythe Juliette, MD"
     },
-    "performer": [
-        {
+    "performer": {
             "reference": "Practitioner/pra1255"
-        }
-    ],  
-    "extension": [
-        {
-          "url": "http://build.fhir.org/ig/HL7/davinci-crd/R4/ext-insurance.html",
-          "valueReference": {
-            "reference": "Coverage/cov016"
-          }
-        }
-      ],
+        },
     "insurance": [
         {
           "reference": "Coverage/cov016"
