@@ -1,6 +1,6 @@
 {
   "resourceType": "Observation",
-  "id": "obs015",
+  "id": "obs015-o2sat-resting",
   "status": "final",
   "category": [
     {
@@ -18,19 +18,34 @@
     "coding": [
       {
         "system": "http://loinc.org",
-        "code": "59408-5",
-        "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+        "code": "59417-6",
+        "display": "Oxygen saturation in Arterial blood by Pulse oximetry --resting"
       }
     ]
   },
   "subject": {
     "reference": "Patient/pat015"
   },
-  "issued": "2019-03-20T15:30:10+01:00",
+  "issued": "2020-07-01T15:30:10+01:00",
   "valueQuantity": {
-    "value": 97,
+    "value": 95,
     "unit": "%",
     "system": "http://unitsofmeasure.org",
     "code": "%"
-  }
+  },
+  "encounter": {
+    "reference": "Encounter/pat015-rad-encounter"
+  },
+  "performer": [
+    {
+      "reference": "Practitioner/pra-dmorgan",
+      "display": "Dexter Morgan",
+      "type": "Practitioner"
+    },
+    {
+      "reference": "Organization/org1234",
+      "display": "Gulf Coast Lab",
+      "type": "Organization"
+    }
+  ]
 }

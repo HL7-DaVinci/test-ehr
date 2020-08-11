@@ -1,0 +1,44 @@
+{
+    "resourceType": "Practitioner",
+    "id": "pra-dmorgan",
+    "meta": {
+      "profile": [
+        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+      ]
+    },
+    "identifier": [
+      {
+        "system": "http://hl7.org/fhir/sid/us-npi",
+        "value": "1122334455"
+      }
+    ],
+    "address": [
+      {
+        "use": "home",
+        "type": "both",
+        "state": "MA",
+        "city": "Bedford",
+        "postalCode": "01730",
+        "line": ["99 High St"]
+      }
+    ],
+    "telecom": [
+      {
+        "system": "phone",
+        "value": "617-873-1557"
+      },
+      {
+        "system": "email",
+        "value": "dmorgan@myhospital.com"
+      }
+    ],
+    "name": [
+      {
+        "use": "official",
+        "family": "Morgan",
+        "given": ["Dexter", "Mike"],
+        "prefix": ["Mr."]
+      }
+    ]
+  }
+  
