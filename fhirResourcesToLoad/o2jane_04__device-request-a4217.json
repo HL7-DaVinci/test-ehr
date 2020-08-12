@@ -7,6 +7,19 @@
           "http://hl7.org/fhir/us/davinci-crd/R4/StructureDefinition/profile-devicerequest-r4"
         ]
       },
+      "extension": [
+        {
+          "url": "http://build.fhir.org/ig/HL7/davinci-crd/R4/ext-insurance.html",
+          "valueReference": {
+            "reference": "Coverage/cov016"
+          }
+        }
+      ],
+      "insurance": [
+        {
+          "reference": "Coverage/cov016"
+        }
+    ],
     "codeCodeableConcept": {
         "coding": [
             {
@@ -26,10 +39,5 @@
     },
     "performer": {
             "reference": "Practitioner/pra1255"
-        },
-    "insurance": [
-        {
-          "reference": "Coverage/cov016"
-        }
-    ]
+    }
 }
