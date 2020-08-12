@@ -17,13 +17,11 @@ The FHIR server will persist FHIR resources between restarts. You can delete the
 To load the data from the json files in fhirResourcesToLoad, run the following script:  
 `gradle loadData` 
 
-<em>Note: 'gradle loadData' can only be run while the FHIR server is running and `use_oauth` is false in         `src/main/resources/fhirServer.properties`</em>
+>Note: 'gradle loadData' can only be run while the FHIR server is running and `use_oauth` is false in         `src/main/resources/fhirServer.properties`
 
 ## Server endpoints
 |Relative URL|Endpoint Description|
 |----|----|
 |`/`|Web page with basic RI information|
 |`/test-ehr/`|Base server endpoint|
-|`/test-ehr/r4`|EHR FHIR Server endpoint|
-|`/test-ehr/reqgen`|Request Generator|
-
+|`/test-ehr/r4`|EHR FHIR Server endpoint (will not resolve in browser)|

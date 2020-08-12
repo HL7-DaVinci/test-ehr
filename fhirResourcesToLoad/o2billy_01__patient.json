@@ -20,6 +20,28 @@
       "given": ["William", "Hale", "Oster"]
     }
   ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(781) 555-5555",
+      "use": "home",
+      "rank": 1
+    },
+    {
+      "system": "phone",
+      "value": "(781) 555 5613",
+      "use": "work",
+      "rank": 2
+    },
+    {
+      "system": "phone",
+      "value": "(781) 555 8834",
+      "use": "old",
+      "period": {
+        "end": "2014"
+      }
+    }
+  ],
   "identifier": [
     {
       "system": "http://hl7.org/fhir/sid/us-medicare",

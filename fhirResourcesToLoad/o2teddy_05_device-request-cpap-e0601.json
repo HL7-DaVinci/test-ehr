@@ -8,7 +8,7 @@
     },
     "extension": [
         {
-            "url": "http://build.fhir.org/ig/HL7/davinci-crd/R4/ext-insurance.html",
+            "url": "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/ext-insurance",
             "valueReference": {
                 "reference": "Coverage/cov014"
             }
@@ -34,5 +34,8 @@
     },
     "performer": {
         "reference": "Practitioner/pra1255"
+    },
+    "encounter": {
+        "reference": "Encounter/enc-pat014-cpape0601"
     }
 }

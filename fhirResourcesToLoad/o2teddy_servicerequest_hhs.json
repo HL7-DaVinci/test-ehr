@@ -1,0 +1,46 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servreq-pat014-hhs",
+  "status": "draft",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+        "code": "G0180",
+        "display": "Medicare-covered home health services under a home health plan of care"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat014"
+  },
+  "occurrenceDateTime": "2020-06-08",
+  "authoredOn": "2020-06-08",
+  "requester": {
+    "display": "Smythe Juliette, MD"
+  },
+  "performer": [
+    {
+      "reference": "Practitioner/pra1255"
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/cov014"
+    }
+  ],
+  "encounter": {
+    "reference": "Encounter/enc-pat014-hhs"
+  },
+  "basedOn": [
+    {
+      "reference": "CarePlan/careplan-pat014-hhs"
+    }
+  ],
+  "relevantHistory": [
+    {
+      "reference": "Provenance/provenance-pat014-hhs"
+    }
+  ]
+}
