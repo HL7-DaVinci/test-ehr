@@ -1,14 +1,14 @@
 {
     "resourceType": "ServiceRequest",
-    "id": "servreq16-a4217",
+    "id": "servreq16-g0155",
     "status": "draft",
     "intent": "order",
     "code": {
         "coding": [
             {
                 "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
-                "code": "A4217",
-                "display": "Sterile water/saline, 500 ml"
+                "code": "G0155",
+                "display": "Services of clinical social worker in home health or hospice settings, each 15 minutes"
             }
         ]
     },
