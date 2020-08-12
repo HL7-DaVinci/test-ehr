@@ -25,7 +25,13 @@
   "telecom": [
     {
       "system": "phone",
-      "value": "781-229-3911"
+      "value": "781-229-3911",
+      "extension": [
+        {
+          "url": "https://www.hl7.org/fhir/extension-contactpoint-extension.html",
+          "valueString": "x234"
+        }
+      ]
     },
     {
       "system": "email",
