@@ -140,5 +140,3 @@ gradle-app.setting
 
 # End of https://www.gitignore.io/api/osx,java,gradle,intellij
 
-
-src/main/fhirServer.properties
