@@ -18,11 +18,12 @@
     {
       "type": "Practitioner",
       "reference": "Practitioner/pra1234",
-      "display": "THE DOC"
+      "display": "Jane Doe"
     },
     {
+      "type": "Organization",
       "reference": "Organization/org1234",
-      "display": "CMS"
+      "display": "Centers for Medicare and Medicaid Services"
     }
   ],
   "issued": "2019-02-22T15:30:10+01:00",
