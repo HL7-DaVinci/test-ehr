@@ -8,5 +8,8 @@
     {
       "reference": "Location/loc1234"
     }
-  ]
+  ],
+  "organization ": {
+    "reference": "Organization/org1234"
+  }
 }
