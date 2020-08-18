@@ -3,20 +3,22 @@
   "id": "condition014-livertransplant",
   "clinicalStatus": {
     "coding": [
-      {
-        "code": "active",
-        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical"
-      }
+        {
+            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+            "code": "active",
+            "display": "Active"
+        }
     ]
-  },
-  "verificationStatus": {
+},
+"verificationStatus": {
     "coding": [
-      {
-        "code": "confirmed",
-        "system":"http://terminology.hl7.org/CodeSystem/condition-ver-status"
-      }
+        {
+            "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+            "code": "confirmed",
+            "display": "Confirmed"
+        }
     ]
-  },
+},
   "code": {
     "coding": [
       {
