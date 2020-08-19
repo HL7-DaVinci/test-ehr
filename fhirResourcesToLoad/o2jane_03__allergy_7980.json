@@ -3,22 +3,22 @@
   "id": "allergy016",
   "clinicalStatus": {
     "coding": [
-        {
-          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-            "code": "active",
-            "display": "Active"
-        }
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active",
+        "display": "Active"
+      }
     ]
-},
-"verificationStatus": {
+  },
+  "verificationStatus": {
     "coding": [
-        {
-          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-            "code": "confirmed",
-            "display": "Confirmed"
-        }
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed",
+        "display": "Confirmed"
+      }
     ]
-},
+  },
   "code": {
     "coding": [
       {
