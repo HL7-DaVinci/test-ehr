@@ -100,6 +100,31 @@ task loadData{
     }
 }
 
+task loadBundleResource{
+    doLast {
+        def bundleFile = new File(projectDir, "bundlefile/PASExample.json")
+        def bundleResource = new groovy.json.JsonSlurper().parseText(bundleFile.text)
+        def http = groovyx.net.http.HttpBuilder.configure{
+            request.uri = 'http://localhost:8080'
+            request.contentType = 'application/json'
+        }
+        
+        def entryResource = bundleResource.entry.resource
+        entryResource.each { item->
+            println 'Item type:' + item.resourceType + ' with id:' + item.id
+            println 'Json of item: ' + groovy.json.JsonOutput.toJson(item)
+            http.put {
+                request.uri.path = '/test-ehr/r4/'+item.resourceType+'/'+item.id
+                request.body = groovy.json.JsonOutput.toJson(item)
+                response.success {
+                    println '... success. '
+                }
+            }
+
+        }
+    }
+}
+
 task loadRequestBuilder() {
     doLast {
         setup()
