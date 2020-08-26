@@ -4,12 +4,14 @@
   "medicationCodeableConcept": {
     "coding": [
       {
-        "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
-        "code": "J7500",
-        "display": "Azathioprine, oral, 50 mg"
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "105611",
+        "display": "azathioprine 50 MG Oral Tablet [Imuran]"
       }
     ]
   },
+  "status": "active",
+  "intent": "order",
   "subject": {
     "reference": "Patient/pat014",
     "display": "Theodor Roosevelt"
@@ -25,7 +27,7 @@
         {
           "system": "http://snomed.info/sct",
           "code": "52042003",
-          "display": "Systemic lupus erythematosus glomerulonephritis syndrome"
+          "display": "Systemic lupus erythematosus glomerulonephritis syndrome, World Health Organization class V (disorder)"
         }
       ]
     }
