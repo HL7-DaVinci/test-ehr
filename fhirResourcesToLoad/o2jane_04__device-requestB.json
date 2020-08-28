@@ -29,6 +29,15 @@
       }
     ]
   },
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "237599002",
+        "display": "Insulin treated type 2 diabetes mellitus (disorder)"
+      }
+    ]
+  },
   "subject": {
     "reference": "Patient/pat016"
   },
