@@ -34,18 +34,20 @@
     "participant": [
         {
             "individual": {
-                "reference": "Practitioner/pra-sstrange",
-                "display": "Dr. Stephen Strange"
+                "reference": "Practitioner/pra1234",
+                "display": "Dr. Jane Doe"
             },
-            "type": {
-                "coding": [
-                    {
-                        "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                        "code": "PPRF",
-                        "display": "primary performer"
-                    }
-                ]
-            }
+            "type": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                            "code": "PPRF",
+                            "display": "primary performer"
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "length": {

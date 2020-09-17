@@ -30,10 +30,6 @@ apply from: 'https://raw.github.com/gretty-gradle-plugin/gretty/master/pluginScr
 
 gretty {
     servletContainer = 'tomcat9'
-
-    // Debug
-    debugPort = 5005
-    debugSuspend = true
 }
 
 dependencies {

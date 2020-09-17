@@ -10,7 +10,7 @@
   ],
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/us/davinci-crd/R4/StructureDefinition/profile-devicerequest-r4"
+      "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-devicerequest-r4"
     ]
   },
   "extension": [
@@ -42,9 +42,19 @@
   "performer": {
     "reference": "Practitioner/pra1234"
   },
-  "encounter": [
+  "encounter": {
+    "reference": "Encounter/pat015-rad-encounter"
+  },
+  "intent": "original-order",
+  "basedOn": [
     {
-      "reference": "Encounter/pat015-rad-encounter"
+      "reference": "DeviceRequest/otherrequest"
     }
-  ]
+  ],
+  "instantiatesCanonical": [
+    "http://hapi.fhir.org/baseR4/PlanDefinition/1430"
+  ],
+  "requester": {
+    "reference": "Practitioner/pra1234"
+  }
 }

@@ -1,6 +1,7 @@
 {
   "resourceType": "Observation",
-  "id": "obs-pat015-pao2",
+  "id": "obs014-mip",
+  "status": "final",
   "category": [
     {
       "coding": [
@@ -13,25 +14,24 @@
       "text": "Laboratory"
     }
   ],
-  "status": "final",
   "code": {
     "coding": [
       {
         "system": "http://loinc.org",
-        "code": "2703-7",
-        "display": "Oxygen (BldA) [Partial pressure]"
+        "code": "19976-0",
+        "display": "Maximum [Pressure] Respiratory system airway opening --during inspiration on ventilator"
       }
     ]
   },
   "subject": {
-    "reference": "Patient/pat015"
+    "reference": "Patient/pat014"
   },
-  "issued": "2020-06-15T15:30:10+01:00",
+  "issued": "2020-05-05T15:30:10+01:00",
   "valueQuantity": {
-    "value": 65,
-    "unit": "mm[Hg]",
+    "value": 10,
+    "unit": "cm[H2O]",
     "system": "http://unitsofmeasure.org",
-    "code": "mm[Hg]"
+    "code": "cm[H2O]"
   },
   "interpretation": [
     {
@@ -42,23 +42,7 @@
           "display": "LOW"
         }
       ],
-      "text": "Normal (applies to non-numeric results)"
-    }
-  ],
-  "referenceRange": [
-    {
-      "low": {
-        "value": 75,
-        "unit": "mm[Hg]",
-        "system": "http://unitsofmeasure.org",
-        "code": "mm[Hg]"
-      },
-      "high": {
-        "value": 100,
-        "unit": "mm[Hg]",
-        "system": "http://unitsofmeasure.org",
-        "code": "mm[Hg]"
-      }
+      "text": "Low (applies to non-numeric results)"
     }
   ]
 }

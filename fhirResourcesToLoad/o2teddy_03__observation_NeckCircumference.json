@@ -1,36 +1,35 @@
 {
   "resourceType": "Observation",
-  "id": "obs014-hemocrit-test",
+  "id": "obs014-NeckCircumference",
   "status": "final",
   "category": [
     {
       "coding": [
         {
           "system": "http://terminology.hl7.org/CodeSystem/observation-category",
-          "code": "laboratory",
-          "display": "laboratory"
+          "code": "vital-signs",
+          "display": "Vital Signs"
         }
-      ],
-      "text": "Laboratory"
+      ]
     }
   ],
   "code": {
     "coding": [
       {
         "system": "http://loinc.org",
-        "code": "31100-1",
-        "display": "Hematocrit [Volume Fraction] of Blood by Impedance"
+        "code": "56074-8",
+        "display": "Circumference Neck"
       }
     ]
   },
   "subject": {
     "reference": "Patient/pat014"
   },
-  "issued": "2020-04-05T15:30:10+01:00",
+  "issued": "2020-02-11T15:40:10+01:00",
   "valueQuantity": {
-    "value": 72,
-    "unit": "%",
+    "value": 51.2,
+    "unit": "cm",
     "system": "http://unitsofmeasure.org",
-    "code": "%"
+    "code": "cm"
   }
 }

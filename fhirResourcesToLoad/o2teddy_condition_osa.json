@@ -1,6 +1,6 @@
 {
   "resourceType": "Condition",
-  "id": "cond015a",
+  "id": "pat014-cond-osa",
   "clinicalStatus": {
     "coding": [
       {
@@ -23,7 +23,7 @@
     {
       "coding": [
         {
-          "system": "http://hl7.org/fhir/condition-category",
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
           "code": "encounter-diagnosis",
           "display": "Encounter Diagnosis"
         }
@@ -34,12 +34,15 @@
     "coding": [
       {
         "system": "http://hl7.org/fhir/sid/icd-10-cm",
-        "code": "J44.9",
-        "display": "Chronic obstructive pulmonary disease, unspecified"
+        "code": "G47.33",
+        "display": "Hypopnea, obstructive sleep apnea"
       }
     ]
   },
+  "encounter": {
+    "reference": "Encounter/example"
+  },
   "subject": {
-    "reference": "Patient/pat015"
+    "reference": "Patient/pat014"
   }
 }
