@@ -40,11 +40,6 @@
     "reference": "Encounter/pat015-rad-encounter"
   },
   "intent": "original-order",
-  "basedOn": [
-    {
-      "reference": "DeviceRequest/otherrequest"
-    }
-  ],
   "instantiatesCanonical": [
     "http://hapi.fhir.org/baseR4/PlanDefinition/1430"
   ],
