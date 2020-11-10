@@ -40,9 +40,6 @@
       "text": "Problem List Item"
     }
   ],
-  "encounter": {
-    "reference": "Encounter/example"
-  },
   "subject": {
     "reference": "Patient/pat014"
   },
