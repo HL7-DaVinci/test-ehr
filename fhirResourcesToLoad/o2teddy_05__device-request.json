@@ -6,14 +6,6 @@
       "http://hl7.org/fhir/us/davinci-crd/R4/StructureDefinition/profile-devicerequest-r4"
     ]
   },
-  "extension": [
-    {
-      "url": "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/ext-insurance",
-      "valueReference": {
-        "reference": "Coverage/cov014"
-      }
-    }
-  ],
   "insurance": [
     {
       "reference": "Coverage/cov014"
