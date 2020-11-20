@@ -20,14 +20,6 @@
     "reference": "Patient/pat1234"
   },
   "authoredOn": "2018-08-08",
-  "extension": [
-    {
-      "url": "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/ext-insurance",
-      "valueReference": {
-        "reference": "Coverage/cov1234"
-      }
-    }
-  ],
   "insurance": [
     {
       "reference": "Coverage/cov1234"
