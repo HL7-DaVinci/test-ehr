@@ -1,0 +1,79 @@
+{
+  "resourceType": "MedicationDispense",
+  "id": "pat014-meddispsense-azathioprine",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "105611",
+        "display": "azathioprine 50 MG Oral Tablet [Imuran]"
+      }
+    ]
+  },
+  "status": "active",
+  "intent": "order",
+  "subject": {
+    "reference": "Patient/pat014",
+    "display": "Theodor Roosevelt"
+  },
+  "whenHandedOver": "2020-11-11",
+  "performer": [
+    {
+      "actor": {
+        "reference": "Practitioner/pra1234"
+      }
+    }
+  ],
+  "quantity": {
+    "value": 30,
+    "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+    "code": "TAB"
+  },
+  "daysSupply": {
+    "value": 10,
+    "unit": "Day",
+    "system": "http://unitsofmeasure.org",
+    "code": "d"
+  },
+  "dosageInstruction": [
+    {
+      "sequence": 1,
+      "text": "50 mg PO daily for remission induction",
+      "timing": {
+        "repeat": {
+          "frequency": 1,
+          "period": 1,
+          "periodUnit": "d"
+        }
+      },
+      "route": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "26643006",
+            "display": "Oral route (qualifier value)"
+          }
+        ]
+      },
+      "doseAndRate": [
+        {
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                "code": "ordered",
+                "display": "Ordered"
+              }
+            ]
+          },
+          "doseQuantity": {
+            "value": 50,
+            "unit": "mg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mg"
+          }
+        }
+      ]
+    }
+  ]
+}
