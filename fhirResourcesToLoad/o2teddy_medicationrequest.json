@@ -77,5 +77,13 @@
         }
       ]
     }
-  ]
+  ],
+  "dispenseRequest": {
+    "quantity": {
+      "value": 90,
+      "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+      "code": "TAB"
+    },
+    "numberOfRepeatsAllowed": 3
+  }
 }
