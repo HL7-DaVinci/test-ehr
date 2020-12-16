@@ -110,7 +110,7 @@ public class AuthProxy {
   @ResponseBody
   public AuthResponse getLaunch(@RequestBody Payload payload) {
     AuthResponse authResponse = new AuthResponse();
-    payload.setLaunchId(authResponse.getLaunchId());
+    payload.setLaunchId(authResponse.getlaunch_id());
     payloadDAO.createPayload(payload);
     return authResponse;
 
