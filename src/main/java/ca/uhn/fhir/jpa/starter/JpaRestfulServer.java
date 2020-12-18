@@ -67,14 +67,7 @@ public class JpaRestfulServer extends RestfulServer {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    if (request.getRequestURI().contains("/token")) {
-      // redirect calls to /token to the root /token
-      String redirectUrl = Config.get("redirect_post_token");
-      logger.info("JpaRestfulServer::doPost: redirect " + request.getRequestURI() + " to " + redirectUrl);
-      response.setHeader("Location", redirectUrl);
-      response.setStatus(307);
-
-    } else if (request.getRequestURI().contains("/_services/smart/Launch")) {
+    if (request.getRequestURI().contains("/_services/smart/Launch")) {
       // redirect calls to /_services/smart/Launch to the root /_services/smart/Launch
       String redirectUrl = Config.get("redirect_post_launch");
       logger.info("JpaRestfulServer::doPost: redirect " + request.getRequestURI() + " to " + redirectUrl);
