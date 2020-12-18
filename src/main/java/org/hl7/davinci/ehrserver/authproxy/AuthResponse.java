@@ -4,14 +4,14 @@ package org.hl7.davinci.ehrserver.authproxy;
 import java.util.UUID;
 
 public class AuthResponse {
-  private String launchId;
+  private String launch_id;
 
   AuthResponse() {
-    this.launchId = UUID.randomUUID().toString();
+    this.launch_id = UUID.randomUUID().toString();
   }
 
-  public String getLaunchId() {
-    return launchId;
+  public String getlaunch_id() {
+    return launch_id;
   }
 
 

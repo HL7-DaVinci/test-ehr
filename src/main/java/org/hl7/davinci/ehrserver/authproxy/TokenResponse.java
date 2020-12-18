@@ -6,7 +6,7 @@ public class TokenResponse {
   private int expires_in;
   private String scope;
   private String refresh_token;
-  private String patient;
+  private String patientId;
   private String appContext;
 
 
@@ -71,12 +71,12 @@ public class TokenResponse {
     return this;
   }
 
-  public String getPatient() {
-    return patient;
+  public String getPatientId() {
+    return patientId;
   }
 
-  public TokenResponse setPatient(String patient) {
-    this.patient = patient;
+  public TokenResponse setPatientId(String patientId) {
+    this.patientId = patientId;
     return this;
   }
 }
