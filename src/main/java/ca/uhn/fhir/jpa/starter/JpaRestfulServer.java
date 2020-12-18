@@ -36,27 +36,56 @@ import ca.uhn.fhir.rest.server.interceptor.ResponseHighlighterInterceptor;
 import ca.uhn.fhir.rest.server.interceptor.ResponseValidatingInterceptor;
 import ca.uhn.fhir.validation.IValidatorModule;
 import ca.uhn.fhir.validation.ResultSeverityEnum;
-import java.util.HashSet;
-import java.util.TreeSet;
+
+import java.io.IOException;
+import java.util.*;
+
+import org.hl7.davinci.ehrserver.Config;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.Meta;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.cors.CorsConfiguration;
 
 import javax.servlet.ServletException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Set;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.hl7.davinci.ehrserver.ClientAuthorizationInterceptor;
 import org.hl7.davinci.ehrserver.ServerConformanceDstu3;
 import org.hl7.davinci.ehrserver.ServerConformanceR4;
 
+
 public class JpaRestfulServer extends RestfulServer {
 
   private static final long serialVersionUID = 1L;
+  static final Logger logger = LoggerFactory.getLogger(JpaRestfulServer.class);
+
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\
+
+    if (request.getRequestURI().contains("/token")) {
+      // redirect calls to /token to the root /token
+      String redirectUrl = Config.get("redirect_post_token");
+      logger.info("JpaRestfulServer::doPost: redirect " + request.getRequestURI() + " to " + redirectUrl);
+      response.setHeader("Location", redirectUrl);
+      response.setStatus(307);
+
+    } else if (request.getRequestURI().contains("/_services/smart/Launch")) {
+      // redirect calls to /_services/smart/Launch to the root /_services/smart/Launch
+      String redirectUrl = Config.get("redirect_post_launch");
+      logger.info("JpaRestfulServer::doPost: redirect " + request.getRequestURI() + " to " + redirectUrl);
+      response.setHeader("Location", redirectUrl);
+      response.setStatus(307);
+
+    } else {
+      // forward on all other get requests
+      super.doPost(request, response);
+    }
+  }
 
   @SuppressWarnings("unchecked")
   @Override
