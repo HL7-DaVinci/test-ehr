@@ -65,7 +65,7 @@ public class JpaRestfulServer extends RestfulServer {
   static final Logger logger = LoggerFactory.getLogger(JpaRestfulServer.class);
 
   @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {\
+  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     if (request.getRequestURI().contains("/token")) {
       // redirect calls to /token to the root /token
