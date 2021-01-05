@@ -1,6 +1,6 @@
 {
-  "resourceType": "MedicationRequest",
-  "id": "pat014-mr-azathioprine",
+  "resourceType": "MedicationDispense",
+  "id": "pat014-meddispsense-azathioprine",
   "medicationCodeableConcept": {
     "coding": [
       {
@@ -16,27 +16,25 @@
     "reference": "Patient/pat014",
     "display": "Theodor Roosevelt"
   },
-  "authoredOn": "2020-05-11",
-  "requester": {
-    "reference": "Practitioner/pra1234",
-    "display": "Jane Doe"
+  "whenHandedOver": "2020-11-11",
+  "performer": [
+    {
+      "actor": {
+        "reference": "Practitioner/pra1234"
+      }
+    }
+  ],
+  "quantity": {
+    "value": 90,
+    "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+    "code": "TAB"
   },
-  "reasonCode": [
-    {
-      "coding": [
-        {
-          "system": "http://snomed.info/sct",
-          "code": "52042003",
-          "display": "Systemic lupus erythematosus glomerulonephritis syndrome, World Health Organization class V (disorder)"
-        }
-      ]
-    }
-  ],
-  "insurance": [
-    {
-      "reference": "Coverage/cov014"
-    }
-  ],
+  "daysSupply": {
+    "value": 90,
+    "unit": "Day",
+    "system": "http://unitsofmeasure.org",
+    "code": "d"
+  },
   "dosageInstruction": [
     {
       "sequence": 1,
@@ -77,13 +75,5 @@
         }
       ]
     }
-  ],
-  "dispenseRequest": {
-    "quantity": {
-      "value": 90,
-      "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
-      "code": "TAB"
-    },
-    "numberOfRepeatsAllowed": 3
-  }
+  ]
 }
