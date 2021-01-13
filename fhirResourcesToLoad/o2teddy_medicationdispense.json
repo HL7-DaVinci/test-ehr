@@ -25,12 +25,12 @@
     }
   ],
   "quantity": {
-    "value": 30,
+    "value": 90,
     "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
     "code": "TAB"
   },
   "daysSupply": {
-    "value": 10,
+    "value": 90,
     "unit": "Day",
     "system": "http://unitsofmeasure.org",
     "code": "d"
