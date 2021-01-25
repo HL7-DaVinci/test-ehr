@@ -1,0 +1,1377 @@
+{
+  "resourceType": "Bundle",
+  "entry": [
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/pat12742811",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "pat12742811",
+        "meta": {
+          "versionId": "15",
+          "lastUpdated": "2021-01-13T11:48:00.000Z"
+        },
+        "text": {
+          "status": "extensions",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Patient</b></p><p><b>Name</b>: METTLE, ONE</p><p><b>Status</b>: Active</p><p><b>DOB</b>: Sep 15, 1953</p><p><b>Birth Sex</b>: Male</p><p><b>Administrative Gender</b>: Female</p><p><b>Marital Status</b>: Single</p></div>"
+        },
+        "extension": [
+          {
+            "valueCode": "M",
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"
+          },
+          {
+            "extension": [
+              {
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2054-5",
+                  "display": "Black or African American",
+                  "userSelected": false
+                },
+                "url": "ombCategory"
+              },
+              {
+                "valueString": "Black or African American",
+                "url": "text"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          {
+            "extension": [
+              {
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino",
+                  "userSelected": false
+                },
+                "url": "ombCategory"
+              },
+              {
+                "valueString": "Not Hispanic, Latino, or Spanish Origin",
+                "url": "text"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          }
+        ],
+        "identifier": [
+          {
+            "id": "CI-490065133-0",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "10",
+                  "display": "MRN",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical record number",
+                  "userSelected": false
+                }
+              ],
+              "text": "MRN"
+            },
+            "system": "urn:oid:2.16.840.1.113883.6.1000",
+            "value": "490065133",
+            "period": {
+              "start": "2020-08-02T11:01:29.000Z"
+            }
+          },
+          {
+            "id": "CI-490079527-2",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "22",
+                  "display": "Military Id",
+                  "userSelected": true
+                }
+              ],
+              "text": "Military Id"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.42.10001.100001.12",
+            "value": "10050007393",
+            "period": {
+              "start": "2020-09-01T18:21:24.000Z"
+            }
+          },
+          {
+            "id": "CI-490180861-3",
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
+                  "code": "2553236785",
+                  "display": "MIllennium Person Identifier",
+                  "userSelected": true
+                }
+              ],
+              "text": "MIllennium Person Identifier"
+            },
+            "system": "urn:oid:2.16.840.1.113883.3.13.6",
+            "value": "18737",
+            "period": {
+              "start": "2021-01-13T11:43:19.000Z"
+            }
+          },
+          {
+            "use": "official",
+            "system": "http://hl7.org/fhir/sid/us-medicare",
+            "value": "653423514"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "id": "CI-pat12742811-0",
+            "use": "official",
+            "text": "METTLE, ONE",
+            "family": "METTLE",
+            "given": [
+              "ONE"
+            ],
+            "period": {
+              "start": "2020-08-02T11:01:29.000Z"
+            }
+          },
+          {
+            "id": "CI-490065150-0",
+            "use": "usual",
+            "text": "METTLE, JEFF",
+            "family": "METTLE",
+            "given": [
+              "JEFF"
+            ],
+            "period": {
+              "start": "2020-08-02T11:01:29.000Z"
+            }
+          }
+        ],
+        "telecom": [
+          {
+            "id": "CI-PH-29823155-0",
+            "system": "phone",
+            "value": "2125555554",
+            "use": "mobile",
+            "rank": 1,
+            "period": {
+              "start": "2020-08-02T11:01:29.000Z"
+            }
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1953-09-15",
+        "address": [
+          {
+            "id": "CI-24327583-0",
+            "use": "home",
+            "text": "2801 ROCK CREEK PKWY KANSAS CITY, MO 64117 US",
+            "line": [
+              "2801 ROCK CREEK PKWY"
+            ],
+            "city": "KANSAS CITY",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US",
+            "period": {
+              "start": "2020-08-02T11:01:29.000Z"
+            }
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/38",
+              "code": "309239",
+              "display": "Single",
+              "userSelected": true
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "U",
+              "display": "unmarried",
+              "userSelected": false
+            }
+          ],
+          "text": "Single"
+        },
+        "contact": [
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                    "code": "1152",
+                    "display": "Emergency Contact",
+                    "userSelected": true
+                  },
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                    "code": "C",
+                    "display": "Emergency Contact",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Emergency Contact"
+              }
+            ],
+            "name": {
+              "id": "CI-12742541-0",
+              "use": "official",
+              "text": "HARRIS, DANA",
+              "family": "HARRIS",
+              "given": [
+                "DANA"
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "2125555553",
+                "use": "home",
+                "rank": 1,
+                "period": {
+                  "start": "2020-04-27T16:36:47.000Z"
+                }
+              },
+              {
+                "system": "email",
+                "value": "dharris@gmail.com",
+                "use": "home",
+                "rank": 1,
+                "period": {
+                  "start": "2020-07-28T14:53:41.000Z"
+                }
+              }
+            ],
+            "address": {
+              "use": "home",
+              "text": " US",
+              "country": "US",
+              "period": {
+                "start": "2020-09-09T22:24:03.000Z"
+              }
+            },
+            "period": {
+              "start": "2020-08-02T11:01:29.000Z"
+            }
+          },
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351",
+                    "code": "1156",
+                    "display": "Guardian",
+                    "userSelected": true
+                  }
+                ],
+                "text": "Guardian"
+              }
+            ],
+            "name": {
+              "id": "CI-12742541-0",
+              "use": "official",
+              "text": "HARRIS, DANA",
+              "family": "HARRIS",
+              "given": [
+                "DANA"
+              ]
+            },
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "2125555553",
+                "use": "home",
+                "rank": 1,
+                "period": {
+                  "start": "2020-04-27T16:36:47.000Z"
+                }
+              },
+              {
+                "system": "email",
+                "value": "dharris@gmail.com",
+                "use": "home",
+                "rank": 1,
+                "period": {
+                  "start": "2020-07-28T14:53:41.000Z"
+                }
+              }
+            ],
+            "address": {
+              "use": "home",
+              "text": " US",
+              "country": "US",
+              "period": {
+                "start": "2020-09-09T22:24:03.000Z"
+              }
+            },
+            "period": {
+              "start": "2020-08-02T11:01:29.000Z"
+            }
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/36",
+                  "code": "151",
+                  "display": "English",
+                  "userSelected": true
+                },
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English",
+                  "userSelected": false
+                }
+              ],
+              "text": "English"
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/pra12742812",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pra12742812",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2020-08-04T15:44:38.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Practitioner</b></p><p><b>Name</b>: PWMettle, MD card</p><p><b>Identifiers</b>: PRSNLPRIMID: 204</p><p><b>Status</b>: Active</p></div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "text": "Personnel Primary Identifier"
+            },
+            "_system": {
+              "extension": [
+                {
+                  "valueCode": "unknown",
+                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+                }
+              ]
+            },
+            "value": "204",
+            "period": {
+              "start": "2020-08-04T15:44:38.000Z"
+            }
+          },
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "TAX",
+                  "display": "Provider number"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9872654343"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "usual",
+            "text": "PWMettle, MD card",
+            "family": "PWMettle",
+            "given": [
+              "MD card"
+            ],
+            "period": {
+              "start": "2020-08-04T15:44:38.000Z"
+            }
+          },
+          {
+            "use": "official",
+            "family": "MD card",
+            "given": [
+              "PWMettle"
+            ]
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "text": "2651 Rockcreek Blvd Kansas City, MO 64117 US",
+            "line": [
+              "2651 Rockcreek Blvd"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
+          },
+          {
+            "use": "work",
+            "line": [
+              "2651 Rockcreek Blvd"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/pat12742811-490079538-490079538",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "pat12742811-490079538-490079538",
+        "meta": {
+          "versionId": "0-0",
+          "lastUpdated": "2020-09-01T18:21:25.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Coverage</b></p><p><b>Status</b>: Active</p><p><b>Subscriber</b>: METTLE, ONE</p><p><b>Subscriber Id</b>: 653423514</p><p><b>Beneficiary</b>: METTLE, ONE</p><p><b>Dependent Number</b>: 653423514</p><p><b>Relationship</b>: Self</p><p><b>Coverage Start Date</b>: Aug 2, 2020 5:00 A.M. UTC</p><p><b>Payor</b>: MEDICARE</p><p><b>Class</b>:</p><dl><dt>Plan</dt><dd><b>Value</b>: 2798233</dd><dd><b>Name</b>: Medicare Part A</dd></dl></div>"
+        },
+        "status": "active",
+        "subscriber": {
+          "reference": "Patient/pat12742811",
+          "display": "METTLE, ONE"
+        },
+        "subscriberId": "653423514",
+        "beneficiary": {
+          "reference": "Patient/pat12742811",
+          "display": "METTLE, ONE"
+        },
+        "dependent": "653423514",
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+              "code": "self",
+              "display": "Self",
+              "userSelected": false
+            }
+          ],
+          "text": "Self"
+        },
+        "period": {
+          "start": "2020-08-02T05:00:00.000Z"
+        },
+        "payor": [
+          {
+            "reference": "Organization/org589783",
+            "display": "MEDICARE"
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "plan"
+                }
+              ]
+            },
+            "value": "2798233",
+            "name": "Medicare Part A"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/org589783",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org589783",
+        "meta": {
+          "versionId": "16",
+          "lastUpdated": "2015-08-19T17:27:03Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Organization</b></p><p><b>Name</b>: MEDICARE</p><p><b>Status</b>: Active</p></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NIIP",
+                  "display": "Payor ID"
+                }
+              ],
+              "text": "Payor ID"
+            },
+            "system": "http://identifiers.mettles.com/fhir/sid/us-insurer-id",
+            "value": "b1ddf812-1fdd-3adf-b1d5-32cc8bd07ebb"
+          },
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NIIP",
+                  "display": "Payor Code"
+                }
+              ],
+              "text": "Payor Code"
+            },
+            "system": "http://identifiers.mettles.com/fhir/sid/us-insurer-code",
+            "value": "111222889"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                "code": "INSCO",
+                "display": "Ins Co",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "ins",
+                "display": "Insurance Company"
+              }
+            ],
+            "text": "Ins Co"
+          }
+        ],
+        "name": "MEDICARE",
+        "telecom": [
+          {
+            "extension": [
+              {
+                "valueCode": "unknown",
+                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+              }
+            ]
+          }
+        ],
+        "address": [
+          {
+            "extension": [
+              {
+                "valueCode": "unknown",
+                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/enc97956358",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc97956358",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2020-12-06T06:15:18.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Encounter</b></p><p><b>Patient</b>: METTLE, ONE</p><p><b>Location</b>: Model Clinic 1</p><p><b>Type</b>: Between Visit</p><p><b>Class</b>: Outpatient</p><p><b>Status</b>: Finished</p><p><b>Period Start Date</b>: Dec 1, 2020 10:38 P.M. UTC</p><p><b>Period End Date</b>: Dec 2, 2020 5:59 A.M. UTC</p></div>"
+        },
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319",
+                  "code": "1077",
+                  "display": "FIN NBR",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "AN",
+                  "display": "Account number",
+                  "userSelected": false
+                }
+              ],
+              "text": "FIN NBR"
+            },
+            "system": "urn:oid:5.5.5.5.5.5.",
+            "value": "16723",
+            "period": {
+              "start": "2020-12-01T16:02:52.000Z"
+            }
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+          "code": "O",
+          "display": "Outpatient",
+          "userSelected": false
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71",
+                "code": "2554504269",
+                "display": "Between Visit",
+                "userSelected": true
+              }
+            ],
+            "text": "Between Visit"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/pat12742811",
+          "display": "METTLE, ONE"
+        },
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                    "code": "1121",
+                    "display": "Consulting Physician",
+                    "userSelected": true
+                  },
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "CON",
+                    "display": "consultant",
+                    "userSelected": false
+                  }
+                ],
+                "text": "Consulting Physician"
+              }
+            ],
+            "period": {
+              "start": "2020-12-01T09:11:56.000Z"
+            },
+            "individual": {
+              "reference": "Practitioner/pra12742812",
+              "display": "PWMettle, MD card"
+            }
+          }
+        ],
+        "period": {
+          "start": "2020-12-01T22:38:53.000Z",
+          "end": "2020-12-02T05:59:59.000Z"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/19",
+                "code": "638671",
+                "display": "Home or Self Care",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                "code": "home",
+                "display": "Home",
+                "userSelected": false
+              }
+            ],
+            "text": "Home or Self Care"
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/loc21304872",
+              "display": "Model Clinic 1"
+            },
+            "status": "completed"
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org685844"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/org685844",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org685844",
+        "meta": {
+          "versionId": "26",
+          "lastUpdated": "2018-05-22T16:45:05Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Organization</b></p><p><b>Name</b>: Model Clinic 1</p><p><b>Status</b>: Active</p><p><b>TAXID</b>: 123456782</p></div>"
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "system": "urn:oid:2.16.840.1.113883.4.4",
+            "value": "123456782"
+          },
+          {
+            "use": "official",
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "8473454321"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                "code": "RCCLINIC",
+                "display": "RCA Clinic Organizations",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "RCA Clinic Organizations"
+          },
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                "code": "FACILITY",
+                "display": "Facility",
+                "userSelected": true
+              }
+            ],
+            "text": "Facility"
+          },
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                "code": "CLIENT",
+                "display": "Client",
+                "userSelected": true
+              }
+            ],
+            "text": "Client"
+          },
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/278",
+                "code": "EMPLOYER",
+                "display": "Employer",
+                "userSelected": true
+              }
+            ],
+            "text": "Employer"
+          }
+        ],
+        "name": "Model Clinic 1",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "5555550011",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "5555550011"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "text": "2651 Rockcreek Blvd Kansas City, MO 64117 US",
+            "line": [
+              "2651 Rockcreek Blvd"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
+          },
+          {
+            "use": "billing",
+            "text": "2651 Rockcreek Blvd Kansas City, MO 64117 US",
+            "line": [
+              "2651 Rockcreek Blvd"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
+          },
+          {
+            "text": "2651 Rockcreek Blvd Kansas City, MO 64117 US",
+            "line": [
+              "2651 Rockcreek Blvd"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
+          },
+          {
+            "use": "billing",
+            "text": "2651 Rockcreek Blvd Kansas City, MO 64117 US",
+            "line": [
+              "2651 Rockcreek Blvd"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
+          },
+          {
+            "text": "2651 Rockcreek Blvd Kansas City, MO 64117 US",
+            "line": [
+              "2651 Rockcreek Blvd"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
+          },
+          {
+            "line": [
+              "2651 Rockcreek Blvd"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64117",
+            "country": "US"
+          }
+        ],
+        "contact": [
+          {
+            "name": {
+              "family": "Miller",
+              "given": [
+                "John"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/d2572747699",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "d2572747699",
+        "meta": {
+          "versionId": "2572747701",
+          "lastUpdated": "2020-12-01T21:48:54.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Condition</b></p><p><b>Patient</b>: METTLE, ONE</p><p><b>Diagnosis</b>: Amputated below knee, Amputated below knee (finding)</p><p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Dec 1, 2020 6:00 P.M. UTC</p></div>"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ],
+          "text": "Active"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed",
+              "userSelected": false
+            }
+          ],
+          "text": "Confirmed"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ],
+            "text": "Encounter Diagnosis"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "299652006"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/pat12742811",
+          "display": "METTLE, ONE"
+        },
+        "encounter": {
+          "reference": "Encounter/enc97956358"
+        },
+        "onsetDateTime": "2020-12-01T18:00:00.000Z",
+        "recordedDate": "2020-12-01T21:48:37.000Z",
+        "recorder": {
+          "reference": "Practitioner/pra12742812",
+          "display": "PWMettle, MD card"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/d2572747707",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "d2572747707",
+        "meta": {
+          "versionId": "2572747707",
+          "lastUpdated": "2020-12-01T22:01:24.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Condition</b></p><p><b>Patient</b>: METTLE, ONE</p><p><b>Diagnosis</b>: Impaired wheelchair mobility, Impaired wheelchair mobility (finding)</p><p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Dec 1, 2020 6:00 P.M. UTC</p></div>"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ],
+          "text": "Active"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed",
+              "userSelected": false
+            }
+          ],
+          "text": "Confirmed"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ],
+            "text": "Encounter Diagnosis"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "129857008",
+              "display": "Impaired wheelchair mobility (finding)",
+              "userSelected": true
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "Z74.09",
+              "display": "Other reduced mobility",
+              "userSelected": false
+            }
+          ],
+          "text": "Impaired wheelchair mobility"
+        },
+        "subject": {
+          "reference": "Patient/pat12742811",
+          "display": "METTLE, ONE"
+        },
+        "encounter": {
+          "reference": "Encounter/enc97956358"
+        },
+        "onsetDateTime": "2020-12-01T18:00:00.000Z",
+        "recordedDate": "2020-12-01T22:01:24.000Z",
+        "recorder": {
+          "reference": "Practitioner/pra12742812",
+          "display": "PWMettle, MD card"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/d2572747703",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "d2572747703",
+        "meta": {
+          "versionId": "2572747705",
+          "lastUpdated": "2020-12-01T22:00:06.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Condition</b></p><p><b>Patient</b>: METTLE, ONE</p><p><b>Diagnosis</b>: Mass of lower limb, Localized swelling, mass and lump, lower limb (finding)</p><p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Dec 1, 2020 6:00 P.M. UTC</p></div>"
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ],
+          "text": "Active"
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed",
+              "userSelected": false
+            }
+          ],
+          "text": "Confirmed"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ],
+            "text": "Encounter Diagnosis"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "274745006",
+              "display": "Localized swelling, mass and lump, lower limb (finding)",
+              "userSelected": true
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R22.42",
+              "display": "Localized swelling, mass and lump, left lower limb",
+              "userSelected": false
+            }
+          ],
+          "text": "Mass of lower limb"
+        },
+        "subject": {
+          "reference": "Patient/pat12742811",
+          "display": "METTLE, ONE"
+        },
+        "encounter": {
+          "reference": "Encounter/enc97956358"
+        },
+        "onsetDateTime": "2020-12-01T18:00:00.000Z",
+        "recordedDate": "2020-12-01T21:52:39.000Z",
+        "recorder": {
+          "reference": "Practitioner/pra12742812",
+          "display": "PWMettle, MD card"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DeviceRequest/devq53",
+      "resource": {
+        "resourceType": "DeviceRequest",
+        "id": "devq53",
+        "identifier": [
+          {
+            "system": "http://identifiers.mettles.com/prior_authorization",
+            "value": "devq53"
+          }
+        ],
+        "status": "draft",
+        "intent": "order",
+        "subject": {
+          "reference": "Patient/pat12742811"
+        },
+        "authoredOn": "2021-01-22T12:55:00Z",
+        "insurance": [
+          {
+            "reference": "Coverage/pat12742811-490079538-490079538"
+          }
+        ],
+        "encounter": {
+          "reference": "Encounter/enc97956358"
+        },
+        "requester": {
+          "reference": "Organization/org685844"
+        },
+        "extension": [
+          {
+            "url": "http://terminology.hl7.org/CodeSystem/modifiers",
+            "extension": [
+              {
+                "url": "code",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://hcpcs.codes/",
+                      "code": "L5856",
+                      "display": "Addition to lower extremity prosthesis, endoskeletalknee-shin system, microprocessor control feature, swing and stance phase, includes electronic sensor(s), any type"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "performer": {
+          "reference": "Practitioner/pra12742812"
+        },
+        "codeCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://hcpcs.codes/",
+              "code": "L5856",
+              "display": "Addition to lower extremity prosthesis, endoskeletalknee-shin system, microprocessor control feature, swing and stance phase, includes electronic sensor(s), any type"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/proc2572747725",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc2572747725",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2020-12-01T22:19:52Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Procedure</b></p><p><b>Patient</b>: METTLE, ONE</p><p><b>Procedure</b>: Cardiopulmonary exercise test (procedure)</p><p><b>Date</b>: Apr 5, 2020</p><p><b>Status</b>: Completed</p><p><b>Location</b>: Baseline East</p><p><b>Recorder</b>: PWMettle, MD card</p><p><b>Performer</b>:</p><ul><li>PWMettle, MD card</li></ul></div>"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "447346005",
+              "display": "Cardiopulmonary exercise test (procedure)",
+              "userSelected": true
+            }
+          ],
+          "text": "Cardiopulmonary exercise test (procedure)"
+        },
+        "subject": {
+          "reference": "Patient/pat12742811",
+          "display": "METTLE, ONE"
+        },
+        "encounter": {
+          "reference": "Encounter/enc97956358"
+        },
+        "performedDateTime": "2020-04-05",
+        "recorder": {
+          "reference": "Practitioner/pra12742812",
+          "display": "PWMettle, MD card"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/pra12742812",
+              "display": "PWMettle, MD card"
+            }
+          }
+        ],
+        "location": {
+          "display": "Baseline East"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/proc2572747877",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc2572747877",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2020-12-02T06:34:14Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Procedure</b></p><p><b>Patient</b>: METTLE, ONE</p><p><b>Procedure</b>: Range of motion testing (procedure)</p><p><b>Date</b>: Apr 5, 2020</p><p><b>Status</b>: Completed</p><p><b>Location</b>: Baseline East</p><p><b>Recorder</b>: PWMettle, MD card</p><p><b>Performer</b>:</p><ul><li>PWMettle, MD card</li></ul></div>"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "5880005",
+              "display": "Physical examination procedure (procedure)",
+              "userSelected": true
+            }
+          ],
+          "text": "Range of motion testing (procedure)"
+        },
+        "subject": {
+          "reference": "Patient/pat12742811",
+          "display": "METTLE, ONE"
+        },
+        "encounter": {
+          "reference": "Encounter/enc97956358"
+        },
+        "performedDateTime": "2020-04-05",
+        "recorder": {
+          "reference": "Practitioner/pra12742812",
+          "display": "PWMettle, MD card"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/pra12742812",
+              "display": "PWMettle, MD card"
+            }
+          }
+        ],
+        "location": {
+          "display": "Baseline East"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/proc2572747717",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc2572747717",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2020-12-01T22:17:20Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Procedure</b></p><p><b>Patient</b>: METTLE, ONE</p><p><b>Procedure</b>: Impairment of balance (finding)</p><p><b>Date</b>: Apr 5, 2020</p><p><b>Status</b>: Completed</p><p><b>Location</b>: Baseline East</p><p><b>Recorder</b>: PWMettle, MD card</p><p><b>Performer</b>:</p><ul><li>PWMettle, MD card</li></ul></div>"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "387603000",
+              "display": "Impairment of balance (finding)",
+              "userSelected": true
+            }
+          ],
+          "text": "Impairment of balance (finding)"
+        },
+        "subject": {
+          "reference": "Patient/pat12742811",
+          "display": "METTLE, ONE"
+        },
+        "encounter": {
+          "reference": "Encounter/enc97956358"
+        },
+        "performedDateTime": "2020-04-05",
+        "recorder": {
+          "reference": "Practitioner/pra12742812",
+          "display": "PWMettle, MD card"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/pra12742812",
+              "display": "PWMettle, MD card"
+            }
+          }
+        ],
+        "location": {
+          "display": "Baseline East"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/proc2572747709",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "proc2572747709",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2020-12-01T22:14:49Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Procedure</b></p><p><b>Patient</b>: METTLE, ONE</p><p><b>Procedure</b>: Range of motion testing (procedure)</p><p><b>Date</b>: Apr 5, 2020</p><p><b>Status</b>: Completed</p><p><b>Location</b>: Baseline East</p><p><b>Recorder</b>: PWMettle, MD card</p><p><b>Performer</b>:</p><ul><li>PWMettle, MD card</li></ul></div>"
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "69212005",
+              "display": "Range of motion testing (regime/therapy)",
+              "userSelected": true
+            }
+          ],
+          "text": "Range of motion testing (procedure)"
+        },
+        "subject": {
+          "reference": "Patient/pat12742811",
+          "display": "METTLE, ONE"
+        },
+        "encounter": {
+          "reference": "Encounter/enc97956358"
+        },
+        "performedDateTime": "2020-04-05",
+        "recorder": {
+          "reference": "Practitioner/pra12742812",
+          "display": "PWMettle, MD card"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/pra12742812",
+              "display": "PWMettle, MD card"
+            }
+          }
+        ],
+        "location": {
+          "display": "Baseline East"
+        }
+      }
+    }
+  ],
+  "type": "collection",
+  "identifier": {
+    "system": "http://identifiers.mettles.com",
+    "value": "5"
+  }
+}
