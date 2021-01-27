@@ -1138,7 +1138,7 @@
                 "valueCodeableConcept": {
                   "coding": [
                     {
-                      "system": "https://hcpcs.codes/",
+                      "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
                       "code": "L5856",
                       "display": "Addition to lower extremity prosthesis, endoskeletalknee-shin system, microprocessor control feature, swing and stance phase, includes electronic sensor(s), any type"
                     }
@@ -1154,7 +1154,7 @@
         "codeCodeableConcept": {
           "coding": [
             {
-              "system": "https://hcpcs.codes/",
+              "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
               "code": "L5856",
               "display": "Addition to lower extremity prosthesis, endoskeletalknee-shin system, microprocessor control feature, swing and stance phase, includes electronic sensor(s), any type"
             }
