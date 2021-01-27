@@ -15,7 +15,7 @@ public class PayloadMapper implements RowMapper<Payload> {
     payload.setLaunchUrl(rs.getString("launchUrl"));
     payload.setRedirectUri(rs.getString("redirectUri"));
     Parameters parameters = new Parameters();
-    parameters.setPatientId(rs.getString("patientId"));
+    parameters.setPatient(rs.getString("patient"));
     parameters.setAppContext(rs.getString("appContext"));
     payload.setParameters(parameters);
     return payload;
