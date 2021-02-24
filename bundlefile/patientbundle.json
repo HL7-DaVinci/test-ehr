@@ -1,0 +1,117 @@
+{
+
+	"resourceType": "Bundle",
+	"id": "55e633ae-c55f-49b4-b6fd-8cc1db41b519",
+	"type": "collection",
+	"meta": {
+		"lastUpdated": "2013-05-28T22:12:21Z"
+	},
+	"entry": [
+		{
+			"fullUrl": "Patient/b14bb419-48e1-45fd-8933-2fd04146080b",
+			"resource": {
+				"resourceType": "Patient",
+				"id": "b14bb419-48e1-45fd-8933-2fd04146080b",
+				"name": [
+					{
+						"use": "official",
+						"family": "Graham",
+						"given": [
+							"Stephan",
+							"P"
+						]
+					}
+				],
+				"birthDate": "1982-04-11T20:00:00.000Z"
+			}
+		},
+		{
+			"fullUrl": "Encounter/2e4d31af-dab9-4eab-af77-54bc2fc3042f",
+			"resource": {
+				"resourceType": "Encounter",
+				"id": "2e4d31af-dab9-4eab-af77-54bc2fc3042f",
+				"period": {
+					"start": "2006-08-18"
+				},
+				"class": {
+					"code": "ambulatory"
+				},
+				"status": "finished"
+			}
+		},
+		{
+			"fullUrl": "Observation/1fb76dba-71a5-442c-90cf-53a51fcb1d64",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "1fb76dba-71a5-442c-90cf-53a51fcb1d64",
+				"status": "final",
+				"category": [
+					{
+						"coding": [
+							{
+								"system": "http://loinc.org",
+								"code": "vital-signs",
+								"display": "Vital Signs"
+							}
+						]
+					}
+				],
+				"code": {
+					"coding": [
+						{
+							"system": "http://loinc.org",
+							"code": "8867-4",
+							"display": "Heart rate"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/b14bb419-48e1-45fd-8933-2fd04146080b"
+				},
+				"effectiveDateTime": "2021-01-07T20:36:13.477Z",
+				"valueQuantity": {
+					"value": 132,
+					"unit": "/min",
+					"system": "http://unitsofmeasure.org"
+				}
+			}
+		},
+		{
+			"fullUrl": "Observation/1fb76dba-71a5-442c-90cf-53a51fcb1d64",
+			"resource": {
+				"resourceType": "Observation",
+				"id": "1fb76dba-71a5-442c-90cf-53a51fcb1d64",
+				"status": "final",
+				"category": [
+					{
+						"coding": [
+							{
+								"system": "http://loinc.org",
+								"code": "vital-signs",
+								"display": "Vital Signs"
+							}
+						]
+					}
+				],
+				"code": {
+					"coding": [
+						{
+							"system": "http://loinc.org",
+							"code": "8867-4",
+							"display": "Heart rate"
+						}
+					]
+				},
+				"subject": {
+					"reference": "Patient/b14bb419-48e1-45fd-8933-2fd04146080b"
+				},
+				"effectiveDateTime": "2021-01-07T21:36:13.477Z",
+				"valueQuantity": {
+					"value": 121,
+					"unit": "/min",
+					"system": "http://unitsofmeasure.org"
+				}
+			}
+		}
+	]	
+}
