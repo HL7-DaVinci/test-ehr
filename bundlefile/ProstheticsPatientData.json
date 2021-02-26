@@ -480,7 +480,7 @@
         "payor": [
           {
             "reference": "Organization/org589783",
-            "display": "MEDICARE"
+            "display": "Centers for Medicare and Medicaid Services"
           }
         ],
         "class": [
@@ -557,7 +557,7 @@
             "text": "Ins Co"
           }
         ],
-        "name": "MEDICARE",
+        "name": "Centers for Medicare and Medicaid Services",
         "telecom": [
           {
             "extension": [

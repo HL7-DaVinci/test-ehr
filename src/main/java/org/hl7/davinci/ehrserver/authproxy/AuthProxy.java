@@ -84,7 +84,7 @@ public class AuthProxy {
     try {
       ResponseEntity<TokenResponse> response = restTemplate.postForEntity(Config.get("oauth_token"), request, TokenResponse.class);
       Objects.requireNonNull(response.getBody())
-          .setPatientId(payload.getPatientId())
+          .setPatient(payload.getPatient())
           .setAppContext(payload.getAppContext());
       response = ResponseEntity.ok(response.getBody());
 

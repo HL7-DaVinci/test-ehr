@@ -29,8 +29,8 @@ public class Payload {
     return launchUrl;
   }
 
-  public String getPatientId() {
-    return parameters.getPatientId();
+  public String getPatient() {
+    return parameters.getPatient();
   }
 
 
