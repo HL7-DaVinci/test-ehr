@@ -6,7 +6,7 @@ This subproject hosts a HAPI FHIR server that is based on the [hapi-fhir-jpaserv
 2. from Terminal (1) while in test-ehr folder: `gradle appRun`
 3. from Terminal (2) while in test-ehr folder:   `gradle loadData`
 
->Some VPNs might prevent the test-ehr from starting with 'gradle appRun'. To workaround this you could disable your VPN then run 'gradle appRun'. Once the test-ehr has started you should be able to restart your VPN. The test-ehr should continue to run. 
+>Tip: Some VPNs might prevent the test-ehr from starting with 'gradle appRun'. To workaround this you could disable your VPN then run 'gradle appRun'. Once the test-ehr has started you should be able to restart your VPN. The test-ehr should continue to run. 
 
 ## Running the server
 `gradle appRun`
