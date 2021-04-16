@@ -108,7 +108,7 @@ task loadBundleResource{
         fileList.each{bundleFile -> 
             println '------ Processing file ' + bundleFile.getName()
             def bundleResource = new groovy.json.JsonSlurper().parseText(bundleFile.text)
-            //println '---- bundleResource ' + bundleResource
+            println '---- bundleResource ' + bundleResource
             def http = groovyx.net.http.HttpBuilder.configure{
                 request.uri = 'http://localhost:8080'
                 request.contentType = 'application/json'
