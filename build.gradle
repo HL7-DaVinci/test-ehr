@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
         maven {
             url = 'https://oss.sonatype.org/content/repositories/snapshots/'
         }
@@ -10,6 +11,7 @@ buildscript {
     }
     dependencies {
         classpath group: 'io.github.http-builder-ng', name: 'http-builder-ng-core', version: '1.0.3'
+        classpath 'org.gretty:gretty:3.0.4'
     }
 }
 
@@ -23,10 +25,11 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 apply plugin: 'maven'
 apply plugin: 'war'
-apply from: 'https://raw.github.com/gretty-gradle-plugin/gretty/master/pluginScripts/gretty.plugin'
+apply plugin: 'org.gretty'
 
 gretty {
     servletContainer = 'tomcat9'
