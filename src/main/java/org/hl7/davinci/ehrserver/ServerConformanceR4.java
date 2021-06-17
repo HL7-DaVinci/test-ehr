@@ -1,10 +1,12 @@
 package org.hl7.davinci.ehrserver;
 
-import ca.uhn.fhir.jpa.dao.DaoConfig;
-import ca.uhn.fhir.jpa.dao.IFhirSystemDao;
-import ca.uhn.fhir.jpa.provider.r4.JpaConformanceProviderR4;
+import ca.uhn.fhir.context.support.IValidationSupport;
+import ca.uhn.fhir.jpa.api.config.DaoConfig;
+import ca.uhn.fhir.jpa.api.dao.IFhirSystemDao;
+import ca.uhn.fhir.jpa.provider.JpaCapabilityStatementProvider;
 import ca.uhn.fhir.rest.api.server.RequestDetails;
 import ca.uhn.fhir.rest.server.RestfulServer;
+import ca.uhn.fhir.rest.server.util.ISearchParamRegistry;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.CapabilityStatement;
 import org.hl7.fhir.r4.model.Extension;
@@ -14,10 +16,10 @@ import org.hl7.fhir.r4.model.UriType;
 import javax.servlet.http.HttpServletRequest;
 
 
-public class ServerConformanceR4 extends JpaConformanceProviderR4 {
+public class ServerConformanceR4 extends JpaCapabilityStatementProvider {
 
-  public ServerConformanceR4(RestfulServer theRestfulServer, IFhirSystemDao<Bundle, Meta> theSystemDao, DaoConfig theDaoConfig) {
-    super(theRestfulServer, theSystemDao, theDaoConfig);
+  public ServerConformanceR4(RestfulServer theRestfulServer, IFhirSystemDao<Bundle, Meta> theSystemDao, DaoConfig theDaoConfig, ISearchParamRegistry theSearchParamRegistry, IValidationSupport theValidationSupport) {
+    super(theRestfulServer, theSystemDao, theDaoConfig, theSearchParamRegistry, theValidationSupport);
   }
 
   @Override
@@ -35,7 +37,7 @@ public class ServerConformanceR4 extends JpaConformanceProviderR4 {
     securityComponent
         .addExtension(securityExtension);
 
-    CapabilityStatement regularConformance = super.getServerConformance(theRequest, details);
+    CapabilityStatement regularConformance = (CapabilityStatement) super.getServerConformance(theRequest, details);
     regularConformance.getRest().get(0).setSecurity(securityComponent);
     return regularConformance;
   }
