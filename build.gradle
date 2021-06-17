@@ -1,51 +1,58 @@
 buildscript {
+    ext {
+        springBootVersion = '2.4.1'
+    }
     repositories {
         mavenCentral()
-        jcenter()
-        maven {
-            url = 'https://oss.sonatype.org/content/repositories/snapshots/'
-        }
-        maven {
-            url = 'http://repo.maven.apache.org/maven2'
-        }
+        maven { url 'https://repo.spring.io/snapshot' }
+        maven { url 'http://repo.jenkins-ci.org/releases/' }
+
     }
     dependencies {
         classpath group: 'io.github.http-builder-ng', name: 'http-builder-ng-core', version: '1.0.3'
-        classpath 'org.gretty:gretty:3.0.4'
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'war'
+}
+apply plugin: 'org.springframework.boot'
+
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://oss.sonatype.org/content/repositories/snapshots/')
+    }
+
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
     }
 }
 
 
-plugins {
-    id 'java'
-}
-
-version 'unspecified'
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-    jcenter()
-}
-apply plugin: 'maven'
-apply plugin: 'war'
-apply plugin: 'org.gretty'
-
-gretty {
-    servletContainer = 'tomcat9'
-}
-
 dependencies {
+    compile "io.github.http-builder-ng:http-builder-ng-core:1.0.3"
+
     compile 'org.eclipse.jetty.websocket:websocket-api:9.4.24.v20191120'
     compile 'org.eclipse.jetty.websocket:websocket-client:9.4.24.v20191120'
     compile 'mysql:mysql-connector-java:8.0.11'
     compile 'org.postgresql:postgresql:42.2.9'
     compile 'com.sun.mail:javax.mail:1.6.1'
-    compile 'ca.uhn.hapi.fhir:hapi-fhir-base:4.2.0'
-    compile 'ca.uhn.hapi.fhir:hapi-fhir-jpaserver-base:4.2.0'
+    implementation 'ca.uhn.hapi.fhir:hapi-fhir-base:5.4.0'
+    implementation 'ca.uhn.hapi.fhir:hapi-fhir-jpaserver-base:5.4.0'
+    implementation 'ca.uhn.hapi.fhir:hapi-fhir-jpaserver-cql:5.4.0'
+    implementation 'ca.uhn.hapi.fhir:hapi-fhir-jpaserver-mdm:5.4.0'
+    implementation 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:5.4.0'
+    compile 'org.springframework.boot:spring-boot-starter-web:2.4.1'
     compile 'ch.qos.logback:logback-classic:1.2.3'
     compile 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
-    compile 'org.springframework:spring-web:5.2.3.RELEASE'
+    implementation 'org.springframework:spring-web:5.3.6'
+    implementation 'org.springframework.boot:spring-boot-autoconfigure:2.4.4'
+
     compile 'org.springframework:spring-jdbc:5.2.3.RELEASE'
     compile 'org.apache.commons:commons-dbcp2:2.7.0'
     compile 'com.h2database:h2:1.4.200'
@@ -57,6 +64,7 @@ dependencies {
     compile 'org.webjars:select2:4.0.3'
     compile 'org.webjars.bower:jquery:3.3.1'
     compile 'org.webjars.bower:moment:2.15.1'
+    implementation 'org.yaml:snakeyaml:1.28'
 
     compile 'org.ebaysf.web:cors-filter:1.0.1'
     compile 'org.apache.derby:derby:10.14.2.0'
@@ -75,7 +83,8 @@ dependencies {
     testCompile 'org.mockito:mockito-core:3.2.0'
     //compile 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:war'
     compile 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:classes'
-    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+
     compile 'javax.interceptor:javax.interceptor-api:1.2.2'
 }
 

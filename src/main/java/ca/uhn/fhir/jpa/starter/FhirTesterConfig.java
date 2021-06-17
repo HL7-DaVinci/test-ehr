@@ -1,14 +1,14 @@
 package ca.uhn.fhir.jpa.starter;
 
+import ca.uhn.fhir.to.FhirTesterMvcConfig;
+import ca.uhn.fhir.to.TesterConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import ca.uhn.fhir.to.FhirTesterMvcConfig;
-import ca.uhn.fhir.to.TesterConfig;
-
 //@formatter:off
+
 /**
  * This spring config file configures the web testing module. It serves two
  * purposes:
@@ -18,8 +18,8 @@ import ca.uhn.fhir.to.TesterConfig;
  *    method below
  */
 @Configuration
-@Import(FhirTesterMvcConfig.class)
 @ComponentScan(basePackages = "org.hl7.davinci.ehrserver.authproxy")
+@Import(FhirTesterMvcConfig.class)
 public class FhirTesterConfig {
 
 	/**
@@ -36,18 +36,22 @@ public class FhirTesterConfig {
 	 * deploying your server to a place with a fully qualified domain name,
 	 * you might want to use that instead of using the variable.
 	 */
-	@Bean
-	public TesterConfig testerConfig() {
-		TesterConfig retVal = new TesterConfig();
-		retVal
-			.addServer()
-				.withId(HapiProperties.getServerId())
-				.withFhirVersion(HapiProperties.getFhirVersion())
-				.withBaseUrl(HapiProperties.getServerAddress())
-				.withName(HapiProperties.getServerName());
-		retVal.setRefuseToFetchThirdPartyUrls(HapiProperties.getTesterConfigRefustToFetchThirdPartyUrls());
-		return retVal;
-	}
+  @Bean
+  public TesterConfig testerConfig(AppProperties appProperties) {
+    TesterConfig retVal = new TesterConfig();
+    appProperties.getTester().entrySet().stream().forEach(t -> {
+      retVal
+        .addServer()
+        .withId(t.getKey())
+        .withFhirVersion(t.getValue().getFhir_version())
+        .withBaseUrl(t.getValue().getServer_address())
+        .withName(t.getValue().getName());
+      retVal.setRefuseToFetchThirdPartyUrls(
+        t.getValue().getRefuse_to_fetch_third_party_urls());
+
+    });
+    return retVal;
+  }
 
 }
 //@formatter:on

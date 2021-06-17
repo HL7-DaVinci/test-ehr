@@ -143,7 +143,7 @@ public class AuthProxy {
    */
   private String _parseRedirect(Map<String, String> reqParamValue, HttpServletRequest request) {
     String currentRedirectURI = reqParamValue.get("redirect_uri");
-    String finalRedirectURI = "http://" +request.getLocalName() + ":" + request.getLocalPort() + request.getContextPath() + "/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
+    String finalRedirectURI = "http://" +request.getLocalName() + ":" + request.getLocalPort() + "/test-ehr/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
     reqParamValue.put("redirect_uri", finalRedirectURI);
     payloadDAO.updateRedirect(reqParamValue.get("launch"), finalRedirectURI);
     return paramFormatter(reqParamValue);

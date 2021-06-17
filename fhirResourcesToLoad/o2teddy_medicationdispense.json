@@ -10,7 +10,7 @@
       }
     ]
   },
-  "status": "active",
+  "status": "in-progress",
   "intent": "order",
   "subject": {
     "reference": "Patient/pat014",
