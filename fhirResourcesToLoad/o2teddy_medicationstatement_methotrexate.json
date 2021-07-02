@@ -1,16 +1,16 @@
 {
     "resourceType": "MedicationStatement",
-    "id": "medstate-pat014-azathio",
+    "id": "medstate-pat014-metho",
     "contained": [
         {
             "resourceType": "Medication",
-            "id": "med-azathioprine",
+            "id": "med-methotrexate",
             "code": {
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/sid/ndc",
-                        "code": "68462-502-01",
-                        "display": "Azathioprine"
+                        "code": "00555-0928-01",
+                        "display": "Methotrexate"
                     }
                 ]
             },
@@ -29,14 +29,14 @@
                         "coding": [
                             {
                                 "system": "http://snomed.info/sct",
-                                "code": "778409008",
-                                "display": "Product containing only azathioprine in oral dose form"
+                                "code": "776732000",
+                                "display": "Product containing only methotrexate (medicinal product)"
                             }
                         ]
                     },
                     "strength": {
                         "numerator": {
-                            "value": 50,
+                            "value": 7.5,
                             "system": "http://unitsofmeasure.org",
                             "code": "mg"
                         },
@@ -49,8 +49,8 @@
                 }
             ],
             "batch": {
-                "lotNumber": "9494788",
-                "expirationDate": "2025-05-22"
+                "lotNumber": "12345",
+                "expirationDate": "2026-06-23"
             }
         }
     ],
@@ -67,9 +67,9 @@
     "medicationCodeableConcept": {
         "coding": [
             {
-                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                "code": "105611",
-                "display": "azathioprine 50 MG Oral Tablet [Imuran]"
+                "system": "http://hl7.org/fhir/sid/ndc",
+                "code": "00555-0928-01",
+                "display": "Methotrexate"
             }
         ]
     },
@@ -77,15 +77,15 @@
         "reference": "Patient/pat014",
         "display": "Roosevelt Theodore"
     },
-    "effectiveDateTime": "2020-05-10",
-    "dateAsserted": "2020-05-22",
+    "effectiveDateTime": "2020-07-10",
+    "dateAsserted": "2020-07-22",
     "informationSource": {
         "reference": "Patient/pat014",
         "display": "Roosevelt Theodore"
     },
     "derivedFrom": [
         {
-            "reference": "MedicationRequest/pat014-mr-azathioprine"
+            "reference": "MedicationRequest/pat014-mr-methotrexate"
         }
     ],
     "reasonCode": [
