@@ -127,7 +127,7 @@ public class AuthProxy {
    */
   @GetMapping("/_auth/{launch}")
   public void authSync(@PathVariable String launch, @RequestParam Map<String, String> reqParamValue, HttpServletResponse httpServletResponse, HttpServletRequest request) {
-    logger.info("redirected to secondary auth endpoint to sync code/launch_id with each other");
+    logger.info("redirected to secondary auth endpoint to sync code/launchkosjdijsdihdsi_id with each other");
     payloadDAO.updateCode(launch, reqParamValue.get("code"));
     UriComponentsBuilder forwardUrl = UriComponentsBuilder.fromHttpUrl(reqParamValue.get("redirect_uri")).queryParam("state", reqParamValue.get("state")).queryParam("code", reqParamValue.get("code"));
     httpServletResponse.setHeader("Location", forwardUrl.toUriString());
@@ -143,7 +143,7 @@ public class AuthProxy {
    */
   private String _parseRedirect(Map<String, String> reqParamValue, HttpServletRequest request) {
     String currentRedirectURI = reqParamValue.get("redirect_uri");
-    String finalRedirectURI = "http://" +request.getLocalName() + ":" + request.getLocalPort() + "/test-ehr/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
+    String finalRedirectURI = "http://" + "localhost" + ":" + request.getLocalPort() + "/test-ehr/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
     reqParamValue.put("redirect_uri", finalRedirectURI);
     payloadDAO.updateRedirect(reqParamValue.get("launch"), finalRedirectURI);
     return paramFormatter(reqParamValue);
