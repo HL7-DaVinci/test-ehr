@@ -3,6 +3,8 @@
 # Handle closing application on signal interrupt (ctrl + c)
 trap "kill $LOAD_DATA_PID $CONTINUOUS_BUILD_PID $SERVER_PID; gradle --stop; exit" INT
 
+# Set environment variables
+export DOCKER_DEV_PROFILE="true"
 
 # Reset log file content for new application boot
 echo "*** Logs for 'gradle installBootDist --continuous' ***" > builder.log

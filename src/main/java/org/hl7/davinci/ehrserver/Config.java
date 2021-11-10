@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 import java.util.Set;
 
@@ -13,7 +15,11 @@ public abstract class Config {
 
   static {
     try {
-      load(Config.class.getResourceAsStream("/fhirServer.properties"));
+      if (System.getenv("DOCKER_DEV_PROFILE").equals("true")) {
+        load(Config.class.getResourceAsStream("/fhirServer.docker-dev.properties"));
+      } else {
+        load(Config.class.getResourceAsStream("/fhirServer.properties"));
+      }
     } catch (IOException e) {
       System.err.println("Unable to load default properties file");
       e.printStackTrace();
