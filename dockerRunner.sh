@@ -19,12 +19,12 @@ echo "Starting application in watch mode..."
 done
 echo "loading data into test-ehr..."
 gradle loadData ) & LOAD_DATA_PID=$!
-echo "Load Data Task started in background on PID $LOAD_DATA_PID ..." # >> pid_out.txt
+echo "Load Data Task started in background on PID $LOAD_DATA_PID ..." 
 
 # Start the continious build listener process
 echo "starting continuous build listener..."
 gradle build --continuous | tee builder.log & CONTINUOUS_BUILD_PID=$!
-echo "Continuous Build Task started in background on PID ${CONTINUOUS_BUILD_PID} ..." # >> pid_out.txt
+echo "Continuous Build Task started in background on PID ${CONTINUOUS_BUILD_PID} ..." 
 
 # Start server process once initial build finishes  
 ( while ! grep -m1 'BUILD SUCCESSFUL' < builder.log; do
@@ -32,8 +32,7 @@ echo "Continuous Build Task started in background on PID ${CONTINUOUS_BUILD_PID}
 done
 echo "starting test-ehr server..."
 gradle bootRun 2>&1 | tee runner.log ) & SERVER_PID=$!
-echo "Server Start Task started in background on PID $SERVER_PID ..." # >> pid_out.txt
-
+echo "Server Start Task started in background on PID $SERVER_PID ..." 
 
 # Handle application background process exiting
 wait $CONTINUOUS_BUILD_PID $SERVER_PID $LOAD_DATA_PID
