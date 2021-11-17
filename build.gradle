@@ -20,6 +20,7 @@ plugins {
     id 'war'
 }
 apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 
 repositories {
@@ -36,6 +37,7 @@ repositories {
 
 dependencies {
     compile "io.github.http-builder-ng:http-builder-ng-core:1.0.3"
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
 
     compile 'org.eclipse.jetty.websocket:websocket-api:9.4.24.v20191120'
     compile 'org.eclipse.jetty.websocket:websocket-client:9.4.24.v20191120'
@@ -47,13 +49,14 @@ dependencies {
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-jpaserver-cql:5.4.0'
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-jpaserver-mdm:5.4.0'
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:5.4.0'
-    compile 'org.springframework.boot:spring-boot-starter-web:2.4.1'
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'ch.qos.logback:logback-classic:1.2.3'
     compile 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
-    implementation 'org.springframework:spring-web:5.3.6'
-    implementation 'org.springframework.boot:spring-boot-autoconfigure:2.4.4'
+    implementation 'org.springframework:spring-web'
+    implementation 'org.springframework.boot:spring-boot-autoconfigure'
 
-    compile 'org.springframework:spring-jdbc:5.2.3.RELEASE'
+    compile 'org.springframework:spring-jdbc'
     compile 'org.apache.commons:commons-dbcp2:2.7.0'
     compile 'com.h2database:h2:1.4.200'
     compile 'org.webjars:bootstrap:3.3.7'

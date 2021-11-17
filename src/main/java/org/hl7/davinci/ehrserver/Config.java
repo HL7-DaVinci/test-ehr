@@ -13,7 +13,11 @@ public abstract class Config {
 
   static {
     try {
-      load(Config.class.getResourceAsStream("/fhirServer.properties"));
+      if (System.getenv("DOCKER_DEV_PROFILE").equals("true")) {
+        load(Config.class.getResourceAsStream("/fhirServer.docker-dev.properties"));
+      } else {
+        load(Config.class.getResourceAsStream("/fhirServer.properties"));
+      }
     } catch (IOException e) {
       System.err.println("Unable to load default properties file");
       e.printStackTrace();
