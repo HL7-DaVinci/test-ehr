@@ -1,0 +1,29 @@
+{
+  "resourceType": "Patient",
+  "id": "pat017",
+  "gender": "male",
+  "birthDate": "1996-06-01",
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "state": "Westeros",
+      "city": "Winterfell",
+      "postalCode": "00008",
+      "line": ["1 Winterfell Rd"]
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Snow",
+      "given": ["Jon", "Stark", "Snow"]
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-medicare",
+      "value": "0V843229061TB"
+    }
+  ]
+}
