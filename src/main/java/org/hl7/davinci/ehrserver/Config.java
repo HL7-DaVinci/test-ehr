@@ -15,8 +15,8 @@ public abstract class Config {
 
   static {
     try {
-      if (System.getenv("DOCKER_DEV_PROFILE").equals("true")) {
-        load(Config.class.getResourceAsStream("/fhirServer.docker-dev.properties"));
+      if (System.getenv("DOCKER_PROFILE").equals("true")) {
+        load(Config.class.getResourceAsStream("/fhirServer.docker.properties"));
       } else {
         load(Config.class.getResourceAsStream("/fhirServer.properties"));
       }
