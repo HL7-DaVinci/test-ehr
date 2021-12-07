@@ -5,6 +5,7 @@ trap "kill $LOAD_DATA_PID $CONTINUOUS_BUILD_PID $SERVER_PID; gradle --stop; exit
 
 # Set environment variables
 export DOCKER_PROFILE="true"
+
 mkdir logs 
 # Reset log file content for new application boot
 echo "*** Logs for 'gradle installBootDist --continuous' ***" > ./logs/builder.log
