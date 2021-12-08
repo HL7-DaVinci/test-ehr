@@ -15,11 +15,28 @@ echo "*** Logs for 'gradle bootRun' ***" > ./logs/runner.log
 echo "Starting application in watch mode..."
 
 # Start load data process once server is running 
+echo "Starting continuous data loader..."
 ( while ! grep -m1 "Tomcat started on port" < ./logs/runner.log; do
     sleep 1
 done
 echo "loading data into test-ehr..."
-gradle loadData ) & LOAD_DATA_PID=$!
+gradle loadData
+
+# Continuous Load Data command whenever fhirResourcesToLoad directory changes
+reources_modify_time=$(stat -c %Y fhirResourcesToLoad)
+while sleep 1
+do
+    new_reources_modify_time=$(stat -c %Y fhirResourcesToLoad)
+    
+    if [[ "$reources_modify_time" != "$new_reources_modify_time" ]] 
+    then
+        echo "loading data into test-ehr..."
+        gradle loadData
+    fi
+
+    reources_modify_time=$new_reources_modify_time
+
+done ) & LOAD_DATA_PID=$!
 
 # Start the continious build listener process
 echo "starting continuous build listener..."
