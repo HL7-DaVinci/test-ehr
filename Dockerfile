@@ -8,4 +8,4 @@ RUN gradle build
 # Expose port to access the app
 EXPOSE 8080
 # Command to run our app
-CMD ./dockerRunnerDev.sh
+CMD ./dockerRunnerProd.sh

@@ -1,0 +1,2 @@
+FROM hkong2/keycloak
+COPY ./src/main/resources/ClientFhirServerRealm.json /resources/ClientFhirServerRealm.json
