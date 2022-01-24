@@ -18,7 +18,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/gradle-build-action@v2
         with:
-          gradle-version: 6.9.0
+          gradle-version: 6.9
       - name: Build with gradle
         run: gradle build
       - name: Test with gradle
