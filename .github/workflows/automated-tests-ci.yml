@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  automated-tests-ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 6.9
-      - name: Build with gradle
-        run: gradle build
+      # - name: Build with gradle
+      #   run: gradle build
       - name: Test with gradle
         run: gradle clean check
