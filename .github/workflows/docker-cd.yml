@@ -1,4 +1,4 @@
-name: Docker Image CI/CD
+name: Docker Image CD
 
 on:
   push:
@@ -24,3 +24,12 @@ jobs:
         context: .
         push: true
         tags: codexrems/test-ehr:latest
+
+    - name: Build and push Keycloak Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: codexrems/keycloak:latest
+
+    
