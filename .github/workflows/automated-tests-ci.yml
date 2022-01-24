@@ -15,7 +15,11 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Build with Gradle
+      - name: Set up Gradle
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: clean check
+          gradle-version: 6.9.0
+      - name: Build with gradle
+        run: gradle build
+      - name: Test with gradle
+        run: gradle clean check
