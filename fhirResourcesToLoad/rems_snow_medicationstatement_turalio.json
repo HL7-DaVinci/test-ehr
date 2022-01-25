@@ -67,15 +67,15 @@
     "medicationCodeableConcept": {
         "coding": [
             {
-                "system": "http://hl7.org/fhir/sid/ndc",
-                "code": "2183126",
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "2183102",
                 "display": "Turalio"
             }
         ]
     },
     "subject": {
         "reference": "Patient/pat017",
-        "display": "Jon Now"
+        "display": "Jon Snow"
     },
     "effectiveDateTime": "2020-07-10",
     "dateAsserted": "2020-07-22",
