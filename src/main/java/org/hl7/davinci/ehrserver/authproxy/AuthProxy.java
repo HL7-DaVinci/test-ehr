@@ -27,6 +27,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 @RestController
 public class AuthProxy {
@@ -48,7 +49,13 @@ public class AuthProxy {
   @GetMapping("/auth")
   public void getAuth(@RequestParam Map<String, String> reqParamValue, HttpServletResponse httpServletResponse, HttpServletRequest request) throws IOException {
     //
-    String params = _parseRedirect(reqParamValue, request);
+    String launchId = reqParamValue.get("launch");
+    String params;
+    if (launchId == null) {
+      params = _standaloneRedirect(reqParamValue, request);
+    } else {
+      params = _parseRedirect(reqParamValue, request);
+    }
     UriComponentsBuilder forwardUrl = UriComponentsBuilder.fromHttpUrl(Config.get("oauth_authorize"));
     String redirectUrl = forwardUrl.toUriString() + params;
     logger.info("redirectUrl: " + redirectUrl);
@@ -66,14 +73,7 @@ public class AuthProxy {
    */
   @PostMapping(value = "/token",  consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
   public ResponseEntity<TokenResponse> getToken(TokenRequest body) {
-
     Payload payload = payloadDAO.findContextByCode(body.getCode());
-    // should cross reference the supplied redirect uri with the one keycloak is expecting
-    // AKA: Build the correct redirect uri instead of pulling it from the DB, so that keycloak
-    // can verify that the secondary redirect uri, within the proxied redirect, is the same as
-    // the original.  You could, potentially, swap the redirect url in this request if the
-    // launch id is the same.
-    //            - this has been a keeyan exclusive comment
     body.setRedirect_uri(payload.getRedirectUri());
     HttpHeaders httpHeaders = new HttpHeaders();
     httpHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
@@ -84,12 +84,10 @@ public class AuthProxy {
     try {
       ResponseEntity<TokenResponse> response = restTemplate.postForEntity(Config.get("oauth_token"), request, TokenResponse.class);
       Objects.requireNonNull(response.getBody())
-          .setPatient(payload.getPatient())
-          .setAppContext(payload.getAppContext());
+              .setPatient(payload.getPatient())
+              .setAppContext(payload.getAppContext());
       response = ResponseEntity.ok(response.getBody());
-
       return response;
-
     }catch (HttpClientErrorException e) {
       e.printStackTrace();
       System.out.println(e.getResponseBodyAsString());
@@ -146,6 +144,21 @@ public class AuthProxy {
     String finalRedirectURI = "http://" +request.getLocalName() + ":" + request.getLocalPort() + "/test-ehr/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
     reqParamValue.put("redirect_uri", finalRedirectURI);
     payloadDAO.updateRedirect(reqParamValue.get("launch"), finalRedirectURI);
+    return paramFormatter(reqParamValue);
+  }
+
+  private String _standaloneRedirect(Map<String, String> reqParamValue, HttpServletRequest request) {
+    Payload payload = new Payload();
+    Parameters parameters = new Parameters();
+    parameters.setAppContext("");
+    payload.setParameters(parameters);
+    String currentRedirectURI = reqParamValue.get("redirect_uri");
+    String id = "standalone" + UUID.randomUUID().toString();
+    payload.setLaunchId(id);
+    payloadDAO.createStandalonePayload(payload);
+    String finalRedirectURI = "http://" +request.getLocalName() + ":" + request.getLocalPort() + "/test-ehr/_auth/" + id + "?redirect_uri=" + currentRedirectURI;
+    reqParamValue.put("redirect_uri", finalRedirectURI);
+    payloadDAO.updateRedirect(id, finalRedirectURI);
     return paramFormatter(reqParamValue);
   }
 
