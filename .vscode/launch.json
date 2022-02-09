@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug Test-EHR (Local + Docker)", // gradle bootRun -Pdebug
+            "request": "attach",
+            "hostName": "localhost",
+            "port": 8081
+        }
+    ]
+}

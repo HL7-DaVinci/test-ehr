@@ -46,8 +46,8 @@ echo "starting continuous build listener..."
 ( while ! grep -m1 'BUILD SUCCESSFUL' < ./logs/builder.log; do
     sleep 1
 done
-echo "starting test-ehr server..."
-gradle bootRun 2>&1 | tee ./logs/runner.log ) & SERVER_PID=$!
+echo "starting test-ehr server in debug mode..."
+gradle bootRun -Pdebug 2>&1 | tee ./logs/runner.log ) & SERVER_PID=$!
 
 
 
