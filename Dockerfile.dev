@@ -7,5 +7,6 @@ COPY --chown=gradle:gradle . .
 RUN gradle build
 # Expose port to access the app
 EXPOSE 8080
+EXPOSE 8081
 # Command to run our app
 CMD ./dockerRunnerDev.sh
