@@ -23,6 +23,7 @@ server/src/main/resources/react/node_modules/*
 target/*
 .classpath
 bin/main/*
+bin/*
 .settings/*
 
 
@@ -74,7 +75,7 @@ fabric.properties
 
 # Log file
 *.log
-logs/*
+logs/
 
 # BlueJ files
 *.ctxt
