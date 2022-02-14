@@ -8,6 +8,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
+
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -26,6 +28,7 @@ public class KeyDAOImpl implements KeyDAO {
 
   @PostConstruct
   public void setJdbcTemplate() throws SQLException {
+    System.setProperty("derby.stream.error.file", new File("logs/derby.log").getAbsolutePath());
     jdbcTemplate = new JdbcTemplate(dataSource);
     String dbUrl = "jdbc:derby:directory:target/jpaserver_derby_files;create=true";
     Connection conn = DriverManager.getConnection(dbUrl);
