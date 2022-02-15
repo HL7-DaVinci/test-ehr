@@ -1,3 +1,6 @@
 .git
 target
 build
+.gradle
+bin
+logs
