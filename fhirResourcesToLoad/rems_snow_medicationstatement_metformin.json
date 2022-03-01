@@ -1,0 +1,33 @@
+{
+    "resourceType": "MedicationStatement",
+    "id": "medstate-pat017-metformin",
+    "status": "active",
+    "category": {
+        "coding": [
+            {
+                "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category",
+                "code": "inpatient",
+                "display": "Inpatient"
+            }
+        ]
+    },
+    "medicationCodeableConcept": {
+        "coding": [
+            {
+                "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                "code": "6809",
+                "display": "metformin"
+            }
+        ]
+    },
+    "subject": {
+        "reference": "Patient/pat017",
+        "display": "Jon Snow"
+    },
+    "effectiveDateTime": "2021-03-20",
+    "dateAsserted": "2021-03-22",
+    "informationSource": {
+        "reference": "Patient/pat017",
+        "display": "Jon Snow"
+    }
+}
