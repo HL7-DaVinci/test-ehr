@@ -40,7 +40,6 @@ bootRun {
     }
 }
 
-
 dependencies {
     compile "io.github.http-builder-ng:http-builder-ng-core:1.0.3"
     developmentOnly("org.springframework.boot:spring-boot-devtools")

@@ -54,6 +54,12 @@ public class PayloadDAOImpl implements PayloadDAO {
     logger.info("Created payload: " + payload.toString());
   }
 
+  public void createStandalonePayload(Payload payload) {
+    String sql = "insert into appcontext (launchId, launchUrl, patient, appContext) values (?, ?, ?, ?)";
+    jdbcTemplate.update(sql, payload.getLaunchId(), "", "", "");
+    logger.info("Created payload: " + payload.toString());
+  }
+
   @Override
   public Payload getPayload(String launchId) {
     String sql = "select * from appcontext where launchId = ?";
