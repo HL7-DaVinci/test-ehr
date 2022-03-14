@@ -25,6 +25,6 @@ jobs:
         context: .
         file: Dockerfile.keycloak
         push: true
-        tags: codexrems/keycloak:REMSvlatest
+        tags: codexrems/keycloak:REMSvCurrent
 
     
