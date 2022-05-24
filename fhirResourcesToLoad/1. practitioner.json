@@ -64,6 +64,32 @@
       "issuer": {
         "display": "Example University"
       }
+    },
+    {
+      "identifier": [
+        {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "value": "2183126"
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0360/2.7",
+            "code": "CER",
+            "display": "Certificate"
+          }
+        ],
+        "text": "Certification to prescribe Turalio"
+      },
+      "period": {
+        "start": "2022-01-01"
+      },
+      "issuer": {
+        "reference": "Organization/orgubc",
+        "type": "Organization",
+        "display": "United BioSource LLC"
+      }
     }
   ]
 }
