@@ -1,12 +1,25 @@
 {
     "version": "0.2.0",
     "configurations": [
+        
         {
             "type": "java",
-            "name": "Debug Test-EHR (Local + Docker)", // gradle bootRun -Pdebug
+            "name": "Launch Application",
+            "request": "launch",
+            "mainClass": "ca.uhn.fhir.jpa.starter.Application",
+            "projectName": "test-ehr"
+        },
+        {
+            "type": "java",
+            "name": "Debug Test-EHR (Local + Docker)",
             "request": "attach",
             "hostName": "localhost",
             "port": 8081
+        },
+        {
+            "name": "test-ehr",
+            "command": "gradle bootRun -Pdebug", // Could be any other shell command
+            "type": "shell"
         }
     ]
 }
