@@ -15,11 +15,6 @@
             "request": "attach",
             "hostName": "localhost",
             "port": 8081
-        },
-        {
-            "name": "test-ehr",
-            "command": "gradle bootRun -Pdebug", // Could be any other shell command
-            "type": "shell"
         }
     ]
 }
