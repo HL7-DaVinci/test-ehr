@@ -6,10 +6,6 @@ import ca.uhn.fhir.interceptor.api.Interceptor;
 import ca.uhn.fhir.interceptor.api.Hook;
 import ca.uhn.fhir.interceptor.api.Pointcut;
 
-import org.hl7.davinci.ehrserver.interceptor.impl.DeviceRequestOrderImpl;
-import org.hl7.davinci.ehrserver.interceptor.impl.MedicationDispenseOrderImpl;
-import org.hl7.davinci.ehrserver.interceptor.impl.MedicationRequestOrderImpl;
-import org.hl7.davinci.ehrserver.interceptor.impl.ServiceRequestOrderImpl;
 import org.hl7.fhir.instance.model.api.IBaseResource;
 import org.hl7.fhir.r4.model.*;
 import java.util.stream.Collectors;
@@ -70,24 +66,6 @@ public class OrderIdentifierAdditionInterceptor {
                 break;
             default:
                 break;
-        }
-    }
-
-    private <T extends OrderInterface> void addIdentifier(T request) {
-        List<Identifier> placerList = request.getIdentifier().stream().filter(id -> {
-            List<Coding> placerCodingList = id.getType().getCoding().stream()
-                    .filter(coding -> coding.getCode().equals(CODE_PLAC))
-                    .collect(Collectors.toList());
-            return placerCodingList.size() > 0;
-        })
-                .collect(Collectors.toList());
-        if (placerList.size() <= 0) {
-            logger.info("Adding placer identifier for order. Resource type: " + request.getResourceType());
-            request
-                    .addIdentifier().setType(new CodeableConcept()
-                            .addCoding(new Coding().setSystem("http://terminology.hl7.org/CodeSystem/v2-0203")
-                                    .setCode(CODE_PLAC)))
-                    .setValue(UUID.randomUUID().toString());
         }
     }
 
