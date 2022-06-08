@@ -1,2 +1,2 @@
-FROM hkong2/keycloak
+FROM jboss/keycloak:15.0.2
 COPY ./src/main/resources/ClientFhirServerRealm.json /resources/ClientFhirServerRealm.json

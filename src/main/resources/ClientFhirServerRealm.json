@@ -444,6 +444,76 @@
     "FreeOTP",
     "Google Authenticator"
   ],
+  "users": [
+    {
+      "id" : "620423a2-877a-46af-97d4-364d37b3349b",
+      "createdTimestamp" : 1654609807450,
+      "username" : "alice",
+      "enabled" : true,
+      "totp" : false,
+      "emailVerified" : false,
+      "firstName" : "Alice",
+      "email" : "alice@example.com",
+      "credentials" : [ {
+        "id" : "c26fc896-e31d-4ff2-86ef-d3bf1e12d0f8",
+        "type" : "password",
+        "createdDate" : 1654609819688,
+        "secretData" : "{\"value\":\"odjSlhEMEZ4etKbBmetpNGo3wuRwjoyqKXtaAsWPdKNgAormk139QGiLQlopCdYfFNS+/NWIljCorB18KLkgiA==\",\"salt\":\"QNiNwoly9EW4LyYXOGEtdw==\",\"additionalParameters\":{}}",
+        "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+      } ],
+      "disableableCredentialTypes" : [ ],
+      "requiredActions" : [ ],
+      "realmRoles" : [ "default-roles-master" ],
+      "notBefore" : 0,
+      "groups" : [ ]
+    },
+    {
+      "id" : "11dd7e9c-1e77-4fcb-9c22-247b915e5c34",
+      "createdTimestamp" : 1654535788585,
+      "username" : "janedoe",
+      "enabled" : true,
+      "totp" : false,
+      "emailVerified" : false,
+      "firstName" : "Jane",
+      "lastName" : "Doe",
+      "email" : "jane@example.com",
+      "credentials" : [ {
+        "id" : "0b3d985e-80ad-4410-a965-21709928419e",
+        "type" : "password",
+        "createdDate" : 1654535793987,
+        "secretData" : "{\"value\":\"2uvlS5n7+uEtAzObQ1eEZCY2wla+RNxYtGkXYtqchX3wr4JGpJ3C5dOaIGQYLCBsFzgLzi6Pg8oNpzgfdLCUdQ==\",\"salt\":\"2HVendeQs4ks6GvCvMyZ2g==\",\"additionalParameters\":{}}",
+        "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+      } ],
+      "disableableCredentialTypes" : [ ],
+      "requiredActions" : [ ],
+      "realmRoles" : [ "default-roles-master" ],
+      "notBefore" : 0,
+      "groups" : [ ]
+    },
+    {
+      "id" : "d6999f64-7165-4742-8a69-44f719d6783f",
+      "createdTimestamp" : 1654609729216,
+      "username" : "jonsnow",
+      "enabled" : true,
+      "totp" : false,
+      "emailVerified" : false,
+      "firstName" : "Jon",
+      "lastName" : "Snow",
+      "email" : "jon@example.com",
+      "credentials" : [ {
+        "id" : "232e4607-8591-40c8-8ca8-1a365f63cadf",
+        "type" : "password",
+        "createdDate" : 1654609739752,
+        "secretData" : "{\"value\":\"Zs3fDyVFmv0dYSJwiokneqi+NDn4xkmdaR9zEV6/Evw0Ms/IMKzTg8q9UX/u+tEa2REdBMalZRgW24YtC+0Yig==\",\"salt\":\"Jy5i2rtokpSMb4iNSz1rPg==\",\"additionalParameters\":{}}",
+        "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+      } ],
+      "disableableCredentialTypes" : [ ],
+      "requiredActions" : [ ],
+      "realmRoles" : [ "default-roles-master" ],
+      "notBefore" : 0,
+      "groups" : [ ]
+    }
+  ],
   "webAuthnPolicyRpEntityName": "keycloak",
   "webAuthnPolicySignatureAlgorithms": [
     "ES256"
