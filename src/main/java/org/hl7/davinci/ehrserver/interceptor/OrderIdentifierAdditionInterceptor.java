@@ -46,29 +46,27 @@ public class OrderIdentifierAdditionInterceptor {
         switch (theResource.fhirType()) {
             case "DeviceRequest":
                 DeviceRequest deviceRequest = ((DeviceRequest) theResource);
-                DeviceRequestOrderImpl deviceRequestImpl = new DeviceRequestOrderImpl(deviceRequest);
-                addIdentifier(deviceRequestImpl);
-                deviceRequest = (DeviceRequest) deviceRequestImpl.getRequest();
+                if(!hasPlacerIdentifier(deviceRequest.getIdentifier())){
+                    deviceRequest.addIdentifier(getIdentifier());
+                }
                 break;
             case "ServiceRequest":
                 ServiceRequest serviceRequest = (ServiceRequest) theResource;
-                ServiceRequestOrderImpl serviceRequestOrderImpl = new ServiceRequestOrderImpl(serviceRequest);
-                addIdentifier(serviceRequestOrderImpl);
-                serviceRequest = (ServiceRequest) serviceRequestOrderImpl.getRequest();
+                if(!hasPlacerIdentifier(serviceRequest.getIdentifier())){
+                    serviceRequest.addIdentifier(getIdentifier());
+                }
                 break;
             case "MedicationRequest":
                 MedicationRequest medicationRequest = (MedicationRequest) theResource;
-                MedicationRequestOrderImpl medicationRequestOrderImpl = new MedicationRequestOrderImpl(
-                        medicationRequest);
-                addIdentifier(medicationRequestOrderImpl);
-                medicationRequest = (MedicationRequest) medicationRequestOrderImpl.getRequest();
+                if(!hasPlacerIdentifier(medicationRequest.getIdentifier())){
+                    medicationRequest.addIdentifier(getIdentifier());
+                }
                 break;
             case "MedicationDispense":
                 MedicationDispense medicationDispense = (MedicationDispense) theResource;
-                MedicationDispenseOrderImpl medicationDispenseOrderImpl = new MedicationDispenseOrderImpl(
-                        medicationDispense);
-                addIdentifier(medicationDispenseOrderImpl);
-                medicationDispense = (MedicationDispense) medicationDispenseOrderImpl.getRequest();
+                if(!hasPlacerIdentifier(medicationDispense.getIdentifier())){
+                    medicationDispense.addIdentifier(getIdentifier());
+                }
                 break;
             default:
                 break;
@@ -91,7 +89,25 @@ public class OrderIdentifierAdditionInterceptor {
                                     .setCode(CODE_PLAC)))
                     .setValue(UUID.randomUUID().toString());
         }
-
     }
 
+    private Identifier getIdentifier() {
+        Identifier identifier = new Identifier();
+        identifier.setType(new CodeableConcept()
+                .addCoding(new Coding().setSystem("http://terminology.hl7.org/CodeSystem/v2-0203")
+                        .setCode(CODE_PLAC)))
+                .setValue(UUID.randomUUID().toString());
+        return identifier;
+    }
+
+    private boolean hasPlacerIdentifier(List<Identifier> identifierList) {
+        List<Identifier> placerList = identifierList.stream().filter(id -> {
+            List<Coding> placerCodingList = id.getType().getCoding().stream()
+                    .filter(coding -> coding.getCode().equals(CODE_PLAC))
+                    .collect(Collectors.toList());
+            return placerCodingList.size() > 0;
+        }).collect(Collectors.toList());
+        ;
+        return placerList.size() > 0;
+    }
 }
