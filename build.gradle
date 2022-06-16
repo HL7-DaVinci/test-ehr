@@ -5,7 +5,7 @@ buildscript {
     repositories {
         mavenCentral()
         maven { url 'https://repo.spring.io/snapshot' }
-        maven { url 'http://repo.jenkins-ci.org/releases/' }
+        maven { url 'https://repo.jenkins-ci.org/releases/' }
 
     }
     dependencies {
@@ -34,66 +34,66 @@ repositories {
     }
 }
 
-bootRun {  
-    if (project.hasProperty('debug')) { 
+bootRun {
+    if (project.hasProperty('debug')) {
         jvmArgs=["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:8081"]
     }
 }
 
 dependencies {
-    compile "io.github.http-builder-ng:http-builder-ng-core:1.0.3"
+    implementation "io.github.http-builder-ng:http-builder-ng-core:1.0.3"
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
-    compile 'org.eclipse.jetty.websocket:websocket-api:9.4.24.v20191120'
-    compile 'org.eclipse.jetty.websocket:websocket-client:9.4.24.v20191120'
-    compile 'mysql:mysql-connector-java:8.0.11'
-    compile 'org.postgresql:postgresql:42.2.9'
-    compile 'com.sun.mail:javax.mail:1.6.1'
+    implementation 'org.eclipse.jetty.websocket:websocket-api:9.4.24.v20191120'
+    implementation 'org.eclipse.jetty.websocket:websocket-client:9.4.24.v20191120'
+    implementation 'mysql:mysql-connector-java:8.0.11'
+    implementation 'org.postgresql:postgresql:42.2.9'
+    implementation 'com.sun.mail:javax.mail:1.6.1'
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-base:5.4.0'
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-jpaserver-base:5.4.0'
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-jpaserver-cql:5.4.0'
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-jpaserver-mdm:5.4.0'
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:5.4.0'
-    compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile 'org.springframework.boot:spring-boot-starter-web'
-    compile 'ch.qos.logback:logback-classic:1.2.3'
-    compile 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
     implementation 'org.springframework:spring-web'
     implementation 'org.springframework.boot:spring-boot-autoconfigure'
 
-    compile 'org.springframework:spring-jdbc'
-    compile 'org.apache.commons:commons-dbcp2:2.7.0'
-    compile 'com.h2database:h2:1.4.200'
-    compile 'org.webjars:bootstrap:3.3.7'
-    compile 'org.webjars:Eonasdan-bootstrap-datetimepicker:4.17.43'
-    compile 'org.webjars:font-awesome:5.8.2'
-    compile 'org.webjars.bower:awesome-bootstrap-checkbox:1.0.1'
-    compile 'org.webjars:jstimezonedetect:1.0.6'
-    compile 'org.webjars:select2:4.0.3'
-    compile 'org.webjars.bower:jquery:3.3.1'
-    compile 'org.webjars.bower:moment:2.15.1'
+    implementation 'org.springframework:spring-jdbc'
+    implementation 'org.apache.commons:commons-dbcp2:2.7.0'
+    implementation 'com.h2database:h2:1.4.200'
+    implementation 'org.webjars:bootstrap:3.3.7'
+    implementation 'org.webjars:Eonasdan-bootstrap-datetimepicker:4.17.43'
+    implementation 'org.webjars:font-awesome:5.8.2'
+    implementation 'org.webjars.bower:awesome-bootstrap-checkbox:1.0.1'
+    implementation 'org.webjars:jstimezonedetect:1.0.6'
+    implementation 'org.webjars:select2:4.0.3'
+    implementation 'org.webjars.bower:jquery:3.3.1'
+    implementation 'org.webjars.bower:moment:2.15.1'
     implementation 'org.yaml:snakeyaml:1.28'
 
-    compile 'org.ebaysf.web:cors-filter:1.0.1'
-    compile 'org.apache.derby:derby:10.14.2.0'
-    compile 'org.apache.derby:derbynet:10.14.2.0'
-    compile 'org.apache.derby:derbyclient:10.14.2.0'
+    implementation 'org.ebaysf.web:cors-filter:1.0.1'
+    implementation 'org.apache.derby:derby:10.14.2.0'
+    implementation 'org.apache.derby:derbynet:10.14.2.0'
+    implementation 'org.apache.derby:derbyclient:10.14.2.0'
 
-    testCompile 'org.eclipse.jetty:jetty-servlets:9.4.24.v20191120'
-    testCompile 'org.eclipse.jetty:jetty-servlet:9.4.24.v20191120'
-    testCompile 'org.eclipse.jetty.websocket:websocket-server:9.4.24.v20191120'
-    testCompile 'org.eclipse.jetty:jetty-server:9.4.24.v20191120'
-    testCompile 'org.eclipse.jetty:jetty-util:9.4.24.v20191120'
-    testCompile 'org.eclipse.jetty:jetty-webapp:9.4.24.v20191120'
-    testCompile 'ca.uhn.hapi.fhir:hapi-fhir-test-utilities:4.2.0'
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
-    testCompile 'org.mockito:mockito-core:3.2.0'
-    //compile 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:war'
-    compile 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:classes'
-    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    testImplementation 'org.eclipse.jetty:jetty-servlets:9.4.24.v20191120'
+    testImplementation 'org.eclipse.jetty:jetty-servlet:9.4.24.v20191120'
+    testImplementation 'org.eclipse.jetty.websocket:websocket-server:9.4.24.v20191120'
+    testImplementation 'org.eclipse.jetty:jetty-server:9.4.24.v20191120'
+    testImplementation 'org.eclipse.jetty:jetty-util:9.4.24.v20191120'
+    testImplementation 'org.eclipse.jetty:jetty-webapp:9.4.24.v20191120'
+    testImplementation 'ca.uhn.hapi.fhir:hapi-fhir-test-utilities:4.2.0'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.hamcrest:java-hamcrest:2.0.0.0'
+    testImplementation 'org.mockito:mockito-core:3.2.0'
+    //implementation 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:war'
+    implementation 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:classes'
+//    providedImplementation 'javax.servlet:javax.servlet-api:3.1.0'
 
-    compile 'javax.interceptor:javax.interceptor-api:1.2.2'
+    implementation 'javax.interceptor:javax.interceptor-api:1.2.2'
 }
 
 task loadData{
@@ -125,7 +125,7 @@ task loadBundleResource{
         def bundleFileDir = new File(projectDir, "bundlefile")
         def fileList = bundleFileDir.listFiles()
         println(fileList)
-        fileList.each{bundleFile -> 
+        fileList.each{bundleFile ->
             println '------ Processing file ' + bundleFile.getName()
             def bundleResource = new groovy.json.JsonSlurper().parseText(bundleFile.text)
             println '---- bundleResource ' + bundleResource
@@ -133,7 +133,7 @@ task loadBundleResource{
                 request.uri = 'http://localhost:8080'
                 request.contentType = 'application/json'
             }
-        
+
             def entryResource = bundleResource.entry.resource
             entryResource.each { item->
                 println 'Item type:' + item.resourceType + ' with id:' + item.id
@@ -176,22 +176,22 @@ void setup() {
 
 void cleanup(){
 
-        def folder = new File(rootProject.projectDir.absolutePath + "/src/main/webapp/WEB-INF/build")
-        if(folder.exists()) {
-            exec {
-                workingDir 'src/main/webapp/'
-                commandLine 'rm', '-rf', 'WEB-INF/build'
-            }
-        }
-
+    def folder = new File(rootProject.projectDir.absolutePath + "/src/main/webapp/WEB-INF/build")
+    if(folder.exists()) {
         exec {
-            workingDir 'src/main/webapp'
-            commandLine 'mv','tempFolder/build', 'WEB-INF/'
+            workingDir 'src/main/webapp/'
+            commandLine 'rm', '-rf', 'WEB-INF/build'
         }
+    }
 
-        exec {
-            workingDir 'src/main/webapp'
-            commandLine 'rm','-rf','tempFolder'
-        }
+    exec {
+        workingDir 'src/main/webapp'
+        commandLine 'mv','tempFolder/build', 'WEB-INF/'
+    }
+
+    exec {
+        workingDir 'src/main/webapp'
+        commandLine 'rm','-rf','tempFolder'
+    }
 
 }
