@@ -45,6 +45,7 @@ import ca.uhn.fhir.rest.server.util.ISearchParamRegistry;
 import ca.uhn.fhir.validation.IValidatorModule;
 import ca.uhn.fhir.validation.ResultSeverityEnum;
 import com.google.common.base.Strings;
+import org.hl7.davinci.ehrserver.ClientAuthorizationInterceptor;
 import org.hl7.davinci.ehrserver.ServerConformanceR4;
 import org.hl7.davinci.ehrserver.interceptor.OrderIdentifierAdditionInterceptor;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
@@ -230,9 +231,13 @@ public class BaseJpaRestfulServer extends RestfulServer {
     loggingInterceptor.setLogExceptions(appProperties.getLogger().getLog_exceptions());
     this.registerInterceptor(loggingInterceptor);
 
+    ClientAuthorizationInterceptor clientAuthorizationInterceptor = new ClientAuthorizationInterceptor();
+    this.registerInterceptor(clientAuthorizationInterceptor);
+
+
     // import interceptor for adding order identifier
     this.registerInterceptor(new OrderIdentifierAdditionInterceptor());
-    
+
     /*
      * If you are hosting this server at a specific DNS name, the server will try to
      * figure out the FHIR base URL based on what the web container tells it, but
