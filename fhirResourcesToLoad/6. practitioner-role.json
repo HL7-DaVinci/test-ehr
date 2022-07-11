@@ -1,6 +1,17 @@
 {
   "resourceType": "PractitionerRole",
   "id": "prarol1234",
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "394592004",
+          "display": "Clinical Oncologist"
+        }
+      ]
+    }
+  ],
   "practitioner": {
     "reference": "Practitioner/pra1234"
   },
@@ -9,7 +20,7 @@
       "reference": "Location/loc1234"
     }
   ],
-  "organization ": {
+  "organization": {
     "reference": "Organization/org1234"
   }
 }
