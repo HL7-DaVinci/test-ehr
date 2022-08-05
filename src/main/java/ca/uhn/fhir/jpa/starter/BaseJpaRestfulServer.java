@@ -48,6 +48,7 @@ import com.google.common.base.Strings;
 import org.hl7.davinci.ehrserver.ClientAuthorizationInterceptor;
 import org.hl7.davinci.ehrserver.ServerConformanceR4;
 import org.hl7.davinci.ehrserver.interceptor.OrderIdentifierAdditionInterceptor;
+import org.hl7.davinci.ehrserver.provider.QuestionnaireResponseProvider;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -61,6 +62,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 
 public class BaseJpaRestfulServer extends RestfulServer {
   private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(BaseJpaRestfulServer.class);
@@ -368,6 +370,8 @@ public class BaseJpaRestfulServer extends RestfulServer {
       setTenantIdentificationStrategy(new UrlBaseTenantIdentificationStrategy());
       registerProviders(partitionManagementProvider);
     }
+
+    registerProvider(new QuestionnaireResponseProvider());
 
     if (appProperties.getClient_id_strategy() == DaoConfig.ClientIdStrategyEnum.ANY) {
       daoConfig.setResourceServerIdStrategy(DaoConfig.IdStrategyEnum.UUID);
