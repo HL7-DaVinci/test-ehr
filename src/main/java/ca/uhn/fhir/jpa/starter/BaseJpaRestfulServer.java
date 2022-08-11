@@ -48,6 +48,7 @@ import com.google.common.base.Strings;
 import org.hl7.davinci.ehrserver.ClientAuthorizationInterceptor;
 import org.hl7.davinci.ehrserver.ServerConformanceR4;
 import org.hl7.davinci.ehrserver.interceptor.OrderIdentifierAdditionInterceptor;
+import org.hl7.davinci.ehrserver.interceptor.QuestionnaireResponseSearchParameterInterceptor;
 import org.hl7.davinci.ehrserver.provider.QuestionnaireResponseProvider;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -257,6 +258,9 @@ public class BaseJpaRestfulServer extends RestfulServer {
       setServerAddressStrategy(new IncomingRequestAddressStrategy());
     }
 
+    // create QR context search parameter
+    this.registerInterceptor(new QuestionnaireResponseSearchParameterInterceptor(ctx, serverAddress));
+
     /*
      * If you are using DSTU3+, you may want to add a terminology uploader, which allows
      * uploading of external terminologies such as Snomed CT. Note that this uploader
@@ -370,8 +374,6 @@ public class BaseJpaRestfulServer extends RestfulServer {
       setTenantIdentificationStrategy(new UrlBaseTenantIdentificationStrategy());
       registerProviders(partitionManagementProvider);
     }
-
-    registerProvider(new QuestionnaireResponseProvider());
 
     if (appProperties.getClient_id_strategy() == DaoConfig.ClientIdStrategyEnum.ANY) {
       daoConfig.setResourceServerIdStrategy(DaoConfig.IdStrategyEnum.UUID);
