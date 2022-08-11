@@ -49,7 +49,6 @@ import org.hl7.davinci.ehrserver.ClientAuthorizationInterceptor;
 import org.hl7.davinci.ehrserver.ServerConformanceR4;
 import org.hl7.davinci.ehrserver.interceptor.OrderIdentifierAdditionInterceptor;
 import org.hl7.davinci.ehrserver.interceptor.QuestionnaireResponseSearchParameterInterceptor;
-import org.hl7.davinci.ehrserver.provider.QuestionnaireResponseProvider;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
