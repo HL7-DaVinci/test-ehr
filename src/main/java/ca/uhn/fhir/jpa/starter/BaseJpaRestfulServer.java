@@ -48,6 +48,7 @@ import com.google.common.base.Strings;
 import org.hl7.davinci.ehrserver.ClientAuthorizationInterceptor;
 import org.hl7.davinci.ehrserver.ServerConformanceR4;
 import org.hl7.davinci.ehrserver.interceptor.OrderIdentifierAdditionInterceptor;
+import org.hl7.davinci.ehrserver.interceptor.QuestionnaireResponseSearchParameterInterceptor;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -61,6 +62,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 
 public class BaseJpaRestfulServer extends RestfulServer {
   private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(BaseJpaRestfulServer.class);
@@ -254,6 +256,9 @@ public class BaseJpaRestfulServer extends RestfulServer {
     } else {
       setServerAddressStrategy(new IncomingRequestAddressStrategy());
     }
+
+    // create QR context search parameter
+    this.registerInterceptor(new QuestionnaireResponseSearchParameterInterceptor(ctx, serverAddress));
 
     /*
      * If you are using DSTU3+, you may want to add a terminology uploader, which allows
