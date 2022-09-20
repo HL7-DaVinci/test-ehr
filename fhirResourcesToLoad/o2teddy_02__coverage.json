@@ -13,7 +13,7 @@
         "system": "http://hl7.org/fhir/coverage-class",
         "code": "plan"
       },
-      "value": "Medicare Part A"
+      "value": "Medicare Part B"
     }
   ],
   "payor": [
