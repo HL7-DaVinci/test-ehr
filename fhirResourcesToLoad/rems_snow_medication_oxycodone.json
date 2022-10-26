@@ -1,0 +1,50 @@
+{
+  "resourceType": "Medication",
+  "id": "med-pat017-oxycodone",
+  "status": "active",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1049683",
+        "display": "Oxycodone hydrochloride 10 MG Oral Tablet"
+      }
+    ]
+  },
+  "form": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "421026006",
+        "display": "Conventional release oral tablet"
+      }
+    ]
+  },
+  "ingredient": [
+    {
+      "itemCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "7804",
+            "display": "Oxycodone"
+          }
+        ]
+      },
+      "strength": {
+        "numerator": {
+          "value": 10,
+          "system": "http://unitsofmeasure.org",
+          "code": "mg",
+          "unit": "mg"
+        },
+        "denominator": {
+          "value": 1,
+          "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+          "code": "ORTAB",
+          "unit": "Oral Tablet"
+        }
+      }
+    }
+  ]
+}
