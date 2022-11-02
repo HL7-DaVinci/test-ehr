@@ -2,7 +2,7 @@ name: Keycloak Docker Image CD
 
 on:
   push:
-    branches: [ main ]
+    branches: [ dev ]
   workflow_dispatch:
 
 jobs:
@@ -25,6 +25,5 @@ jobs:
         context: .
         file: Dockerfile.keycloak
         push: true
-        tags: codexrems/keycloak:REMSvCurrent
-
+        tags: codexrems/keycloak:REMSvExperimental
     
