@@ -1,4 +1,4 @@
-name: Keycloak Docker Image CD
+name: Keycloak Development Docker Image CD
 
 on:
   push:
