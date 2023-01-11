@@ -141,7 +141,8 @@ public class AuthProxy {
    */
   private String _parseRedirect(Map<String, String> reqParamValue, HttpServletRequest request) {
     String currentRedirectURI = reqParamValue.get("redirect_uri");
-    String finalRedirectURI = "http://" + ((System.getenv("DOCKER_PROFILE") != null && System.getenv("DOCKER_PROFILE").equals("true")) && Config.get("auth_redirect_host") != null ? Config.get("auth_redirect_host") : request.getLocalName()) + ":" + request.getLocalPort() + "/test-ehr/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
+    //String finalRedirectURI = "http://" + ((System.getenv("DOCKER_PROFILE") != null && System.getenv("DOCKER_PROFILE").equals("true")) && Config.get("auth_redirect_host") != null ? Config.get("auth_redirect_host") : request.getLocalName()) + ":" + request.getLocalPort() + "/test-ehr/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
+    String finalRedirectURI = (Config.get("auth_redirect_host") != null ? Config.get("auth_redirect_host") : request.getLocalName() + ":" + request.getLocalPort()) + "/test-ehr/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
     reqParamValue.put("redirect_uri", finalRedirectURI);
     payloadDAO.updateRedirect(reqParamValue.get("launch"), finalRedirectURI);
     return paramFormatter(reqParamValue);
