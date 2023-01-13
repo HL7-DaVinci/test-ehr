@@ -4,6 +4,8 @@ import org.hl7.davinci.ehrserver.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -36,7 +38,10 @@ public class AuthProxy {
 
   @Autowired
   private PayloadDAOImpl payloadDAO;
-  
+
+  @Autowired
+  private Environment env;
+
   /**
    * Proxies the auth request, which returns the auth code.  The proxy changes the redirect url to
    * a different endpoint which will save the returned code and associate it with the launch id
@@ -56,7 +61,14 @@ public class AuthProxy {
     } else {
       params = _parseRedirect(reqParamValue, request);
     }
-    UriComponentsBuilder forwardUrl = UriComponentsBuilder.fromHttpUrl(Config.get("oauth_authorize"));
+
+    String oauth_authorize = env.getProperty("oauth_authorize");
+
+    if (oauth_authorize == null || oauth_authorize.isEmpty())
+      oauth_authorize = Config.get("oauth_authorize");
+
+
+    UriComponentsBuilder forwardUrl = UriComponentsBuilder.fromHttpUrl(oauth_authorize);
     String redirectUrl = forwardUrl.toUriString() + params;
     logger.info("redirectUrl: " + redirectUrl);
     httpServletResponse.setHeader("Location", redirectUrl);
@@ -82,7 +94,12 @@ public class AuthProxy {
 
     RestTemplate restTemplate = new RestTemplate();
     try {
-      ResponseEntity<TokenResponse> response = restTemplate.postForEntity(Config.get("oauth_token"), request, TokenResponse.class);
+      String oauth_token = env.getProperty("oauth_token");
+
+      if (oauth_token == null || oauth_token.isEmpty())
+         oauth_token = Config.get("oauth_token");
+
+      ResponseEntity<TokenResponse> response = restTemplate.postForEntity(oauth_token, request, TokenResponse.class);
       Objects.requireNonNull(response.getBody())
               .setPatient(payload.getPatient())
               .setAppContext(payload.getAppContext());

@@ -31,6 +31,10 @@ spring:
   batch:
     job:
       enabled: false
+
+oauth_token: "http://localhost:8180/realms/ClientFhirServer/protocol/openid-connect/token"
+oauth_authorize: "http://localhost:8180/realms/ClientFhirServer/protocol/openid-connect/auth"
+
 hapi:
   fhir:
     ### This is the FHIR version. Choose between, DSTU2, DSTU3, R4 or R5
@@ -84,6 +88,7 @@ hapi:
     #      allow_references_across_partitions: false
     #      partitioning_include_in_search_hashes: false
     cors:
+      #TODO: CORS Issue may be addressed here
       allow_Credentials: true
       # These are allowed_origin patterns, see: https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/cors/CorsConfiguration.html#setAllowedOriginPatterns-java.util.List-
       allowed_origin:
