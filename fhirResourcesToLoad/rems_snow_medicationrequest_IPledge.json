@@ -6,7 +6,11 @@
         {
           "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
           "code": "6064",
-          "display": "Isotretinoin 200 MG Oral Capsule"
+          "display": "Isotretinoin 20 MG Oral Capsule"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/ndc",
+          "code": "0245-0571-01"
         }
       ]
     },
@@ -40,7 +44,7 @@
     "dosageInstruction": [
       {
         "sequence": 1,
-        "text": "200mg twice daily",
+        "text": "20mg twice daily",
         "timing": {
           "repeat": {
             "frequency": 2,
@@ -69,7 +73,7 @@
               ]
             },
             "doseQuantity": {
-              "value": 200,
+              "value": 20,
               "unit": "mg",
               "system": "http://unitsofmeasure.org",
               "code": "mg"
