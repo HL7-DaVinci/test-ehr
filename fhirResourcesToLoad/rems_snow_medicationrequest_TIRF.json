@@ -6,7 +6,11 @@
         {
           "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
           "code": "1237051",
-          "display": "TIRF 200 MG Oral Capsule"
+          "display": "TIRF 200 UG Oral Transmucosal Lozenge"
+        },
+        {
+          "system": "http://hl7.org/fhir/sid/ndc",
+          "code": "63459-502-30"
         }
       ]
     },
@@ -40,7 +44,7 @@
     "dosageInstruction": [
       {
         "sequence": 1,
-        "text": "200mg twice daily",
+        "text": "200ug twice daily",
         "timing": {
           "repeat": {
             "frequency": 2,
@@ -70,9 +74,9 @@
             },
             "doseQuantity": {
               "value": 200,
-              "unit": "mg",
+              "unit": "ug",
               "system": "http://unitsofmeasure.org",
-              "code": "mg"
+              "code": "ug"
             }
           }
         ]
@@ -82,7 +86,7 @@
       "quantity": {
         "value": 90,
         "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
-        "code": "CAP"
+        "code": "ORTROCHE"
       },
       "numberOfRepeatsAllowed": 3
     }
