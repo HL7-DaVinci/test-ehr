@@ -97,11 +97,36 @@ dependencies {
     implementation 'javax.interceptor:javax.interceptor-api:1.2.2'
 }
 
+// To specify folder use -Dfhir_dir=<path>
+// To specify uri use -Duri=<uri>
+// To specify path use -Dpath=<path>
+// Example:
+//     gradle loadData -Dfhir_dir=fhirResourcesToLoad/ -Duri=http://localhost:8080 -Dpath=test-ehr/r4
 task loadData{
     doLast {
+        def dir = System.getProperty('fhir_dir')
+        if (!dir) {
+            dir = 'fhirResourcesToLoad/'
+        }
+        println "fhir_dir: " + dir
+
+        def uri = System.getProperty('uri')
+        if (!uri) {
+            uri = 'http://localhost:8080'
+        }
+        println "uri:      " + uri 
+
+
+        def path = System.getProperty('path')
+        if (!path) {
+            path = 'test-ehr/r4'
+        }
+        println "path:     " + path 
+
+
         def dataDir = new File(projectDir, "fhirResourcesToLoad/")
         def http = groovyx.net.http.HttpBuilder.configure{
-            request.uri = 'http://localhost:8080'
+            request.uri = uri
             request.contentType = 'application/json'
         }
         dataDir.listFiles().sort{ it.name }.each { file->
@@ -110,8 +135,9 @@ task loadData{
             }
             println 'Trying to load '+file.name
             def resource = new groovy.json.JsonSlurper().parseText(file.text)
+
             http.put {
-                request.uri.path = '/test-ehr/r4/'+resource.resourceType+'/'+resource.id
+                request.uri.path = '/'+path+'/'+resource.resourceType+'/'+resource.id
                 request.body = file.text
                 response.success {
                     println '... success. '
