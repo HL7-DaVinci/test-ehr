@@ -1,14 +1,10 @@
 # EHR FHIR Server
 This subproject hosts a HAPI FHIR server that is based on the [hapi-fhir-jpaserver-example](https://github.com/jamesagnew/hapi-fhir/tree/master/hapi-fhir-jpaserver-example).
 
-## Init the test-ehr 
-1. delete `target` and `build` folders from test-ehr if they exist
-2. from Terminal (1) while in test-ehr folder: `gradle bootRun`
-3. from Terminal (2) while in test-ehr folder:   `gradle loadData`
-
 ## Running the server
 1. Make sure `gradle` is installed on your machine. Gradle v8 or higher.
 2. Run `gradle bootRun`
+3. In a separate terminal tab, run `gradle loadData` to load resources
 
 This will start the server running on http://localhost:8080/test-ehr.
 
