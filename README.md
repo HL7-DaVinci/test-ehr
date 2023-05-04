@@ -8,6 +8,8 @@ This subproject hosts a HAPI FHIR server that is based on the [hapi-fhir-jpaserv
 
 This will start the server running on http://localhost:8080/test-ehr.
 
+**If you've loaded resources before, and want a clean slate, delete the `target` and `build` folders from test-ehr if they exist.**
+
 ## Adding resources to the database
 The FHIR server will persist FHIR resources between restarts. You can delete the folder `target` to clear all resources.
 
