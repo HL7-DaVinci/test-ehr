@@ -7,7 +7,8 @@ This subproject hosts a HAPI FHIR server that is based on the [hapi-fhir-jpaserv
 3. from Terminal (2) while in test-ehr folder:   `gradle loadData`
 
 ## Running the server
-`gradle bootRun`
+1. Make sure `gradle` is installed on your machine. Gradle v8 or higher.
+2. Run `gradle bootRun`
 
 This will start the server running on http://localhost:8080/test-ehr.
 
@@ -38,4 +39,7 @@ Finally, ensure that the [request generator](https://github.com/mcode/crd-reques
 |----|----|
 |`/test-ehr/`|Base server endpoint|
 |`/test-ehr/r4`|EHR FHIR Server endpoint (will not resolve in browser)|
+
+## Version
+Java v11 or higher is required to run this application.
  
