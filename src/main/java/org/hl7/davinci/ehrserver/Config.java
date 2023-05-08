@@ -13,9 +13,11 @@ public abstract class Config {
 
   static {
     try {
-      if (System.getenv("DOCKER_PROFILE") != null && System.getenv("DOCKER_PROFILE").equals("true")) {
+      if (System.getenv("DOCKER_PROFILE") != null && System.getenv("DOCKER_PROFILE").equals("docker-windows")) {
+        load(Config.class.getResourceAsStream("/fhirServer.docker-windows.properties"));
+      } else if (System.getenv("DOCKER_PROFILE") != null && System.getenv("DOCKER_PROFILE").equals("docker-linux")) {
         load(Config.class.getResourceAsStream("/fhirServer.docker.properties"));
-      } else {
+      }else {
         load(Config.class.getResourceAsStream("/fhirServer.properties"));
       }
     } catch (IOException e) {
