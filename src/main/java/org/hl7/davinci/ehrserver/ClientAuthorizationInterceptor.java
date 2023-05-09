@@ -14,6 +14,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -21,14 +23,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("ConstantConditions")
+@Component
 public class ClientAuthorizationInterceptor extends AuthorizationInterceptor {
 
-  String introspectUrl = "http://localhost:8180/auth/realms/"
-      + Config.get("realm") + "/protocol/openid-connect/token/introspect";
+  @Autowired
+  private org.springframework.core.env.Environment environment;
 
   @Override
   public List<IAuthRule> buildRuleList(RequestDetails theRequestDetails) {
-    String useOauth = Config.get("use_oauth");
+    String useOauth = environment.getProperty("use_oauth");
     if (!Boolean.parseBoolean(useOauth)) {
       return new RuleBuilder()
           .allowAll()
@@ -47,10 +50,10 @@ public class ClientAuthorizationInterceptor extends AuthorizationInterceptor {
     }
 
     String token = authHeader.split(" ")[1];
-    String secret = Config.get("client_secret");
-    String clientId = Config.get("client_id");
+    String secret = environment.getProperty("client_secret");
+    String clientId = environment.getProperty("client_id");
 
-    HttpPost httpPost = new HttpPost(introspectUrl);
+    HttpPost httpPost = new HttpPost(environment.getProperty("introspect_url"));
     List<NameValuePair> params = new ArrayList<NameValuePair>();
     params.add(new BasicNameValuePair("client_id", clientId));
     params.add(new BasicNameValuePair("client_secret", secret));

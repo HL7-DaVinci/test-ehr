@@ -64,6 +64,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 
+
 public class BaseJpaRestfulServer extends RestfulServer {
   private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(BaseJpaRestfulServer.class);
 
@@ -102,6 +103,10 @@ public class BaseJpaRestfulServer extends RestfulServer {
   AppProperties appProperties;
   @Autowired
   ApplicationContext myApplicationContext;
+
+  @Autowired
+  ClientAuthorizationInterceptor interceptor;
+
   @Autowired(required = false)
   IRepositoryValidationInterceptorFactory factory;
   // These are set only if the features are enabled
@@ -232,9 +237,7 @@ public class BaseJpaRestfulServer extends RestfulServer {
     loggingInterceptor.setErrorMessageFormat(appProperties.getLogger().getError_format());
     loggingInterceptor.setLogExceptions(appProperties.getLogger().getLog_exceptions());
     this.registerInterceptor(loggingInterceptor);
-
-    ClientAuthorizationInterceptor clientAuthorizationInterceptor = new ClientAuthorizationInterceptor();
-    this.registerInterceptor(clientAuthorizationInterceptor);
+    this.registerInterceptor(interceptor);
 
 
     // import interceptor for adding order identifier
