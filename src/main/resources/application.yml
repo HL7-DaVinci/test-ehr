@@ -163,3 +163,4 @@ proxy_authorize: http://localhost:8080/test-ehr/auth
 proxy_token: http://localhost:8080/test-ehr/token
 redirect_post_launch: http://localhost:8080/test-ehr/_services/smart/Launch
 redirect_post_token: http://localhost:8080/test-ehr/token
+introspection_url: http://localhost:8180/auth/realms/ClientFhirServer/protocol/openid-connect/token/introspect
