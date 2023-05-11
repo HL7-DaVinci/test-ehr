@@ -1,10 +1,8 @@
 package org.hl7.davinci.ehrserver.authproxy;
 
-import org.hl7.davinci.ehrserver.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -145,9 +143,12 @@ public class AuthProxy {
    */
   private String _parseRedirect(Map<String, String> reqParamValue, HttpServletRequest request) {
     String currentRedirectURI = reqParamValue.get("redirect_uri");
-    String finalRedirectURI = "http://" + ((System.getenv("DOCKER_PROFILE") != null && (System.getenv("DOCKER_PROFILE").equals("docker-linux") || System.getenv("DOCKER_PROFILE").equals("docker-windows"))) && Config.get("auth_redirect_host") != null ? Config.get("auth_redirect_host") : request.getLocalName()) + ":" + request.getLocalPort() + "/test-ehr/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
+    String finalRedirectURI = environment.getProperty("redirect_base")
+            + reqParamValue.get("launch")
+            + "?redirect_uri=" + currentRedirectURI;
     reqParamValue.put("redirect_uri", finalRedirectURI);
     payloadDAO.updateRedirect(reqParamValue.get("launch"), finalRedirectURI);
+
     return paramFormatter(reqParamValue);
   }
 

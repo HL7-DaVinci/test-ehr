@@ -1,6 +1,5 @@
 package ca.uhn.fhir.jpa.starter;
 
-import org.hl7.davinci.ehrserver.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
