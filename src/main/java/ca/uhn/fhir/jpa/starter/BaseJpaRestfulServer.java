@@ -49,9 +49,12 @@ import org.hl7.davinci.ehrserver.ClientAuthorizationInterceptor;
 import org.hl7.davinci.ehrserver.ServerConformanceR4;
 import org.hl7.davinci.ehrserver.interceptor.OrderIdentifierAdditionInterceptor;
 import org.hl7.davinci.ehrserver.interceptor.QuestionnaireResponseSearchParameterInterceptor;
+import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleType;
+import org.hl7.fhir.r4.model.Meta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.cors.CorsConfiguration;
 
@@ -164,8 +167,9 @@ public class BaseJpaRestfulServer extends RestfulServer {
         setServerConformanceProvider(confProvider);
       } else if (fhirVersion == FhirVersionEnum.R4) {
 
-				JpaCapabilityStatementProvider confProvider = new ServerConformanceR4(this, fhirSystemDao,
+				JpaCapabilityStatementProvider confProvider = createConformance(this, fhirSystemDao,
 					daoConfig, searchParamRegistry, myValidationSupport);
+
         confProvider.setImplementationDescription("HAPI FHIR R4 Server");
         setServerConformanceProvider(confProvider);
       } else if (fhirVersion == FhirVersionEnum.R5) {
@@ -406,5 +410,14 @@ public class BaseJpaRestfulServer extends RestfulServer {
     daoConfig.getModelConfig().setNormalizedQuantitySearchLevel(appProperties.getNormalized_quantity_search_level());
 
 		daoConfig.getModelConfig().setIndexOnContainedResources(appProperties.getEnable_index_contained_resource());
+  }
+
+  @Bean
+  private ServerConformanceR4 createConformance(RestfulServer theRestfulServer, IFhirSystemDao<Bundle, Meta> theSystemDao, DaoConfig theDaoConfig, ISearchParamRegistry theSearchParamRegistry, IValidationSupport theValidationSupport){
+     ServerConformanceR4 con = new ServerConformanceR4(theRestfulServer, theSystemDao,
+            theDaoConfig, theSearchParamRegistry, theValidationSupport);
+    // this isnt autowiring so force it.
+    myApplicationContext.getAutowireCapableBeanFactory().autowireBean(con);
+    return con;
   }
 }

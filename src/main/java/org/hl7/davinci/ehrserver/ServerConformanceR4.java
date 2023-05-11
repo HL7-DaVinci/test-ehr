@@ -15,13 +15,14 @@ import org.hl7.fhir.r4.model.UriType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
-
+@Component
 public class ServerConformanceR4 extends JpaCapabilityStatementProvider {
   @Autowired
-  Environment env;
+  private org.springframework.core.env.Environment env;
   public ServerConformanceR4(RestfulServer theRestfulServer, IFhirSystemDao<Bundle, Meta> theSystemDao, DaoConfig theDaoConfig, ISearchParamRegistry theSearchParamRegistry, IValidationSupport theValidationSupport) {
     super(theRestfulServer, theSystemDao, theDaoConfig, theSearchParamRegistry, theValidationSupport);
   }
@@ -29,6 +30,9 @@ public class ServerConformanceR4 extends JpaCapabilityStatementProvider {
   @Override
   public CapabilityStatement getServerConformance(HttpServletRequest theRequest, RequestDetails details) {
     Extension securityExtension = new Extension();
+    System.out.println();
+    System.out.println(env.toString());;
+    System.out.println();
     securityExtension.setUrl("http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris");
     securityExtension.addExtension()
         .setUrl("authorize")
