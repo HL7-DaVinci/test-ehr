@@ -4,8 +4,6 @@
 trap "kill $LOAD_DATA_PID $SERVER_PID; gradle --stop; exit" INT
 
 # Set environment variables
-export DOCKER_PROFILE="true"
-
 mkdir logs 
 # Reset log file content for new application boot
 echo "*** Logs for 'gradle bootRun' ***" > ./logs/runner.log
