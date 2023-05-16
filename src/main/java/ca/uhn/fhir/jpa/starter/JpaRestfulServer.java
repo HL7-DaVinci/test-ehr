@@ -14,7 +14,6 @@ import java.io.IOException;
 
 @Import(AppProperties.class)
 public class JpaRestfulServer extends BaseJpaRestfulServer {
-  private String redirect_post_launch;
   @Autowired
   AppProperties appProperties;
 
