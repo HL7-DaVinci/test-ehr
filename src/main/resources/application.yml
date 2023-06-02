@@ -153,3 +153,17 @@ hapi:
 #  protocol: 'http'
 #  schema_management_strategy: CREATE
 #  username: SomeUsername
+auth_base: http://localhost:8180/auth/realms/ClientFhirServer/protocol/openid-connect
+ehr_base: http://localhost:8080/test-ehr
+client_id: app-token
+client_secret: #replaceMe#
+realm: ClientFhirServer
+use_oauth: false
+oauth_token: ${auth_base}/token
+oauth_authorize: ${auth_base}/auth
+proxy_authorize: ${ehr_base}/auth
+proxy_token: ${ehr_base}/token
+redirect_post_launch: ${ehr_base}/_services/smart/Launch
+redirect_post_token: ${ehr_base}/token
+introspection_url: ${auth_base}/token/introspect
+redirect_base: ${ehr_base}/_auth/
