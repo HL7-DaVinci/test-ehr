@@ -6,9 +6,11 @@ import ca.uhn.fhir.jpa.api.config.DaoConfig.ClientIdStrategyEnum;
 import ca.uhn.fhir.jpa.model.entity.NormalizedQuantitySearchLevel;
 import ca.uhn.fhir.rest.api.EncodingEnum;
 import com.google.common.collect.ImmutableList;
+import org.hl7.davinci.ehrserver.ClientAuthorizationInterceptor;
 import org.hl7.fhir.r4.model.Bundle;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
@@ -72,6 +74,11 @@ public class AppProperties {
   private Integer search_coord_queue_capacity = 200;
   private Boolean use_apache_address_strategy = false;
   private Boolean use_apache_address_strategy_https = false;
+
+  @Bean
+  public ClientAuthorizationInterceptor clientAuthorizationInterceptor(){
+    return new ClientAuthorizationInterceptor();
+  }
 
   public Boolean getUse_apache_address_strategy() {
     return use_apache_address_strategy;

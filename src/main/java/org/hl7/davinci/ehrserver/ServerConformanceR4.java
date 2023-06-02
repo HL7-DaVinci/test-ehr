@@ -12,12 +12,15 @@ import org.hl7.fhir.r4.model.CapabilityStatement;
 import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.Meta;
 import org.hl7.fhir.r4.model.UriType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
-
+@Component
 public class ServerConformanceR4 extends JpaCapabilityStatementProvider {
-
+  @Autowired
+  private org.springframework.core.env.Environment env;
   public ServerConformanceR4(RestfulServer theRestfulServer, IFhirSystemDao<Bundle, Meta> theSystemDao, DaoConfig theDaoConfig, ISearchParamRegistry theSearchParamRegistry, IValidationSupport theValidationSupport) {
     super(theRestfulServer, theSystemDao, theDaoConfig, theSearchParamRegistry, theValidationSupport);
   }
@@ -28,10 +31,10 @@ public class ServerConformanceR4 extends JpaCapabilityStatementProvider {
     securityExtension.setUrl("http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris");
     securityExtension.addExtension()
         .setUrl("authorize")
-        .setValue(new UriType(Config.get("proxy_authorize")));
+        .setValue(new UriType(env.getProperty("proxy_authorize")));
     securityExtension.addExtension()
         .setUrl("token")
-        .setValue(new UriType(Config.get("proxy_token")));
+        .setValue(new UriType(env.getProperty("proxy_token")));
     CapabilityStatement.CapabilityStatementRestSecurityComponent securityComponent = new CapabilityStatement.CapabilityStatementRestSecurityComponent();
     securityComponent.setCors(true);
     securityComponent
