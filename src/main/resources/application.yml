@@ -161,7 +161,7 @@ server:
 #  protocol: 'http'
 #  schema_management_strategy: CREATE
 #  username: SomeUsername
-auth_base: http://localhost:8180/auth/realms/ClientFhirServer/protocol/openid-connect
+auth_base: http://localhost:8180/realms/ClientFhirServer/protocol/openid-connect
 ehr_base: http://localhost:8080/test-ehr
 client_id: app-token
 client_secret: #replaceMe#
