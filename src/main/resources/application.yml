@@ -122,7 +122,7 @@ server:
   ssl:
     key-store-type: ${EHR_KEY_STORE_TYPE:jks}
     enabled: ${EHR_SSL_ENABLED:false}
-    key-store: ${EHR_KEY_STORE}
+    key-store: ${EHR_KEY_STORE_PATH}
     key-store-password: ${EHR_KEY_STORE_PASSWORD}
     key-password: ${EHR_KEY_PASSWORD}
     key-alias: ${EHR_KEY_ALIAS}
