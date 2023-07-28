@@ -35,7 +35,7 @@ public class PayloadDAOImpl implements PayloadDAO {
     // create table
     Statement stmt = conn.createStatement();
     try {
-      jdbcTemplate.execute("Create table appcontext (launchId varchar(255) primary key, launchUrl varchar(212) NOT NULL, patient varchar(128) NOT NULL, appContext varchar(8192), launchCode varchar(512), redirectUri varchar(512))");
+      jdbcTemplate.execute("Create table appcontext (launchId varchar(255) primary key, launchUrl varchar(212) NOT NULL, patient varchar(128) NOT NULL, appContext varchar(MAX), launchCode varchar(512), redirectUri varchar(512))");
 
       logger.info("PayloadDAOImpl: AppContext table created in database");
 
