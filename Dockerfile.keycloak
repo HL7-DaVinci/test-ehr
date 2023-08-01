@@ -1,3 +1,2 @@
-FROM jboss/keycloak:15.0.2
-COPY ./src/main/resources/ClientFhirServerRealm.json /resources/ClientFhirServerRealm.json
-ENV KEYCLOAK_IMPORT=/resources/ClientFhirServerRealm.json
+FROM keycloak/keycloak:22.0.1
+COPY ./src/main/resources/ClientFhirServerRealm.json /opt/keycloak/data/import/ClientFhirServerRealm.json

@@ -37,10 +37,10 @@ hapi:
     fhir_version: R4
     ### enable to use the ApacheProxyAddressStrategy which uses X-Forwarded-* headers
     ### to determine the FHIR server address
-    #   use_apache_address_strategy: false
+    use_apache_address_strategy: ${EHR_SSL_ENABLED:false}
     ### forces the use of the https:// protocol for the returned server address.
     ### alternatively, it may be set using the X-Forwarded-Proto header.
-    #   use_apache_address_strategy_https: false
+    use_apache_address_strategy_https: ${EHR_SSL_ENABLED:false}
     ### enable to set the Server URL
     #    server_address: http://hapi.fhir.org/baseR4
     #    defer_indexing_for_codesystems_of_size: 101
@@ -118,6 +118,14 @@ hapi:
         server_address: "http://hapi.fhir.org/baseR4"
         refuse_to_fetch_third_party_urls: false
         fhir_version: R4
+server:
+  ssl:
+    key-store-type: ${EHR_KEY_STORE_TYPE:jks}
+    enabled: ${EHR_SSL_ENABLED:false}
+    key-store: ${EHR_KEY_STORE_PATH}
+    key-store-password: ${EHR_KEY_STORE_PASSWORD}
+    key-password: ${EHR_KEY_PASSWORD}
+    key-alias: ${EHR_KEY_ALIAS}
 #    validation:
 #      requests_enabled: true
 #      responses_enabled: true
@@ -153,7 +161,7 @@ hapi:
 #  protocol: 'http'
 #  schema_management_strategy: CREATE
 #  username: SomeUsername
-auth_base: http://localhost:8180/auth/realms/ClientFhirServer/protocol/openid-connect
+auth_base: http://localhost:8180/realms/ClientFhirServer/protocol/openid-connect
 ehr_base: http://localhost:8080/test-ehr
 client_id: app-token
 client_secret: #replaceMe#
