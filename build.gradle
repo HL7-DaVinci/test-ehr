@@ -40,8 +40,6 @@ bootRun {
     }
 }
 
-ext['tomcat.version'] = '9.0.78'
-
 dependencies {
     implementation "io.github.http-builder-ng:http-builder-ng-core:1.0.3"
     developmentOnly("org.springframework.boot:spring-boot-devtools")
@@ -94,7 +92,7 @@ dependencies {
     //implementation 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:war'
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:classes'
 //    providedImplementation 'javax.servlet:javax.servlet-api:3.1.0'
-    implementation group:'org.apache.tomcat', name:'tomcat-juli', version:property('tomcat.version')
+    implementation 'org.apache.tomcat:tomcat-juli:9.0.78'
     implementation 'javax.interceptor:javax.interceptor-api:1.2.2'
 
 }
