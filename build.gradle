@@ -40,6 +40,7 @@ bootRun {
     }
 }
 
+ext['tomcat.version'] = '9.0.78'
 
 dependencies {
     implementation "io.github.http-builder-ng:http-builder-ng-core:1.0.3"
@@ -93,8 +94,9 @@ dependencies {
     //implementation 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:war'
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:classes'
 //    providedImplementation 'javax.servlet:javax.servlet-api:3.1.0'
-
+    implementation group:'org.apache.tomcat', name:'tomcat-juli', version:property('tomcat.version')
     implementation 'javax.interceptor:javax.interceptor-api:1.2.2'
+
 }
 
 // To specify folder use -Dfhir_dir=<path>
