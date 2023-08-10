@@ -57,7 +57,10 @@ dependencies {
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-jpaserver-mdm:5.4.0'
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:5.4.0'
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation ('org.springframework.boot:spring-boot-starter-web'){
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+	}
+    implementation 'org.springframework.boot:spring-boot-starter-jetty'
     implementation 'ch.qos.logback:logback-classic:1.2.3'
     implementation 'org.thymeleaf:thymeleaf:3.0.11.RELEASE'
     implementation 'org.springframework:spring-web'
@@ -94,9 +97,8 @@ dependencies {
     //implementation 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:war'
     implementation 'ca.uhn.hapi.fhir:hapi-fhir-testpage-overlay:4.2.0:classes'
 //    providedImplementation 'javax.servlet:javax.servlet-api:3.1.0'
-    implementation group:'org.apache.tomcat', name:'tomcat-juli', version:property('tomcat.version')
+   // implementation group:'org.apache.tomcat', name:'tomcat-juli', version:property('tomcat.version')
     implementation 'javax.interceptor:javax.interceptor-api:1.2.2'
-
 }
 
 // To specify folder use -Dfhir_dir=<path>
