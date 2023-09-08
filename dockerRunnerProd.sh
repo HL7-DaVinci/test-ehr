@@ -12,7 +12,7 @@ echo "*** Logs for 'gradle bootRun' ***" > ./logs/runner.log
 echo "Starting application in production mode..."
 
 # Start load data process once server is running 
-( while ! grep -m1 "Tomcat started on port" < ./logs/runner.log; do
+( while ! grep -m1 "Started Application in " < ./logs/runner.log; do
     sleep 1
 done
 echo "loading data into test-ehr..."
