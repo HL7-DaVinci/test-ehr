@@ -14,7 +14,7 @@ echo "Starting application in watch mode..."
 
 # Start load data process once server is running 
 echo "Starting continuous data loader..."
-( while ! grep -m1 "Tomcat started on port" < ./logs/runner.log; do
+( while ! grep -m1 "Started Application in " < ./logs/runner.log; do
     sleep 1
 done
 echo "loading data into test-ehr..."
