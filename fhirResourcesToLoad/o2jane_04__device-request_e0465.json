@@ -26,5 +26,10 @@
   },
   "performer": {
     "reference": "Practitioner/pra1234"
+  },
+  "authoredOn": "2023-01-01T00:00:00Z",
+  "intent": "original-order",
+  "requester" : {
+	  "reference" : "Practitioner/pra-hfairchild"
   }
 }

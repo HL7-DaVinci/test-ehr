@@ -29,5 +29,10 @@
     },
     "encounter": {
         "reference": "Encounter/enc-pat014-cpape0601"
-    }
+    },
+	"authoredOn": "2023-01-01T00:00:00Z",
+	"intent": "original-order",
+	"requester" : {
+		"reference" : "Practitioner/pra-hfairchild"
+	}
 }

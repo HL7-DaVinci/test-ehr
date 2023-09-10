@@ -40,5 +40,9 @@
     "code": {
       "text": "During sleep AND During exertion"
     }
+  },
+  "authoredOn": "2023-01-01T00:00:00Z",
+  "requester" : {
+	  "reference" : "Practitioner/pra-hfairchild"
   }
 }

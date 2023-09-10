@@ -21,15 +21,16 @@
               }
           ]
       },
-      "subject": {
-          "reference": "Patient/pat016"
-      },
-      "occurrenceDateTime": "2016-09-27",
-      "authoredOn": "2016-09-20",
-      "requester": {
-          "display": "Smythe Juliette, MD"
-      },
-      "performer": {
-              "reference": "Practitioner/pra1255"
-      }
+	"subject": {
+	  "reference": "Patient/pat016"
+	},
+	"occurrenceDateTime": "2016-09-27",
+	"authoredOn": "2016-09-20",
+	"requester": {
+	  "display": "Smythe Juliette, MD"
+	},
+	"performer": {
+		  "reference": "Practitioner/pra1255"
+	},
+	"intent": "original-order"
 }
