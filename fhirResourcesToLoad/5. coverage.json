@@ -8,9 +8,13 @@
   "class": [
     {
       "type": {
-        "system": "http://hl7.org/fhir/coverage-class",
-        "code": "plan"
-      },
+		  "coding": [
+		  {
+			"system": "http://hl7.org/fhir/coverage-class",
+			"code": "plan"
+		  }
+		]
+	  },
       "value": "Medicare Part D"
     }
   ],
