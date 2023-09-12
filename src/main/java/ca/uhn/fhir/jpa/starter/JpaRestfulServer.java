@@ -21,7 +21,10 @@ public class JpaRestfulServer extends BaseJpaRestfulServer {
   Environment env;
   private static final long serialVersionUID = 1L;
   static final Logger logger = LoggerFactory.getLogger(JpaRestfulServer.class);
-
+  @Override
+  protected void doTrace(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    resp.setStatus(405);
+  }
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

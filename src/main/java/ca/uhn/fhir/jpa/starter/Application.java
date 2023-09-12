@@ -79,8 +79,21 @@ public class Application extends SpringBootServletInitializer {
     registrationBean.setServlet(dispatcherServlet);
     registrationBean.addUrlMappings("/test-ehr/*");
     registrationBean.setLoadOnStartup(1);
+
     return registrationBean;
 
+  }
+
+  @Bean
+  public ServletRegistrationBean traceServletRegistration() {
+    ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean();
+    TraceServlet trace  = new TraceServlet();
+    beanFactory.autowireBean(trace);
+    servletRegistrationBean.setServlet(trace);
+    servletRegistrationBean.addUrlMappings("/");
+    servletRegistrationBean.setLoadOnStartup(1);
+
+    return servletRegistrationBean;
   }
 
   @Bean
