@@ -35,7 +35,7 @@ public class QuestionnaireResponseSearchParameterInterceptor {
     }
 
     @Hook(Pointcut.SERVER_INCOMING_REQUEST_PRE_PROCESSED)
-    public void createQRContextSearchParamter(FhirContext ctx, String serverAddress) {
+    public void createQRContextSearchParameter(FhirContext ctx, String serverAddress) {
         if(!bQRContextSPCreated) {
             bQRContextSPCreated = true;
             SearchParameter sp = new SearchParameter();
