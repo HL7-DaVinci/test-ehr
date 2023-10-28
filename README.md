@@ -39,3 +39,10 @@ Finally, ensure that the [request generator](https://github.com/HL7-DaVinci/crd-
 |`/test-ehr/`|Base server endpoint|
 |`/test-ehr/r4`|EHR FHIR Server endpoint (will not resolve in browser)|
  
+## Questions and Contributions
+Questions about the project can be asked in the [Da Vinci CRD stream on the FHIR Zulip Chat](https://chat.fhir.org/#narrow/stream/180803-Da-Vinci.20CRD).
+
+This project welcomes Pull Requests. Any issues identified with the RI should be submitted via the [GitHub issue tracker](https://github.com/HL7-DaVinci/test-ehr/issues).
+
+As of October 1, 2022, The Lantana Consulting Group is responsible for the management and maintenance of this Reference Implementation.
+In addition to posting on FHIR Zulip Chat channel mentioned above you can contact [Corey Spears](mailto:corey.spears@lantanagroup.com) for questions or requests.
