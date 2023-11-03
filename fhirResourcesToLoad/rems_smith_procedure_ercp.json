@@ -1,0 +1,35 @@
+{
+  "resourceType": "Procedure",
+  "id": "pr-436",
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "386718000",
+        "display": "Endoscopic retrograde cholangiopancreatography (Procedure)"
+      }
+    ],
+    "text": "Endoscopic retrograde cholangiopancreatography"
+  },
+  "subject": {
+    "reference": "Patient/pat036"
+  },
+  "performedDateTime": "2023-04-05",
+  "recorder": {
+    "reference": "Practitioner/example",
+    "display": "Dr Cecil Surgeon"
+  },
+  "asserter": {
+    "reference": "Practitioner/example",
+    "display": "Dr Cecil Surgeon"
+  },
+  "performer": [
+    {
+      "actor": {
+        "reference": "Practitioner/example",
+        "display": "Dr Cecil Surgeon"
+      }
+    }
+  ]
+}

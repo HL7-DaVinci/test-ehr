@@ -1,0 +1,29 @@
+{
+  "resourceType": "Patient",
+  "id": "pat036",
+  "gender": "female",
+  "birthDate": "1990-05-24",
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "state": "Wonderland",
+      "city": "Wonderland",
+      "postalCode": "12345",
+      "line": ["47 Main St"]
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Smith",
+      "given": ["Alice"]
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-medicare",
+      "value": "0V855555061TC"
+    }
+  ]
+}
