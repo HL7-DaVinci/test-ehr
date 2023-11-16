@@ -1,0 +1,50 @@
+{
+  "resourceType": "Medication",
+  "id": "med-pat036-morphine",
+  "status": "active",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "1303740",
+        "display": "Morphine sulfate 70 MG Extended Release Oral Capsule"
+      }
+    ]
+  },
+  "form": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "385053008",
+        "display": "Prolonged-release oral capsule"
+      }
+    ]
+  },
+  "ingredient": [
+    {
+      "itemCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "7052",
+            "display": "Morphine"
+          }
+        ]
+      },
+      "strength": {
+        "numerator": {
+          "value": 70,
+          "system": "http://unitsofmeasure.org",
+          "code": "mg",
+          "unit": "mg"
+        },
+        "denominator": {
+          "value": 1,
+          "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+          "code": "ERTAB",
+          "unit": "Capsule"
+        }
+      }
+    }
+  ]
+}
