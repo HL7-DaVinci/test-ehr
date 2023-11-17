@@ -27,7 +27,6 @@ public class JpaRestfulServer extends BaseJpaRestfulServer {
   }
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     if (request.getRequestURI().contains("/_services/smart/Launch")) {
       // redirect calls to /_services/smart/Launch to the root /_services/smart/Launch
       String redirectUrl = env.getProperty("redirect_post_launch");

@@ -79,7 +79,7 @@ public class PayloadDAOImpl implements PayloadDAO {
     if(payloads.size()>0) {
       return payloads.get(0);
     } else {
-      throw new ResourceNotFoundException();
+      return null;
     }
 
   }
