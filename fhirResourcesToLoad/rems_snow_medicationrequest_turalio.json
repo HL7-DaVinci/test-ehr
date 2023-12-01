@@ -7,8 +7,8 @@
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
         "code": "2183126",
         "display": "Turalio 200 MG Oral Capsule"
-        },
-        {
+      },
+      {
           "system": "http://hl7.org/fhir/sid/ndc",
           "code": "65597-402-20"
       }
