@@ -1,0 +1,35 @@
+{
+  "resourceType": "Procedure",
+  "id": "pr-536",
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ama-assn.org/go/cpt",
+        "code": "78226",
+        "display": "Hepatobiliary iminodiacetic acid scan"
+      }
+    ],
+    "text": "HIDA Scan"
+  },
+  "subject": {
+    "reference": "Patient/pat036"
+  },
+  "performedDateTime": "2023-04-05",
+  "recorder": {
+    "reference": "Practitioner/example",
+    "display": "Dr Cecil Surgeon"
+  },
+  "asserter": {
+    "reference": "Practitioner/example",
+    "display": "Dr Cecil Surgeon"
+  },
+  "performer": [
+    {
+      "actor": {
+        "reference": "Practitioner/example",
+        "display": "Dr Cecil Surgeon"
+      }
+    }
+  ]
+}

@@ -429,7 +429,7 @@
     } ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
-    "realmRoles" : [ "user", "default-roles-master" ],
+    "realmRoles" : [ "user", "default-roles-master", "offline_access" ],
     "notBefore" : 0,
     "groups" : [ ]
   }, {
@@ -501,7 +501,7 @@
     } ],
     "disableableCredentialTypes" : [ ],
     "requiredActions" : [ ],
-    "realmRoles" : [ "user", "default-roles-master" ],
+    "realmRoles" : [ "user", "default-roles-master", "offline_access" ],
     "notBefore" : 0,
     "groups" : [ ]
   }, {

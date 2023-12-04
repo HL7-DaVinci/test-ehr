@@ -1,24 +1,15 @@
 {
   "resourceType": "MedicationRequest",
-  "id": "pat017-mr-turalio",
-  "medicationCodeableConcept": {
-    "coding": [
-      {
-        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-        "code": "2183126",
-        "display": "Turalio 200 MG Oral Capsule"
-      },
-      {
-          "system": "http://hl7.org/fhir/sid/ndc",
-          "code": "65597-402-20"
-      }
-    ]
+  "id": "pat036-mr-turalio",
+  "medicationReference": {
+    "reference": "Medication/med-turalio",
+    "display": "Turalio"
   },
   "status": "active",
   "intent": "order",
   "subject": {
-    "reference": "Patient/pat017",
-    "display": "Jon Snow"
+    "reference": "Patient/pat036",
+    "display": "Alice Smith"
   },
   "authoredOn": "2020-07-11",
   "requester": {
@@ -38,7 +29,7 @@
   ],
   "insurance": [
     {
-      "reference": "Coverage/cov017"
+      "reference": "Coverage/cov036"
     }
   ],
   "dosageInstruction": [

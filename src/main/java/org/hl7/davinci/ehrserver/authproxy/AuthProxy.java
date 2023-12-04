@@ -48,7 +48,7 @@ public class AuthProxy {
   @GetMapping("/auth")
   public void getAuth(@RequestParam Map<String, String> reqParamValue, HttpServletResponse httpServletResponse, HttpServletRequest request) throws IOException {
     //
-    String params = _parseRedirect(reqParamValue, request);
+    String params = _parseRedirect(reqParamValue);
     UriComponentsBuilder forwardUrl = UriComponentsBuilder.fromHttpUrl(environment.getProperty("oauth_authorize"));
     String redirectUrl = forwardUrl.toUriString() + params;
     logger.info("redirectUrl: " + redirectUrl);
@@ -66,15 +66,13 @@ public class AuthProxy {
    */
   @PostMapping(value = "/token",  consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
   public ResponseEntity<TokenResponse> getToken(TokenRequest body) {
-
     Payload payload = payloadDAO.findContextByCode(body.getCode());
-    // should cross reference the supplied redirect uri with the one keycloak is expecting
-    // AKA: Build the correct redirect uri instead of pulling it from the DB, so that keycloak
-    // can verify that the secondary redirect uri, within the proxied redirect, is the same as
-    // the original.  You could, potentially, swap the redirect url in this request if the
-    // launch id is the same.
-    //            - this has been a keeyan exclusive comment
-    body.setRedirect_uri(payload.getRedirectUri());
+    if(payload != null) {
+      body.setRedirect_uri(payload.getRedirectUri());
+    } else {
+      // standalone
+      body.setRedirect_uri(_parseRedirect(body));
+    }
     HttpHeaders httpHeaders = new HttpHeaders();
     httpHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
@@ -83,17 +81,16 @@ public class AuthProxy {
     RestTemplate restTemplate = new RestTemplate();
     try {
       ResponseEntity<TokenResponse> response = restTemplate.postForEntity(environment.getProperty("oauth_token"), request, TokenResponse.class);
-      Objects.requireNonNull(response.getBody())
-          .setPatient(payload.getPatient())
-          .setAppContext(payload.getAppContext());
+      if(payload != null) {
+        Objects.requireNonNull(response.getBody())
+                .setPatient(payload.getPatient())
+                .setAppContext(payload.getAppContext());
+      }
       response = ResponseEntity.ok(response.getBody());
-
       return response;
 
     }catch (HttpClientErrorException e) {
       e.printStackTrace();
-      System.out.println(e.getResponseBodyAsString());
-      System.out.println(e.getResponseHeaders());
       ResponseEntity response = ResponseEntity.badRequest().body(String.class);
       return response;
     }
@@ -128,7 +125,9 @@ public class AuthProxy {
   @GetMapping("/_auth/{launch}")
   public void authSync(@PathVariable String launch, @RequestParam Map<String, String> reqParamValue, HttpServletResponse httpServletResponse, HttpServletRequest request) {
     logger.info("redirected to secondary auth endpoint to sync code/launch_id with each other");
-    payloadDAO.updateCode(launch, reqParamValue.get("code"));
+    if(!Objects.equals(launch, "standalone")) {
+      payloadDAO.updateCode(launch, reqParamValue.get("code"));
+    }
     UriComponentsBuilder forwardUrl = UriComponentsBuilder.fromHttpUrl(reqParamValue.get("redirect_uri")).queryParam("state", reqParamValue.get("state")).queryParam("code", reqParamValue.get("code"));
     httpServletResponse.setHeader("Location", forwardUrl.toUriString());
     httpServletResponse.setStatus(302);
@@ -138,18 +137,35 @@ public class AuthProxy {
   /**
    * Generates the redirect url based on the incoming request
    * @param reqParamValue - the params of the incoming request
-   * @param request - the incoming request
    * @return - a formatted string of params to append to the base url
    */
-  private String _parseRedirect(Map<String, String> reqParamValue, HttpServletRequest request) {
+  private String _parseRedirect(Map<String, String> reqParamValue) {
+    String launchId = reqParamValue.get("launch");
+    if(launchId == null) {
+      // standalone
+      launchId = "standalone";
+    }
     String currentRedirectURI = reqParamValue.get("redirect_uri");
     String finalRedirectURI = environment.getProperty("redirect_base")
-            + reqParamValue.get("launch")
+            + launchId
             + "?redirect_uri=" + currentRedirectURI;
     reqParamValue.put("redirect_uri", finalRedirectURI);
-    payloadDAO.updateRedirect(reqParamValue.get("launch"), finalRedirectURI);
-
+    if(!launchId.equals("standalone")) {
+      payloadDAO.updateRedirect(reqParamValue.get("launch"), finalRedirectURI);
+    }
     return paramFormatter(reqParamValue);
+
+  }
+
+  private String _parseRedirect(TokenRequest reqParamValue) {
+    String launchId = "standalone";
+    String currentRedirectURI = reqParamValue.getRedirect_uri();
+    String finalRedirectURI = environment.getProperty("redirect_base")
+            + launchId
+            + "?redirect_uri=" + currentRedirectURI;
+
+    return finalRedirectURI;
+
   }
 
   private static String urlEncodeUTF8(Map<?,?> map) {
