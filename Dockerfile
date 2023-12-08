@@ -9,10 +9,6 @@ RUN gradle build
 EXPOSE 8080
 
 #HealthCheck 
-RUN apt update 
-RUN apt upgrade
-RUN apt search curl 
-RUN apt add curl
 HEALTHCHECK --interval=60s --timeout=10m --retries=5 CMD curl --fail http://localhost:8080 || exit 1
 
 # Command to run our app
