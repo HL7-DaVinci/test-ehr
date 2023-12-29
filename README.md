@@ -1,10 +1,10 @@
 # EHR FHIR Server
 
-This subproject hosts a HAPI FHIR server that is based on the [hapi-fhir-jpaserver-example](https://github.com/jamesagnew/hapi-fhir/tree/master/hapi-fhir-jpaserver-example).
+This subproject hosts a HAPI FHIR server that is based on the now-deprecated [hapi-fhir-jpaserver-example](https://github.com/jamesagnew/hapi-fhir/tree/master/hapi-fhir-jpaserver-example). The new repo is found [here](https://github.com/hapifhir/hapi-fhir-jpaserver-starter).
 
 ## Running the server
 
-1. Make sure `gradle` is installed on your machine. Gradle v8 or higher.
+1. Make sure `gradle` is installed on your machine. Gradle v6.9 or higher.
 2. Run `gradle bootRun`
 3. In a separate terminal tab, run `gradle loadData` to load resources
 
@@ -27,14 +27,14 @@ The FHIR server is open by default, but this can be changed in the `fhirServer.p
 
 First, change the `use_oauth` flag to `true` to turn on security. Then set the `client_id`, `client_secret`, and `oauth_token` fields.
 
-If using Keycloak and following the [CRD](https://github.com/mcode/CRD) guide, the `client_id` and `oauth_token` fields can be left as default. The `client_secret` can be found with the following steps:
+If using Keycloak and following the [REMS Admin](https://github.com/mcode/rems-admin) guide, the `client_id` and `oauth_token` fields can be left as default. The `client_secret` can be found with the following steps:
 
-1. Open the keycloak admin console (http://localhost:8180/auth) and log in
+1. Open the Keycloak admin console (http://localhost:8180/auth) and log in
 2. Open the ClientFhirServer, then the `clients` tab, and click `app-token`.
 3. Click on the `Credentials` tab, use the `regenerate secret` option if needed.
 4. Copy the client secret into the properties file under `client_secret`
 
-Finally, ensure that the [request generator](https://github.com/mcode/crd-request-generator) has the correct username and password in the `properties.json` file. If following the CRD guide, this will be one of the users created when setting up Keycloak.
+Finally, ensure that the [request generator](https://github.com/mcode/request-generator) has the correct username and password in the `properties.json` file. If following the REMS Admin guide, this will be one of the users created when setting up Keycloak.
 
 ## Server endpoints
 
@@ -46,3 +46,17 @@ Finally, ensure that the [request generator](https://github.com/mcode/crd-reques
 ## Version
 
 Java v11 or higher is required to run this application.
+
+## Run configurations
+
+Run configurations to run, clean, and load data for the FHIR server can be used for the IntelliJ IDEA CE IDE. You can set breakpoints on the `Boot Run` configuration.
+
+These were last used with IntelliJ IDEA 2021.2.2 (Community Edition) and Microsoft Edge DevTools.
+
+### Steps:
+
+1. Select "Boot Run" as a Run Configuration from the dropdown menu.
+2. Put a breakpoint (red dot) on the desired line, e.g. line 43 of `test-ehr/src/main/java/org/hl7/davinci/ehrserver/interceptor/QuestionnaireResponseSearchParameterInterceptor.java`.
+3. Click the debug icon (green bug) up top.
+4. Go to http://localhost:3000 (where a locally run request-generator is served at) and try to select a patient. You may have to wait for bootRun to finish starting up if you see a "Network Request Failed Error". request-generator will ask test-ehr for QuestionnaireResponse resources (to get the list of in-progress forms).
+5. request-generator will pause as the breakpoint at line 43 gets hit. Hit F12 to open up DevTools on http://localhost:3000. You will see the QuestionnaireResponse (and other FHIR resources) have yet to be received.
