@@ -193,7 +193,7 @@ task loadRequestBuilder() {
 void setup() {
     exec {
         workingDir 'src/main/webapp/'
-        commandLine 'git','clone','--single-branch', '--branch','settings-change-hotfix','https://github.com/HL7-DaVinci/crd-request-generator.git','tempFolder'
+        commandLine 'git','clone','--single-branch', '--branch','settings-change-hotfix','https://github.com/mcode/request-generator.git','tempFolder'
     }
     exec {
         workingDir 'src/main/webapp/tempFolder'
