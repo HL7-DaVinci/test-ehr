@@ -42,6 +42,7 @@ Finally, ensure that the [request generator](https://github.com/mcode/request-ge
 | -------------- | ------------------------------------------------------ |
 | `/test-ehr/`   | Base server endpoint                                   |
 | `/test-ehr/r4` | EHR FHIR Server endpoint (will not resolve in browser) |
+| `/test-ehr/script/rxfill` | NCPDP SCRIPT endpoint that RxFill messages from the pharmacy can be sent to (will not resolve in browser) |
 
 ## Version
 
