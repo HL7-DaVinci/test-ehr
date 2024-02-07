@@ -8,6 +8,14 @@ public class FillStatus {
     private DispensedStatus notDispensed;
     private DispensedStatus transferred;
 
+    enum DispensedStatusEnum {
+        DISPENSED,
+        PARTIALLY_DISPENSED,
+        NOT_DISPENSED,
+        TRANSFERRED,
+        UNKNOWN
+    }
+
     @XmlElement(name="Dispensed")
     public DispensedStatus getDispensed() {
         return dispensed;
@@ -38,6 +46,20 @@ public class FillStatus {
     }
     public void setTransferred(DispensedStatus transferred) {
         this.transferred = transferred;
+    }
+
+    public DispensedStatusEnum getStatus() {
+        if (getDispensed() != null) {
+            return DispensedStatusEnum.DISPENSED;
+        } else if (getPartiallyDispensed() != null) {
+            return DispensedStatusEnum.PARTIALLY_DISPENSED;
+        } else if (getNotDispensed() != null) {
+            return DispensedStatusEnum.NOT_DISPENSED;
+        } else if (getTransferred() != null) {
+            return DispensedStatusEnum.TRANSFERRED;
+        } else {
+            return DispensedStatusEnum.UNKNOWN;
+        }
     }
     
 }
