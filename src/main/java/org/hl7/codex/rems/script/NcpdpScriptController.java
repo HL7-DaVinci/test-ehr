@@ -79,21 +79,7 @@ public class NcpdpScriptController {
             String requestId = requestIdParts[0] + "/" + requestIdParts[1];
             String dispenseId = requestIdParts[1] + "-dispense";
             medicationDispense.setId(dispenseId);
-            switch(dispensedStatus) {
-                case DISPENSED:
-                    medicationDispense.setStatus(MedicationDispense.MedicationDispenseStatus.COMPLETED);
-                    break;
-                case PARTIALLY_DISPENSED:
-                    medicationDispense.setStatus(MedicationDispense.MedicationDispenseStatus.INPROGRESS);
-                    break;
-                case NOT_DISPENSED:
-                    medicationDispense.setStatus(MedicationDispense.MedicationDispenseStatus.PREPARATION);
-                    break;
-                case TRANSFERRED:
-                case UNKNOWN:
-                default:
-                    medicationDispense.setStatus(MedicationDispense.MedicationDispenseStatus.UNKNOWN);
-            }
+            medicationDispense.setStatus(convertRxFillDispensedStatusToMedicationDispenseStatus(dispensedStatus));
             medicationDispense.setMedication(medicationRequest.getMedication());
             medicationDispense.setSubject(medicationRequest.getSubject());
             medicationDispense.addAuthorizingPrescription(new Reference(requestId));
@@ -112,5 +98,20 @@ public class NcpdpScriptController {
         RxFillStatusBody statusBody = new RxFillStatusBody(status);
         RxFillStatusMessage statusMessage = new RxFillStatusMessage(statusHeader, statusBody);
         return statusMessage;
+    }
+
+    private MedicationDispense.MedicationDispenseStatus convertRxFillDispensedStatusToMedicationDispenseStatus(FillStatus.DispensedStatusEnum dispensedStatus) {
+        switch(dispensedStatus) {
+            case DISPENSED:
+                return MedicationDispense.MedicationDispenseStatus.COMPLETED;
+            case PARTIALLY_DISPENSED:
+                return MedicationDispense.MedicationDispenseStatus.INPROGRESS;
+            case NOT_DISPENSED:
+                return MedicationDispense.MedicationDispenseStatus.PREPARATION;
+            case TRANSFERRED:
+            case UNKNOWN:
+            default:
+                return MedicationDispense.MedicationDispenseStatus.UNKNOWN;
+        }
     }
 }
