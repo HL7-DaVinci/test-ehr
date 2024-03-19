@@ -32,8 +32,8 @@ spring:
     job:
       enabled: false
 
-oauth_token: "http://localhost:8180/realms/ClientFhirServer/protocol/openid-connect/token"
-oauth_authorize: "http://localhost:8180/realms/ClientFhirServer/protocol/openid-connect/auth"
+# oauth_token: "http://localhost:8180/realms/ClientFhirServer/protocol/openid-connect/token"
+# oauth_authorize: "http://localhost:8180/realms/ClientFhirServer/protocol/openid-connect/auth"
 
 hapi:
   fhir:
