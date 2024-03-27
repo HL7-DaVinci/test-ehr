@@ -31,7 +31,7 @@
       {
         "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
         "code": "993781",
-        "display": "acetaminophen 300 MG / codeine phosphate 30 MG Oral Tablet"
+        "display": "Acetaminophen 300 MG / Codeine Phosphate 30 MG Oral Tablet"
       },
       {
         "system": "http://hl7.org/fhir/sid/ndc",
