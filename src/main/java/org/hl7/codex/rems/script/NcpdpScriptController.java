@@ -27,9 +27,6 @@ public class NcpdpScriptController {
     private static final String APPLICATION_XML = "application/xml";
 
     @Autowired
-    private org.springframework.core.env.Environment environment;
-
-    @Autowired
     private JpaRestfulServer jpaRestfulServer;
 
     /**
@@ -59,7 +56,7 @@ public class NcpdpScriptController {
         RequestDetails requestDetails = new SystemRequestDetails();
         requestDetails.setRequestId(header.getPrescriberOrderNumber());
 
-        // retrieve the MedicationRequeest
+        // retrieve the MedicationRequest
         MedicationRequest medicationRequest = null;
         try {
             medicationRequest = medicationRequestDao.read(id, requestDetails);

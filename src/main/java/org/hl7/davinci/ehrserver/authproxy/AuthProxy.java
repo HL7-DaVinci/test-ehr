@@ -62,7 +62,7 @@ public class AuthProxy {
    * passed in by the request to associate the request with a launch id, and uses that launch id
    * to append extra parameters to the token response.
    * @param body - Custom object to serialize the incoming request body
-   * @return - returns the custom built reponse
+   * @return - returns the custom built response
    */
   @PostMapping(value = "/token",  consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
   public ResponseEntity<TokenResponse> getToken(TokenRequest body) {

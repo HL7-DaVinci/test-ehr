@@ -21,18 +21,18 @@ echo "loading data into test-ehr..."
 gradle loadData
 
 # Continuous Load Data command whenever fhirResourcesToLoad directory changes
-reources_modify_time=$(stat -c %Y fhirResourcesToLoad)
+resources_modify_time=$(stat -c %Y fhirResourcesToLoad)
 while sleep 1
 do
-    new_reources_modify_time=$(stat -c %Y fhirResourcesToLoad)
+    new_resources_modify_time=$(stat -c %Y fhirResourcesToLoad)
     
-    if [[ "$reources_modify_time" != "$new_reources_modify_time" ]] 
+    if [[ "$resources_modify_time" != "$new_resources_modify_time" ]] 
     then
         echo "loading data into test-ehr..."
         gradle loadData
     fi
 
-    reources_modify_time=$new_reources_modify_time
+    resources_modify_time=$new_resources_modify_time
 
 done ) & LOAD_DATA_PID=$!
 

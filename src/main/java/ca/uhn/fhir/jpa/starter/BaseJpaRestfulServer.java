@@ -224,7 +224,7 @@ public class BaseJpaRestfulServer extends RestfulServer {
     setPagingProvider(databaseBackedPagingProvider);
 
     /*
-     * This interceptor formats the output using nice colourful
+     * This interceptor formats the output using nice colorful
      * HTML output when the request is detected to come from a
      * browser.
      */
@@ -419,7 +419,7 @@ public class BaseJpaRestfulServer extends RestfulServer {
   private ServerConformanceR4 createConformance(RestfulServer theRestfulServer, IFhirSystemDao<Bundle, Meta> theSystemDao, DaoConfig theDaoConfig, ISearchParamRegistry theSearchParamRegistry, IValidationSupport theValidationSupport){
      ServerConformanceR4 con = new ServerConformanceR4(theRestfulServer, theSystemDao,
             theDaoConfig, theSearchParamRegistry, theValidationSupport);
-    // this isnt autowiring so force it.
+    // this isn't autowiring so force it.
     myApplicationContext.getAutowireCapableBeanFactory().autowireBean(con);
     return con;
   }

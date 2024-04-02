@@ -14,7 +14,6 @@ import org.eclipse.jetty.http.MimeTypes;
 import org.eclipse.jetty.io.ByteBufferOutputStream;
 import org.eclipse.jetty.server.Dispatcher;
 import org.eclipse.jetty.server.Request;
-import org.eclipse.jetty.server.handler.AbstractHandler;
 import org.eclipse.jetty.server.handler.ErrorHandler;
 import org.eclipse.jetty.util.StringUtil;
 
