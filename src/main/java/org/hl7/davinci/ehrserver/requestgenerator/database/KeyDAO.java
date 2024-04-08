@@ -1,12 +1,10 @@
 package org.hl7.davinci.ehrserver.requestgenerator.database;
 
-import javax.sql.DataSource;
 import java.util.List;
 
 public interface KeyDAO {
 
   public void createKey(Key key);
-
 
   // create a new user record in the users table
   public void create(String id, String e, String n, String kty);
