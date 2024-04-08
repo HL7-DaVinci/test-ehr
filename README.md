@@ -1,6 +1,6 @@
 # EHR FHIR Server
 
-This subproject hosts a HAPI FHIR server that is based on the now-deprecated [hapi-fhir-jpaserver-example](https://github.com/jamesagnew/hapi-fhir/tree/master/hapi-fhir-jpaserver-example). The new repo is found [here](https://github.com/hapifhir/hapi-fhir-jpaserver-starter).
+This sub-project hosts a HAPI FHIR server that is based on the now-deprecated [hapi-fhir-jpaserver-example](https://github.com/jamesagnew/hapi-fhir/tree/master/hapi-fhir-jpaserver-example). The new repo is found [here](https://github.com/hapifhir/hapi-fhir-jpaserver-starter).
 
 ## Running the server
 
