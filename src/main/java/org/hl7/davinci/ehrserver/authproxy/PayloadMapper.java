@@ -17,6 +17,7 @@ public class PayloadMapper implements RowMapper<Payload> {
     Parameters parameters = new Parameters();
     parameters.setPatient(rs.getString("patient"));
     parameters.setAppContext(rs.getString("appContext"));
+    parameters.setFhirContext(rs.getString("fhirContext"));
     payload.setParameters(parameters);
     return payload;
   }

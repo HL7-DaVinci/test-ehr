@@ -8,6 +8,7 @@ public class TokenResponse {
   private String refresh_token;
   private String patient;
   private String appContext;
+  private String fhirContext;
 
 
 
@@ -19,7 +20,14 @@ public class TokenResponse {
   public TokenResponse setAppContext(String appContext) {
     this.appContext = appContext;
     return this;
+  }
 
+  public String getFhirContext() {
+    return fhirContext;
+  }
+  public TokenResponse setFhirContext(String fhirContext) {
+    this.fhirContext = fhirContext;
+    return this;
   }
 
   public String getAccess_token() {

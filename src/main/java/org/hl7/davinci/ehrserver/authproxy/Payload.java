@@ -53,9 +53,16 @@ public class Payload {
   public String getAppContext() {
     return parameters.getAppContext();
   }
+  public String getFhirContext() {
+    return parameters.getFhirContext();
+  }
 
   @Override
   public String toString() {
-    return launchId + ": " +launchUrl +", " +redirectUri + ", "+  parameters.toString();
+    String value = launchId + ": " + launchUrl + ", " + redirectUri;
+    if (parameters != null) {
+      value += ", " + parameters.toString();
+    }
+    return value;
   }
 }

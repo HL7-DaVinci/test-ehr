@@ -1,0 +1,88 @@
+{
+  "resourceType" : "Task",
+  "id" : "cdex-task-example",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/us/davinci-cdex/StructureDefinition/cdex-task-data-request"],
+    "tag" : [{
+      "system" : "http://hl7.org/fhir/us/davinci-cdex/CodeSystem/cdex-temp",
+      "code" : "claims-processing"
+    }]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Task</b><a name=\"cdex-task-example\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Task &quot;cdex-task-example&quot; </p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-cdex-task-data-request.html\">CDex Task Data Request Profile</a></p><p style=\"margin-bottom: 0px\">Tag: <span title=\"{http://hl7.org/fhir/us/davinci-cdex/CodeSystem/cdex-temp http://hl7.org/fhir/us/davinci-cdex/CodeSystem/cdex-temp}\">http://hl7.org/fhir/us/davinci-cdex/CodeSystem/cdex-temp</span></p></div><p><b>status</b>: requested</p><p><b>intent</b>: order</p><p><b>code</b>: Data Request Questionnaire <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cdex-temp.html\">CDex Temporary Code System</a>#data-request-questionnaire)</span></p><p><b>for</b>: <span/></p><p><b>authoredOn</b>: 2022-06-17 16:16:06+0000</p><p><b>lastModified</b>: 2022-06-17 16:16:06+0000</p><p><b>requester</b>: <span/></p><p><b>owner</b>: <span/></p><p><b>reasonReference</b>: <span/></p><blockquote><p><b>input</b></p><p><b>type</b>: Questionnaire <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://hl7.org/fhir/uv/sdc/STU3/CodeSystem-temp.html\">Temporary SDC Codes</a>#questionnaire)</span></p><p><b>value</b>: <a href=\"Questionnaire-cdex-questionnaire-example1.html\">Home Oxygen Therapy Questionnaire</a></p></blockquote><blockquote><p><b>input</b></p><p><b>type</b>: Purpose Of Use <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"CodeSystem-cdex-temp.html\">CDex Temporary Code System</a>#purpose-of-use)</span></p><p><b>value</b>: coverage under policy or program <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.0.0/CodeSystem-v3-ActReason.html\">ActReason</a>#COVERAGE)</span></p></blockquote></div>"
+  },
+  "status" : "requested",
+  "intent" : "order",
+  "code" : {
+    "coding" : [{
+      "system" : "http://hl7.org/fhir/us/davinci-cdex/CodeSystem/cdex-temp",
+      "code" : "data-request-questionnaire"
+    }]
+  },
+  "for" : {
+    "identifier" : {
+      "type" : {
+        "coding" : [{
+          "system" : "http://hl7.org/fhir/us/davinci-hrex/CodeSystem/hrex-temp",
+          "code" : "UMB",
+          "display" : "Member Number"
+        }],
+        "text" : "Member Number"
+      },
+      "system" : "http://example.org/cdex/payer/member-ids",
+      "value" : "Member123"
+    }
+  },
+  "authoredOn" : "2022-06-17T16:16:06Z",
+  "lastModified" : "2022-06-17T16:16:06Z",
+  "requester" : {
+    "identifier" : {
+      "system" : "http://example.org/cdex/payer/payer-ids",
+      "value" : "Payer123"
+    }
+  },
+  "owner" : {
+    "identifier" : {
+      "system" : "http://hl7.org/fhir/sid/us-npi",
+      "value" : "9941339108"
+    }
+  },
+  "reasonReference" : {
+    "identifier" : {
+      "type" : {
+        "coding" : [{
+          "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+          "code" : "FILL",
+          "display" : "Filler Identifier"
+        }],
+        "text" : "Payer Claim ID"
+      },
+      "system" : "http://example.org/cdex/payer/claim-ids",
+      "value" : "Claim123"
+    }
+  },
+  "input" : [{
+    "type" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/uv/sdc/CodeSystem/temp",
+        "code" : "questionnaire"
+      }]
+    },
+    "valueCanonical" : "http://example.org/cdex-questionnaire-example1"
+  },
+  {
+    "type" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/us/davinci-cdex/CodeSystem/cdex-temp",
+        "code" : "purpose-of-use"
+      }]
+    },
+    "valueCodeableConcept" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code" : "COVERAGE"
+      }]
+    }
+  }]
+}

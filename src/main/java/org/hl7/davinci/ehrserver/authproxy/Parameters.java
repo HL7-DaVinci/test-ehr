@@ -3,6 +3,7 @@ package org.hl7.davinci.ehrserver.authproxy;
 public class Parameters {
   private String patient;
   private String appContext;
+  private String fhirContext;
 
 
   public String getAppContext() {
@@ -21,8 +22,15 @@ public class Parameters {
     this.patient = patient;
   }
 
+  public String getFhirContext() {
+    return fhirContext;
+  }
+  public void setFhirContext(String fhirContext) {
+    this.fhirContext = fhirContext;
+  }
+
   @Override
   public String toString() {
-    return patient + ", "  + appContext.toString();
+    return patient + ", "  + appContext;
   }
 }
