@@ -4,7 +4,7 @@ This sub-project hosts a HAPI FHIR server that is based on the now-deprecated [h
 
 The server this repository runs is a standard FHIR server that saves and provides FHIR resources for clients. Almost every step of the REMS workflow involves the EHR, it communicates with the [Request Generator](https://github.com/mcode/request-generator), [REMS Admin](https://github.com/mcode/rems-admin), [REMS SMART on FHIR app](https://github.com/mcode/rems-smart-on-fhir), and [Pharmacy System](https://github.com/mcode/pims).
 
-Any compliant FHIR server can replace this server in the workflow.  This EHR server is provided as a convenience. All apps in the REMS workflow are programmed to function with any FHIR server.
+Any compliant FHIR server can replace this server in the workflow.  This EHR server is provided as a convenience. All apps in the REMS workflow are programmed to function with any FHIR server, but are programmed to work with this one by default.
 
 ## Initialization
 
