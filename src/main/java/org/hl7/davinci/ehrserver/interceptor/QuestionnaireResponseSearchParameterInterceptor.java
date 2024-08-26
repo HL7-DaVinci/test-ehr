@@ -3,10 +3,6 @@ package org.hl7.davinci.ehrserver.interceptor;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.SearchParameter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

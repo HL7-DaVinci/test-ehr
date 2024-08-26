@@ -42,7 +42,7 @@ public class AuthProxy {
    * before redirecting back to the smart app.
    * @param reqParamValue - The parameters of the request
    * @param httpServletResponse - The response object to be sent back
-   * @param request - The request that has been recieved
+   * @param request - The request that has been received
    * @throws IOException - the uri components builder might throw an IO
    */
   @GetMapping("/auth")
@@ -62,7 +62,7 @@ public class AuthProxy {
    * passed in by the request to associate the request with a launch id, and uses that launch id
    * to append extra parameters to the token response.
    * @param body - Custom object to serialize the incoming request body
-   * @return - returns the custom built reponse
+   * @return - returns the custom built response
    */
   @PostMapping(value = "/token",  consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
   public ResponseEntity<TokenResponse> getToken(TokenRequest body) {
@@ -120,7 +120,7 @@ public class AuthProxy {
    * @param launch - the launch id is included in the path
    * @param reqParamValue - the parameters of the url should include only the code, state, and the original redirect url
    * @param httpServletResponse - the response object
-   * @param request - the request recieved
+   * @param request - the request received
    */
   @GetMapping("/_auth/{launch}")
   public void authSync(@PathVariable String launch, @RequestParam Map<String, String> reqParamValue, HttpServletResponse httpServletResponse, HttpServletRequest request) {

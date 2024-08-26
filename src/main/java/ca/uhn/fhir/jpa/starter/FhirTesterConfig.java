@@ -19,6 +19,7 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @ComponentScan(basePackages = "org.hl7.davinci.ehrserver.authproxy")
+@ComponentScan(basePackages = "org.hl7.codex.rems.script")
 @Import(FhirTesterMvcConfig.class)
 public class FhirTesterConfig {
 

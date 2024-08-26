@@ -24,6 +24,7 @@ import javax.sql.DataSource;
 @Configuration
 @Conditional(OnR4Condition.class)
 @ComponentScan(basePackages = "org.hl7.davinci.ehrserver.authproxy")
+@ComponentScan(basePackages = "org.hl7.codex.rems.script")
 @Import(StarterCqlR4Config.class)
 public class FhirServerConfigR4 extends BaseJavaConfigR4 {
 

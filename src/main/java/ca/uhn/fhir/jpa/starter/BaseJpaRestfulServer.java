@@ -9,6 +9,7 @@ import ca.uhn.fhir.interceptor.api.IInterceptorService;
 import ca.uhn.fhir.jpa.api.config.DaoConfig;
 import ca.uhn.fhir.jpa.api.dao.DaoRegistry;
 import ca.uhn.fhir.jpa.api.dao.IFhirSystemDao;
+import ca.uhn.fhir.jpa.api.dao.IFhirResourceDao;
 import ca.uhn.fhir.jpa.binstore.BinaryStorageInterceptor;
 import ca.uhn.fhir.jpa.bulk.export.provider.BulkDataExportProvider;
 import ca.uhn.fhir.jpa.interceptor.CascadingDeleteInterceptor;
@@ -66,7 +67,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
+import ca.uhn.fhir.rest.server.IResourceProvider;
+import org.hl7.fhir.r4.model.DomainResource;
+import ca.uhn.fhir.jpa.provider.BaseJpaResourceProvider;
 
 public class BaseJpaRestfulServer extends RestfulServer {
   private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(BaseJpaRestfulServer.class);
@@ -221,7 +224,7 @@ public class BaseJpaRestfulServer extends RestfulServer {
     setPagingProvider(databaseBackedPagingProvider);
 
     /*
-     * This interceptor formats the output using nice colourful
+     * This interceptor formats the output using nice colorful
      * HTML output when the request is detected to come from a
      * browser.
      */
@@ -416,8 +419,24 @@ public class BaseJpaRestfulServer extends RestfulServer {
   private ServerConformanceR4 createConformance(RestfulServer theRestfulServer, IFhirSystemDao<Bundle, Meta> theSystemDao, DaoConfig theDaoConfig, ISearchParamRegistry theSearchParamRegistry, IValidationSupport theValidationSupport){
      ServerConformanceR4 con = new ServerConformanceR4(theRestfulServer, theSystemDao,
             theDaoConfig, theSearchParamRegistry, theValidationSupport);
-    // this isnt autowiring so force it.
+    // this isn't autowiring so force it.
     myApplicationContext.getAutowireCapableBeanFactory().autowireBean(con);
     return con;
+  }
+
+  /*
+   * Get the FHIR Resource DAO for the specified FHIR Resource.
+   */
+  public <T extends DomainResource> IFhirResourceDao<T> getDao(Class<T> c) {
+    List<IResourceProvider> resProvList = getResourceProviders();
+    for (IResourceProvider prov : resProvList) {
+      
+      if (prov.getResourceType() == c) {
+        ourLog.info("BaseJpaRestfulServer::getDao: " + prov.getClass());
+        BaseJpaResourceProvider<T> sProv = (BaseJpaResourceProvider<T>)prov;
+        return sProv.getDao();
+      }
+    }
+    return null;
   }
 }

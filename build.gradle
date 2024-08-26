@@ -99,6 +99,10 @@ dependencies {
 //    providedImplementation 'javax.servlet:javax.servlet-api:3.1.0'
    // implementation group:'org.apache.tomcat', name:'tomcat-juli', version:property('tomcat.version')
     implementation 'javax.interceptor:javax.interceptor-api:1.2.2'
+
+    implementation 'javax.xml.bind:jaxb-api:2.3.0'
+    implementation 'com.sun.xml.bind:jaxb-core:2.3.0'
+    implementation 'com.sun.xml.bind:jaxb-impl:2.3.0'
 }
 
 // To specify folder use -Dfhir_dir=<path>
@@ -193,7 +197,7 @@ task loadRequestBuilder() {
 void setup() {
     exec {
         workingDir 'src/main/webapp/'
-        commandLine 'git','clone','--single-branch', '--branch','settings-change-hotfix','https://github.com/HL7-DaVinci/crd-request-generator.git','tempFolder'
+        commandLine 'git','clone','--single-branch', '--branch','settings-change-hotfix','https://github.com/mcode/request-generator.git','tempFolder'
     }
     exec {
         workingDir 'src/main/webapp/tempFolder'
