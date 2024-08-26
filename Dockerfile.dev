@@ -9,7 +9,7 @@ RUN gradle build
 EXPOSE 8080
 EXPOSE 8081
 
-HEALTHCHECK --interval=60s --timeout=10m --retries=5 CMD curl --fail http://localhost:8080 || exit 1
+HEALTHCHECK --interval=60s --timeout=10m --retries=5 CMD curl --fail http://localhost:8080/test-ehr/r4/metadata || exit 1
 
 # Command to run our app
 CMD ./dockerRunnerDev.sh
