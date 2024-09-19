@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 public class Body {
     private RxFill rxFill; 
     private Status status;
+    private Error error;
 
     @XmlElement(name="RxFill")
     public RxFill getRxFill() {
@@ -24,11 +25,29 @@ public class Body {
         this.status = status;
     }
 
+    @XmlElement(name="Error")
+    public Error getError() {
+        return error;
+    }
+    public void setError(Error error) {
+        this.error = error;
+    }
+
     public Body() {
+        this.rxFill = null;
         this.status = null;
+        this.error = null;
+    }
+
+    public Body(RxFill rxFill) {
+        this.rxFill = rxFill;
     }
 
     public Body(Status status) {
         this.status = status;
+    }
+
+    public Body(Error error) {
+        this.error = error;
     }
 }
