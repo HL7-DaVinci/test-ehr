@@ -1,4 +1,4 @@
-name: Docker Tagged Image CD
+name: Keycloak Docker Tagged Image CD
 on:
   workflow_dispatch:
   push:
