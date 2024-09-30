@@ -1,11 +1,4 @@
-FROM registry.access.redhat.com/ubi9 AS ubi-micro-build
-RUN mkdir -p /mnt/rootfs
-RUN dnf install --installroot /mnt/rootfs curl --releasever 9 --setopt install_weak_deps=false --nodocs -y && \
-    dnf --installroot /mnt/rootfs clean all && \
-    rpm --root /mnt/rootfs -e --nodeps setup
-
-
 FROM keycloak/keycloak:22.0.1
 COPY --from=ubi-micro-build /mnt/rootfs /
-HEALTHCHECK --interval=30s --start-period=15s --timeout=10m --retries=10 CMD curl --fail http://localhost:8080 || exit 1
+HEALTHCHECK --interval=30s --start-period=15s --timeout=10m --retries=10 CMD "exec 3<>/dev/tcp/127.0.0.1/8080;echo -e \"GET /health/ready HTTP/1.1\r\nhost: http://localhost\r\nConnection: close\r\n\r\n\" >&3;grep \"HTTP/1.1 200 OK\" <&3"
 COPY ./src/main/resources/ClientFhirServerRealm.json /opt/keycloak/data/import/ClientFhirServerRealm.json
