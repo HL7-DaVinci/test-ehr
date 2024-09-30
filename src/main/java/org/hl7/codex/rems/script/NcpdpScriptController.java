@@ -34,14 +34,48 @@ public class NcpdpScriptController {
      * @param payload - the object used to serialize the XML in the request body.
      * @return - an object containing the NCPDP Script Status to return.
      */
-    @PostMapping(value = "/script/rxfill", produces = {APPLICATION_XML}, consumes = {APPLICATION_XML})
+    @PostMapping(value = "/ncpdp/script", produces = {APPLICATION_XML}, consumes = {APPLICATION_XML})
     @ResponseBody
-    public RxFillStatusMessage getScriptResponse(@RequestBody RxFillMessage payload) {
-        logger.info("NcpdpScriptController::getScriptResponse /script/rxfill");
+    public Message handleScriptMessage(@RequestBody Message payload) {
+        logger.info("NcpdpScriptController::handleScriptMessage /ncpdp/script");
 
         Header header = payload.getHeader();
-        RxFillBody body = payload.getBody();
-        FillStatus.DispensedStatusEnum dispensedStatus = body.getRxFill().getFillStatus().getStatus();
+        Body body = payload.getBody();
+
+        Boolean returnSuccess = false;
+        String errorMessage = "";
+
+        if (body.getRxFill() != null) {
+            logger.info("NcpdpScriptController::handleScriptMessage RxFill Message");
+            handleRxFillMessage(body.getRxFill(), header);
+            returnSuccess = true;
+        } else if (body.getStatus() != null) {
+            errorMessage = "Status Message NOT supported";
+            logger.info("NcpdpScriptController::handleScriptMessage " + errorMessage);
+        } else {
+            errorMessage = "Unsupported NCPDP SCRIPT Message";
+            logger.info("NcpdpScriptController::handleScriptMessage " + errorMessage);
+        }
+
+        Body returnBody;
+        if (returnSuccess) {
+            // build the status to return
+            Status status = new Status("000", null, null, null);
+            returnBody = new Body(status);
+        } else {
+            // build the error to return
+            Error error = new Error("900", "1000", errorMessage);
+            returnBody = new Body(error);
+        }
+
+        Header returnHeader = new Header(header.getFrom().value, header.getTo().value, 
+            header.getMessageId(), header.getPrescriberOrderNumber());
+        Message returnMessage = new Message(returnHeader, returnBody);
+        return returnMessage;
+    }
+
+    private void handleRxFillMessage(RxFill rxFill, Header header) {
+        FillStatus.DispensedStatusEnum dispensedStatus = rxFill.getFillStatus().getStatus();
 
         logger.info("    PrescriberOrderNumber: " + header.getPrescriberOrderNumber());
         logger.info("    Dispensed Status: " + dispensedStatus);
@@ -86,15 +120,7 @@ public class NcpdpScriptController {
             dispenseDetails.setRequestId(dispenseId);
             medicationDispenseDao.update(medicationDispense, dispenseDetails);
             logger.info("    Created new MedicationDispense: " + dispenseId);
-        }
-
-        // build the status to return
-        Header statusHeader = new Header(header.getFrom().value, header.getTo().value, 
-            header.getMessageId(), header.getPrescriberOrderNumber());
-        Status status = new Status("000", null, null, null);
-        RxFillStatusBody statusBody = new RxFillStatusBody(status);
-        RxFillStatusMessage statusMessage = new RxFillStatusMessage(statusHeader, statusBody);
-        return statusMessage;
+        } 
     }
 
     private MedicationDispense.MedicationDispenseStatus convertRxFillDispensedStatusToMedicationDispenseStatus(FillStatus.DispensedStatusEnum dispensedStatus) {
