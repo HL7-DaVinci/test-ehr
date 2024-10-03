@@ -1,6 +1,9 @@
 # EHR FHIR Server
 This subproject hosts a HAPI FHIR server that is based on the [hapi-fhir-jpaserver-example](https://github.com/jamesagnew/hapi-fhir/tree/master/hapi-fhir-jpaserver-example).
 
+## Foundry
+A live demo is hosted by [HL7 FHIR Foundry](https://foundry.hl7.org/products/ee6c4df0-49d8-4e16-ad17-7aba82c47b25).
+
 ## Init the test-ehr 
 1. delete `target` and `build` folders from test-ehr if they exist
 2. from Terminal (1) while in test-ehr folder: `gradle bootRun`
