@@ -51,7 +51,7 @@
         "code": {
           "coding": [
             {
-              "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+              "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
               "code": "E0143",
               "display": "Walker, folding, wheeled, adjustable or fixed height"
             }
@@ -115,7 +115,7 @@
           {
             "coding": [
               {
-                "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+                "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
                 "code": "C3824712",
                 "display": "Patients--Safety measures"
               }

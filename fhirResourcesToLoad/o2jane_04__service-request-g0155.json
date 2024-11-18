@@ -6,7 +6,7 @@
     "code": {
         "coding": [
             {
-                "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+                "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
                 "code": "G0155",
                 "display": "Services of clinical social worker in home health or hospice settings, each 15 minutes"
             }

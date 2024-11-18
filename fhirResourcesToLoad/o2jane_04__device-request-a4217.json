@@ -15,7 +15,7 @@
     "codeCodeableConcept": {
           "coding": [
               {
-                  "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+                  "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
                   "code": "A4217",
                   "display": "Sterile water/saline, 500 ml"
               }
