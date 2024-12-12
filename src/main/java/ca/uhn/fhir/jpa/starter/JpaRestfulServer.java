@@ -1,6 +1,5 @@
 package ca.uhn.fhir.jpa.starter;
 
-import org.hl7.davinci.ehrserver.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Import(AppProperties.class)
+@Import({AppProperties.class, SecurityProperties.class})
 public class JpaRestfulServer extends BaseJpaRestfulServer {
 
   @Autowired
   AppProperties appProperties;
+
+  @Autowired
+  SecurityProperties securityProperties;
 
   private static final long serialVersionUID = 1L;
   static final Logger logger = LoggerFactory.getLogger(JpaRestfulServer.class);
@@ -26,7 +28,7 @@ public class JpaRestfulServer extends BaseJpaRestfulServer {
 
     if (request.getRequestURI().contains("/_services/smart/Launch")) {
       // redirect calls to /_services/smart/Launch to the root /_services/smart/Launch
-      String redirectUrl = Config.get("redirect_post_launch");
+      String redirectUrl = securityProperties.getRedirectPostLaunch();
       logger.info("JpaRestfulServer::doPost: redirect " + request.getRequestURI() + " to " + redirectUrl);
       response.setHeader("Location", redirectUrl);
       response.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, String.join(", ", appProperties.getCors().getAllowed_origin()));

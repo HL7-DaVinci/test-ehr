@@ -101,6 +101,8 @@ public class BaseJpaRestfulServer extends RestfulServer {
   @Autowired
   AppProperties appProperties;
   @Autowired
+  SecurityProperties securityProperties;
+  @Autowired
   ApplicationContext myApplicationContext;
   @Autowired(required = false)
   IRepositoryValidationInterceptorFactory factory;
@@ -160,7 +162,7 @@ public class BaseJpaRestfulServer extends RestfulServer {
       } else if (fhirVersion == FhirVersionEnum.R4) {
 
 				JpaCapabilityStatementProvider confProvider = new ServerConformanceR4(this, fhirSystemDao,
-					daoConfig, searchParamRegistry, myValidationSupport);
+					daoConfig, searchParamRegistry, myValidationSupport, securityProperties);
         confProvider.setImplementationDescription("HAPI FHIR R4 Server");
         setServerConformanceProvider(confProvider);
       } else if (fhirVersion == FhirVersionEnum.R5) {
@@ -233,7 +235,7 @@ public class BaseJpaRestfulServer extends RestfulServer {
     loggingInterceptor.setLogExceptions(appProperties.getLogger().getLog_exceptions());
     this.registerInterceptor(loggingInterceptor);
 
-    ClientAuthorizationInterceptor clientAuthorizationInterceptor = new ClientAuthorizationInterceptor();
+    ClientAuthorizationInterceptor clientAuthorizationInterceptor = new ClientAuthorizationInterceptor(securityProperties);
     this.registerInterceptor(clientAuthorizationInterceptor);
 
 

@@ -1,5 +1,6 @@
 package org.hl7.davinci.ehrserver;
 
+import ca.uhn.fhir.jpa.starter.SecurityProperties;
 import ca.uhn.fhir.rest.api.server.RequestDetails;
 import ca.uhn.fhir.rest.server.interceptor.auth.AuthorizationInterceptor;
 import ca.uhn.fhir.rest.server.interceptor.auth.IAuthRule;
@@ -14,7 +15,6 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -23,13 +23,16 @@ import java.util.List;
 @SuppressWarnings("ConstantConditions")
 public class ClientAuthorizationInterceptor extends AuthorizationInterceptor {
 
-  String introspectUrl = "http://localhost:8180/auth/realms/"
-      + Config.get("realm") + "/protocol/openid-connect/token/introspect";
+  SecurityProperties securityProperties;
+
+  public ClientAuthorizationInterceptor(SecurityProperties securityProperties) {
+    super();
+    this.securityProperties = securityProperties;
+  }
 
   @Override
   public List<IAuthRule> buildRuleList(RequestDetails theRequestDetails) {
-    String useOauth = Config.get("use_oauth");
-    if (!Boolean.parseBoolean(useOauth)) {
+    if (!securityProperties.getUseOauth()) {
       return new RuleBuilder()
           .allowAll()
           .build();
@@ -47,8 +50,10 @@ public class ClientAuthorizationInterceptor extends AuthorizationInterceptor {
     }
 
     String token = authHeader.split(" ")[1];
-    String secret = Config.get("client_secret");
-    String clientId = Config.get("client_id");
+    String secret = securityProperties.getClientSecret();
+    String clientId = securityProperties.getClientId();
+
+    String introspectUrl = "http://localhost:8180/auth/realms/" + securityProperties.getRealm() + "/protocol/openid-connect/token/introspect";
 
     HttpPost httpPost = new HttpPost(introspectUrl);
     List<NameValuePair> params = new ArrayList<NameValuePair>();

@@ -41,6 +41,19 @@ spring:
 # oauth_token: "http://localhost:8180/realms/ClientFhirServer/protocol/openid-connect/token"
 # oauth_authorize: "http://localhost:8180/realms/ClientFhirServer/protocol/openid-connect/auth"
 
+security:
+  client_id: app-token
+  client_secret: #replaceMe#
+  realm: ClientFhirServer
+  use_oauth: false
+  oauth_token: http://localhost:8180/auth/realms/ClientFhirServer/protocol/openid-connect/token
+  oauth_authorize: http://localhost:8180/auth/realms/ClientFhirServer/protocol/openid-connect/auth
+  proxy_authorize: http://localhost:8080/test-ehr/auth
+  proxy_token: http://localhost:8080/test-ehr/token
+  auth_redirect_host:
+  redirect_post_launch: http://localhost:8080/test-ehr/_services/smart/Launch
+  redirect_post_token: http://localhost:8080/test-ehr/token
+
 hapi:
   fhir:
     ### This is the FHIR version. Choose between, DSTU2, DSTU3, R4 or R5

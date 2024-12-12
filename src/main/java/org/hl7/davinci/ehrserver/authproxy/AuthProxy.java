@@ -1,11 +1,8 @@
 package org.hl7.davinci.ehrserver.authproxy;
 
-import org.hl7.davinci.ehrserver.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -21,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import ca.uhn.fhir.jpa.starter.SecurityProperties;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,7 +39,7 @@ public class AuthProxy {
   private PayloadDAOImpl payloadDAO;
 
   @Autowired
-  private Environment env;
+  SecurityProperties securityProperties;
 
   /**
    * Proxies the auth request, which returns the auth code.  The proxy changes the redirect url to
@@ -62,10 +61,10 @@ public class AuthProxy {
       params = _parseRedirect(reqParamValue, request);
     }
 
-    String oauth_authorize = env.getProperty("oauth_authorize");
+    String oauth_authorize = securityProperties.getOauthAuthorize();
 
     if (oauth_authorize == null || oauth_authorize.isEmpty())
-      oauth_authorize = Config.get("oauth_authorize");
+      oauth_authorize = securityProperties.getOauthAuthorize();
 
 
     UriComponentsBuilder forwardUrl = UriComponentsBuilder.fromHttpUrl(oauth_authorize);
@@ -94,10 +93,10 @@ public class AuthProxy {
 
     RestTemplate restTemplate = new RestTemplate();
     try {
-      String oauth_token = env.getProperty("oauth_token");
+      String oauth_token = securityProperties.getOauthToken();
 
       if (oauth_token == null || oauth_token.isEmpty())
-         oauth_token = Config.get("oauth_token");
+         oauth_token = securityProperties.getOauthToken();
 
       ResponseEntity<TokenResponse> response = restTemplate.postForEntity(oauth_token, request, TokenResponse.class);
       Objects.requireNonNull(response.getBody())
@@ -160,7 +159,8 @@ public class AuthProxy {
   private String _parseRedirect(Map<String, String> reqParamValue, HttpServletRequest request) {
     String currentRedirectURI = reqParamValue.get("redirect_uri");
     //String finalRedirectURI = "http://" + ((System.getenv("DOCKER_PROFILE") != null && System.getenv("DOCKER_PROFILE").equals("true")) && Config.get("auth_redirect_host") != null ? Config.get("auth_redirect_host") : request.getLocalName()) + ":" + request.getLocalPort() + "/test-ehr/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
-    String finalRedirectURI = (Config.get("auth_redirect_host") != null ? Config.get("auth_redirect_host") : request.getScheme() + "://" + request.getLocalName() + ":" + request.getLocalPort()) + "/test-ehr/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
+    String authRedirectHost = securityProperties.getAuthRedirectHost();
+    String finalRedirectURI = (authRedirectHost != null && authRedirectHost != "" ? authRedirectHost : request.getScheme() + "://" + request.getLocalName() + ":" + request.getLocalPort()) + "/test-ehr/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
     reqParamValue.put("redirect_uri", finalRedirectURI);
     payloadDAO.updateRedirect(reqParamValue.get("launch"), finalRedirectURI);
     return paramFormatter(reqParamValue);
