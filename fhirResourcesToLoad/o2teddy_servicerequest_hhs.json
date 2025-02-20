@@ -1,6 +1,16 @@
 {
   "resourceType": "ServiceRequest",
   "id": "servreq-pat014-hhs",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-servicerequest"
+    ]
+  },
+  "basedOn": [
+    {
+      "reference": "CarePlan/careplan-pat014-hhs"
+    }
+  ],
   "status": "draft",
   "intent": "order",
   "code": {
@@ -15,6 +25,9 @@
   "subject": {
     "reference": "Patient/pat014"
   },
+  "encounter": {
+    "reference": "Encounter/enc-pat014-hhs"
+  },
   "occurrenceDateTime": "2020-06-08",
   "authoredOn": "2020-06-08",
   "requester": {
@@ -28,14 +41,6 @@
   "insurance": [
     {
       "reference": "Coverage/cov014"
-    }
-  ],
-  "encounter": {
-    "reference": "Encounter/enc-pat014-hhs"
-  },
-  "basedOn": [
-    {
-      "reference": "CarePlan/careplan-pat014-hhs"
     }
   ],
   "relevantHistory": [

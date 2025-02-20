@@ -1,33 +1,38 @@
 {
-    "resourceType": "ServiceRequest",
-    "id": "servreq-g0180-1",
-    "status": "draft",
-    "intent": "order",
-    "code": {
-        "coding": [
-            {
-                "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
-                "code": "G0180",
-                "display": "Medicare-covered home health services under a home health plan of care"
-            }
-        ]
-    },
-    "subject": {
-        "reference": "Patient/pat015"
-    },
-    "occurrenceDateTime": "2017-10-01",
-    "authoredOn": "2017-10-04",
-    "requester": {
-        "display": "Smythe Juliette, MD"
-    },
-    "performer": [
-        {
-            "reference": "Practitioner/pra1255"
-        }
-    ],  
-    "insurance": [
-        {
-          "reference": "Coverage/cov016"
-        }
+  "resourceType": "ServiceRequest",
+  "id": "servreq-g0180-1",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-servicerequest"
     ]
+  },
+  "status": "draft",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+        "code": "G0180",
+        "display": "Medicare-covered home health services under a home health plan of care"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat015"
+  },
+  "occurrenceDateTime": "2017-10-01",
+  "authoredOn": "2017-10-04",
+  "requester": {
+    "display": "Smythe Juliette, MD"
+  },
+  "performer": [
+    {
+      "reference": "Practitioner/pra1255"
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/cov016"
+    }
+  ]
 }

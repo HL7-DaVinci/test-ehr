@@ -63,10 +63,6 @@ public class AuthProxy {
 
     String oauth_authorize = securityProperties.getOauthAuthorize();
 
-    if (oauth_authorize == null || oauth_authorize.isEmpty())
-      oauth_authorize = securityProperties.getOauthAuthorize();
-
-
     UriComponentsBuilder forwardUrl = UriComponentsBuilder.fromHttpUrl(oauth_authorize);
     String redirectUrl = forwardUrl.toUriString() + params;
     logger.info("redirectUrl: " + redirectUrl);
@@ -94,9 +90,6 @@ public class AuthProxy {
     RestTemplate restTemplate = new RestTemplate();
     try {
       String oauth_token = securityProperties.getOauthToken();
-
-      if (oauth_token == null || oauth_token.isEmpty())
-         oauth_token = securityProperties.getOauthToken();
 
       ResponseEntity<TokenResponse> response = restTemplate.postForEntity(oauth_token, request, TokenResponse.class);
       Objects.requireNonNull(response.getBody())

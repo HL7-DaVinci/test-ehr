@@ -1,33 +1,38 @@
 {
-    "resourceType": "ServiceRequest",
-    "id": "servreq16-g0155",
-    "status": "draft",
-    "intent": "order",
-    "code": {
-        "coding": [
-            {
-                "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
-                "code": "G0155",
-                "display": "Services of clinical social worker in home health or hospice settings, each 15 minutes"
-            }
-        ]
-    },
-    "subject": {
-        "reference": "Patient/pat016"
-    },
-    "occurrenceDateTime": "2016-09-27",
-    "authoredOn": "2016-09-20",
-    "requester": {
-        "display": "Smythe Juliette, MD"
-    },
-    "performer": [
-        {
-            "reference": "Practitioner/pra1255"
-        }
-    ],  
-    "insurance": [
-        {
-          "reference": "Coverage/cov016"
-        }
+  "resourceType": "ServiceRequest",
+  "id": "servreq16-g0155",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-servicerequest"
     ]
+  },
+  "status": "draft",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+        "code": "G0155",
+        "display": "Services of clinical social worker in home health or hospice settings, each 15 minutes"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat016"
+  },
+  "occurrenceDateTime": "2016-09-27",
+  "authoredOn": "2016-09-20",
+  "requester": {
+    "display": "Smythe Juliette, MD"
+  },
+  "performer": [
+    {
+      "reference": "Practitioner/pra1255"
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/cov016"
+    }
+  ]
 }

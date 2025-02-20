@@ -1,35 +1,35 @@
 {
-    "resourceType": "DeviceRequest",
-    "id": "devreq-014-e0250",
-    "meta": {
-        "profile": [
-            "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-devicerequest"
-        ]
-    },
-    "insurance": [
-        {
-            "reference": "Coverage/cov014"
-        }
-    ],
-    "status": "draft",
-    "codeCodeableConcept": {
-        "coding": [
-            {
-                "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
-                "code": "E0250",
-                "display": "Hospital bed fixed height with any type of side rails, mattress"
-            }
-        ]
-    },
-    "subject": {
-        "reference": "Patient/pat014"
-    },
-    "performer": {
-        "reference": "Practitioner/pra1255"
-    },
-	"authoredOn": "2023-01-01T00:00:00Z",
-	"intent": "original-order",
-	"requester" : {
-		"reference" : "Practitioner/pra-hfairchild"
-	}
+  "resourceType": "DeviceRequest",
+  "id": "devreq-014-e0250",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-devicerequest"
+    ]
+  },
+  "status": "draft",
+  "intent": "original-order",
+  "codeCodeableConcept": {
+    "coding": [
+      {
+        "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+        "code": "E0250",
+        "display": "Hospital bed fixed height with any type of side rails, mattress"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat014"
+  },
+  "authoredOn": "2023-01-01T00:00:00Z",
+  "requester": {
+    "reference": "Practitioner/pra-hfairchild"
+  },
+  "performer": {
+    "reference": "Practitioner/pra1255"
+  },
+  "insurance": [
+    {
+      "reference": "Coverage/cov014"
+    }
+  ]
 }

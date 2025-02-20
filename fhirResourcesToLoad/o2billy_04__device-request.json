@@ -6,12 +6,8 @@
       "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-devicerequest"
     ]
   },
-  "insurance": [
-    {
-      "reference": "Coverage/cov015"
-    }
-  ],
   "status": "draft",
+  "intent": "original-order",
   "codeCodeableConcept": {
     "coding": [
       {
@@ -24,10 +20,6 @@
   "subject": {
     "reference": "Patient/pat015"
   },
-  "performer": {
-    "reference": "Practitioner/pra1234"
-  },
-  "intent": "original-order",
   "occurrenceTiming" : {
     "repeat": {
       "boundsDuration": {
@@ -44,5 +36,13 @@
   "authoredOn": "2023-01-01T00:00:00Z",
   "requester" : {
 	  "reference" : "Practitioner/pra-hfairchild"
-  }
+  },
+  "performer": {
+    "reference": "Practitioner/pra1234"
+  },
+  "insurance": [
+    {
+      "reference": "Coverage/cov015"
+    }
+  ]
 }

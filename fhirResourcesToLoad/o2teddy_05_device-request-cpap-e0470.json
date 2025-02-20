@@ -1,35 +1,35 @@
 {
-    "resourceType": "DeviceRequest",
-    "id": "devreq020",
-    "meta": {
-        "profile": [
-            "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-devicerequest"
-        ]
-    },
-    "insurance": [
-        {
-            "reference": "Coverage/cov014"
-        }
-    ],
-    "status": "draft",
-    "codeCodeableConcept": {
-        "coding": [
-            {
-                "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
-                "code": "E0470",
-                "display": "Respiratory Assist Device, Bi-Level Pressure Capacity WITHOUT Backup Rate"
-            }
-        ]
-    },
-    "subject": {
-        "reference": "Patient/pat014"
-    },
-    "performer": {
-        "reference": "Practitioner/pra1255"
-    },
-	"authoredOn": "2023-01-01T00:00:00Z",
-	"intent": "original-order",
-	"requester" : {
-		"reference" : "Practitioner/pra-hfairchild"
-	}
+  "resourceType": "DeviceRequest",
+  "id": "devreq020",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-devicerequest"
+    ]
+  },
+  "status": "draft",
+  "intent": "original-order",
+  "codeCodeableConcept": {
+    "coding": [
+      {
+        "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+        "code": "E0470",
+        "display": "Respiratory Assist Device, Bi-Level Pressure Capacity WITHOUT Backup Rate"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/pat014"
+  },
+  "authoredOn": "2023-01-01T00:00:00Z",
+  "requester": {
+    "reference": "Practitioner/pra-hfairchild"
+  },
+  "performer": {
+    "reference": "Practitioner/pra1255"
+  },
+  "insurance": [
+    {
+      "reference": "Coverage/cov014"
+    }
+  ]
 }

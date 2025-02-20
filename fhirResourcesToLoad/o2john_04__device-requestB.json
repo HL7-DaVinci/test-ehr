@@ -2,34 +2,34 @@
 	"resourceType": "DeviceRequest",
 	"id": "devreq033",
 	"meta": {
-	"profile": [
-	  "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-devicerequest"
-	]
+		"profile": [
+			"http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-devicerequest"
+		]
 	},
-	"insurance": [
-	{
-	  "reference": "Coverage/cov013"
-	}
-	],
 	"status": "draft",
+	"intent": "original-order",
 	"codeCodeableConcept": {
-	"coding": [
-	  {
-		"system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
-		"code": "E0601",
-		"display": "Respiratory assist device (CPAP), bi-level w/o backup"
-	  }
-	]
+		"coding": [
+			{
+				"system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+				"code": "E0601",
+				"display": "Respiratory assist device (CPAP), bi-level w/o backup"
+			}
+		]
 	},
 	"subject": {
-	"reference": "Patient/pat013"
-	},
-	"performer": {
-	"reference": "Practitioner/pra1234"
+		"reference": "Patient/pat013"
 	},
 	"authoredOn": "2023-01-01T00:00:00Z",
-	"intent": "original-order",
-	"requester" : {
-		"reference" : "Practitioner/pra-hfairchild"
-	}
+	"requester": {
+		"reference": "Practitioner/pra-hfairchild"
+	},
+	"performer": {
+		"reference": "Practitioner/pra1234"
+	},
+	"insurance": [
+		{
+			"reference": "Coverage/cov013"
+		}
+	]
 }

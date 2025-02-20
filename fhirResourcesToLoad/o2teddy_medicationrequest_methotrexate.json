@@ -1,6 +1,13 @@
 {
   "resourceType": "MedicationRequest",
   "id": "pat014-mr-methotrexate",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-crd/StructureDefinition/profile-medicationrequest"
+    ]
+  },
+  "status": "active",
+  "intent": "order",
   "medicationCodeableConcept": {
     "coding": [
       {
@@ -10,8 +17,6 @@
       }
     ]
   },
-  "status": "active",
-  "intent": "order",
   "subject": {
     "reference": "Patient/pat014",
     "display": "Theodor Roosevelt"
