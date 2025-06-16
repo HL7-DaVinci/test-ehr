@@ -12,6 +12,8 @@ public class Payload {
   private String launchUrl;
   private String launchId;
   private String redirectUri;
+  private String codeVerifier;
+  private String codeChallenge;
 
   public String getRedirectUri() {
     return redirectUri;
@@ -52,9 +54,24 @@ public class Payload {
 
   public String getAppContext() {
     return parameters.getAppContext();
-  }
-  public String getFhirContext() {
+  }  public String getFhirContext() {
     return parameters.getFhirContext();
+  }
+
+  public String getCodeVerifier() {
+    return codeVerifier;
+  }
+
+  public void setCodeVerifier(String codeVerifier) {
+    this.codeVerifier = codeVerifier;
+  }
+
+  public String getCodeChallenge() {
+    return codeChallenge;
+  }
+
+  public void setCodeChallenge(String codeChallenge) {
+    this.codeChallenge = codeChallenge;
   }
 
   @Override

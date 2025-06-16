@@ -56,6 +56,22 @@ public class SecurityProperties {
   public void setOauthAuthorize(String oauthAuthorize) {
     this.oauthAuthorize = oauthAuthorize;
   }
+    
+  private String oauthIntrospect;
+  public String getOauthIntrospect() {
+    return oauthIntrospect;
+  }
+  public void setOauthIntrospect(String oauthIntrospect) {
+    this.oauthIntrospect = oauthIntrospect;
+  }
+
+  private String oauthJwks;
+  public String getOauthJwks() {
+    return oauthJwks;
+  }
+  public void setOauthJwks(String oauthJwks) {
+    this.oauthJwks = oauthJwks;
+  }
 
   private String proxyAuthorize;
   public String getProxyAuthorize() {

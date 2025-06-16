@@ -39,9 +39,7 @@ public class AuthProxy {
   private PayloadDAOImpl payloadDAO;
 
   @Autowired
-  SecurityProperties securityProperties;
-
-  /**
+  SecurityProperties securityProperties;  /**
    * Proxies the auth request, which returns the auth code.  The proxy changes the redirect url to
    * a different endpoint which will save the returned code and associate it with the launch id
    * before redirecting back to the smart app.
@@ -70,7 +68,6 @@ public class AuthProxy {
 
     httpServletResponse.setStatus(302);
   }
-
   /**
    * Proxies the token request, which returns the bearer token.  The proxy uses the auth code
    * passed in by the request to associate the request with a launch id, and uses that launch id
@@ -82,6 +79,13 @@ public class AuthProxy {
   public ResponseEntity<TokenResponse> getToken(TokenRequest body) {
     Payload payload = payloadDAO.findContextByCode(body.getCode());
     body.setRedirect_uri(payload.getRedirectUri());
+    
+    // Add PKCE code verifier if available
+    if (payload.getCodeVerifier() != null && !payload.getCodeVerifier().isEmpty()) {
+      body.setCode_verifier(payload.getCodeVerifier());
+      logger.info("Using PKCE code verifier for token exchange");
+    }
+    
     HttpHeaders httpHeaders = new HttpHeaders();
     httpHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
@@ -102,12 +106,11 @@ public class AuthProxy {
       e.printStackTrace();
       System.out.println(e.getResponseBodyAsString());
       System.out.println(e.getResponseHeaders());
-      ResponseEntity response = ResponseEntity.badRequest().body(String.class);
+      ResponseEntity<TokenResponse> response = ResponseEntity.badRequest().body(null);
       return response;
     }
 
   }
-
   /**
    * A custom endpoint that the request generator uses to generate a launch id and its associated
    * context.  The context is created using variables passed in the request body.
@@ -119,6 +122,13 @@ public class AuthProxy {
   public AuthResponse getLaunch(@RequestBody Payload payload) {
     AuthResponse authResponse = new AuthResponse();
     payload.setLaunchId(authResponse.getlaunch_id());
+    
+    // Generate PKCE parameters for this launch context
+    String codeVerifier = PKCEUtil.generateCodeVerifier();
+    String codeChallenge = PKCEUtil.generateCodeChallenge(codeVerifier);
+    payload.setCodeVerifier(codeVerifier);
+    payload.setCodeChallenge(codeChallenge);
+    
     payloadDAO.createPayload(payload);
     return authResponse;
 
@@ -142,7 +152,6 @@ public class AuthProxy {
     httpServletResponse.setStatus(302);
 
   }
-
   /**
    * Generates the redirect url based on the incoming request
    * @param reqParamValue - the params of the incoming request
@@ -156,9 +165,22 @@ public class AuthProxy {
     String finalRedirectURI = (authRedirectHost != null && authRedirectHost != "" ? authRedirectHost : request.getScheme() + "://" + request.getLocalName() + ":" + request.getLocalPort()) + "/test-ehr/_auth/" + reqParamValue.get("launch") + "?redirect_uri=" + currentRedirectURI;
     reqParamValue.put("redirect_uri", finalRedirectURI);
     payloadDAO.updateRedirect(reqParamValue.get("launch"), finalRedirectURI);
+    
+    // Generate PKCE parameters if not already present
+    if (!reqParamValue.containsKey("code_challenge")) {
+      String codeVerifier = PKCEUtil.generateCodeVerifier();
+      String codeChallenge = PKCEUtil.generateCodeChallenge(codeVerifier);
+      
+      // Store PKCE parameters with the launch context
+      payloadDAO.updatePKCE(reqParamValue.get("launch"), codeVerifier, codeChallenge);
+      
+      // Add PKCE parameters to the authorization request
+      reqParamValue.put("code_challenge", codeChallenge);
+      reqParamValue.put("code_challenge_method", "S256");
+    }
+    
     return paramFormatter(reqParamValue);
   }
-
   private String _standaloneRedirect(Map<String, String> reqParamValue, HttpServletRequest request) {
     Payload payload = new Payload();
     Parameters parameters = new Parameters();
@@ -167,27 +189,24 @@ public class AuthProxy {
     String currentRedirectURI = reqParamValue.get("redirect_uri");
     String id = "standalone" + UUID.randomUUID().toString();
     payload.setLaunchId(id);
+    
+    // Generate PKCE parameters for standalone launch
+    String codeVerifier = PKCEUtil.generateCodeVerifier();
+    String codeChallenge = PKCEUtil.generateCodeChallenge(codeVerifier);
+    payload.setCodeVerifier(codeVerifier);
+    payload.setCodeChallenge(codeChallenge);
+    
     payloadDAO.createStandalonePayload(payload);
     String finalRedirectURI = "http://" +request.getLocalName() + ":" + request.getLocalPort() + "/test-ehr/_auth/" + id + "?redirect_uri=" + currentRedirectURI;
     reqParamValue.put("redirect_uri", finalRedirectURI);
     payloadDAO.updateRedirect(id, finalRedirectURI);
+    
+    // Add PKCE parameters to the request
+    reqParamValue.put("code_challenge", codeChallenge);
+    reqParamValue.put("code_challenge_method", "S256");
+    
     return paramFormatter(reqParamValue);
   }
-
-  private static String urlEncodeUTF8(Map<?,?> map) {
-    StringBuilder sb = new StringBuilder();
-    for (Map.Entry<?,?> entry : map.entrySet()) {
-      if (sb.length() > 0) {
-        sb.append("&");
-      }
-      sb.append(String.format("%s=%s",
-          urlEncodeUTF8(entry.getKey().toString()),
-          urlEncodeUTF8(entry.getValue().toString())
-      ));
-    }
-    return sb.toString();
-  }
-
   private static String urlEncodeUTF8(String s) {
     try {
       return URLEncoder.encode(s, "UTF-8");

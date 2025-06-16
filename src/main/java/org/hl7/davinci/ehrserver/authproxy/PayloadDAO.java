@@ -21,4 +21,7 @@ public interface PayloadDAO {
   public Payload findContextByCode(String code);
 
   public void updateRedirect(String launchId, String redirectUri);
+
+  // update PKCE parameters for a launch context
+  public void updatePKCE(String launchId, String codeVerifier, String codeChallenge);
 }
