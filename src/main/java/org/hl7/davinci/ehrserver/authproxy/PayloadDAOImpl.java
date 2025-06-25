@@ -1,17 +1,15 @@
 package org.hl7.davinci.ehrserver.authproxy;
 
-import org.hl7.davinci.ehrserver.requestgenerator.ResourceNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import javax.annotation.PostConstruct;
+import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
+import jakarta.annotation.PostConstruct;
+
 import javax.sql.DataSource;
 
-import java.io.File;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -27,10 +25,11 @@ public class PayloadDAOImpl implements PayloadDAO {
 
   @PostConstruct
   public void setJdbcTemplate() throws SQLException {
-    System.setProperty("derby.stream.error.file", new File("logs/derby.log").getAbsolutePath());
+    // Use the same H2 database that Spring is configured to use
     jdbcTemplate = new JdbcTemplate(dataSource);
-    String dbUrl = "jdbc:derby:directory:target/jpaserver_derby_files;create=true";
-    Connection conn = DriverManager.getConnection(dbUrl);
+    
+    // No need to create a separate connection - use the Spring-managed DataSource
+    // The H2 database is already configured in application.yaml
     // create table
     try {
       jdbcTemplate.execute("Create table appcontext (launchId varchar(255) primary key, launchUrl varchar(212) NOT NULL, patient varchar(128), appContext varchar(8192), fhirContext varchar(8192), launchCode varchar(512), redirectUri varchar(512), codeVerifier varchar(128), codeChallenge varchar(128))");
@@ -50,7 +49,6 @@ public class PayloadDAOImpl implements PayloadDAO {
         logger.info("PayloadDAOImpl: PKCE columns already exist or could not be added");
       }
     }
-    conn.close();
   }
 
   @Override
@@ -71,7 +69,7 @@ public class PayloadDAOImpl implements PayloadDAO {
     if(payloads.size()>0) {
       return payloads.get(0);
     } else {
-      throw new ResourceNotFoundException();
+      throw new ResourceNotFoundException("Context not found for launchId: " + launchId);
     }
   }
 
@@ -88,7 +86,7 @@ public class PayloadDAOImpl implements PayloadDAO {
     if(payloads.size()>0) {
       return payloads.get(0);
     } else {
-      throw new ResourceNotFoundException();
+      throw new ResourceNotFoundException("Context not found for launchCode: " + launchCode);
     }
 
   }

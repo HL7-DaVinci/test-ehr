@@ -1,6 +1,5 @@
 package org.hl7.davinci.ehrserver.authproxy;
 
-import org.hl7.davinci.ehrserver.requestgenerator.database.Key;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

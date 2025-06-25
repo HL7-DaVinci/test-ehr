@@ -1,28 +1,27 @@
 package org.hl7.davinci.ehrserver;
 
 import ca.uhn.fhir.context.support.IValidationSupport;
-import ca.uhn.fhir.jpa.api.config.DaoConfig;
+import ca.uhn.fhir.jpa.api.config.JpaStorageSettings;
 import ca.uhn.fhir.jpa.api.dao.IFhirSystemDao;
 import ca.uhn.fhir.jpa.provider.JpaCapabilityStatementProvider;
-import ca.uhn.fhir.jpa.starter.SecurityProperties;
 import ca.uhn.fhir.rest.api.server.RequestDetails;
 import ca.uhn.fhir.rest.server.RestfulServer;
 import ca.uhn.fhir.rest.server.util.ISearchParamRegistry;
+import jakarta.servlet.http.HttpServletRequest;
+
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.CapabilityStatement;
 import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.Meta;
 import org.hl7.fhir.r4.model.UriType;
 
-import javax.servlet.http.HttpServletRequest;
-
 
 public class ServerConformanceR4 extends JpaCapabilityStatementProvider {
 
   SecurityProperties securityProperties;
 
-  public ServerConformanceR4(RestfulServer theRestfulServer, IFhirSystemDao<Bundle, Meta> theSystemDao, DaoConfig theDaoConfig, ISearchParamRegistry theSearchParamRegistry, IValidationSupport theValidationSupport, SecurityProperties securityProperties) {
-    super(theRestfulServer, theSystemDao, theDaoConfig, theSearchParamRegistry, theValidationSupport);
+  public ServerConformanceR4(RestfulServer theRestfulServer, IFhirSystemDao<Bundle, Meta> theSystemDao, JpaStorageSettings theStorageSettings, ISearchParamRegistry theSearchParamRegistry, IValidationSupport theValidationSupport, SecurityProperties securityProperties) {
+    super(theRestfulServer, theSystemDao, theStorageSettings, theSearchParamRegistry, theValidationSupport);
     this.securityProperties = securityProperties;
   }
 

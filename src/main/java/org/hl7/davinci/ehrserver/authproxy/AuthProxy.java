@@ -1,5 +1,6 @@
 package org.hl7.davinci.ehrserver.authproxy;
 
+import org.hl7.davinci.ehrserver.SecurityProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +20,20 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import ca.uhn.fhir.jpa.starter.SecurityProperties;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @RestController
+@RequestMapping("/test-ehr")
 public class AuthProxy {
 
   static final Logger logger = LoggerFactory.getLogger(AuthProxy.class);
@@ -75,7 +78,7 @@ public class AuthProxy {
    * @param body - Custom object to serialize the incoming request body
    * @return - returns the custom built reponse
    */
-  @PostMapping(value = "/token",  consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+  @PostMapping(value = "/token",  consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<TokenResponse> getToken(TokenRequest body) {
     Payload payload = payloadDAO.findContextByCode(body.getCode());
     body.setRedirect_uri(payload.getRedirectUri());
@@ -117,7 +120,7 @@ public class AuthProxy {
    * @param payload - the object used to serialize the JSON in the request body.
    * @return - an object containing the launch id and nothing else.
    */
-  @PostMapping(value = "/_services/smart/Launch", consumes = {"application/json"})
+  @PostMapping(value = "/_services/smart/Launch", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseBody
   public AuthResponse getLaunch(@RequestBody Payload payload) {
     AuthResponse authResponse = new AuthResponse();
@@ -144,7 +147,7 @@ public class AuthProxy {
    * @param request - the request recieved
    */
   @GetMapping("/_auth/{launch}")
-  public void authSync(@PathVariable String launch, @RequestParam Map<String, String> reqParamValue, HttpServletResponse httpServletResponse, HttpServletRequest request) {
+  public void authSync(@PathVariable("launch") String launch, @RequestParam Map<String, String> reqParamValue, HttpServletResponse httpServletResponse, HttpServletRequest request) {
     logger.info("redirected to secondary auth endpoint to sync code/launch_id with each other");
     payloadDAO.updateCode(launch, reqParamValue.get("code"));
     UriComponentsBuilder forwardUrl = UriComponentsBuilder.fromHttpUrl(reqParamValue.get("redirect_uri")).queryParam("state", reqParamValue.get("state")).queryParam("code", reqParamValue.get("code"));

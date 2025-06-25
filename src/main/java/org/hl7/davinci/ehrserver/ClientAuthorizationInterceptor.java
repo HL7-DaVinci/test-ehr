@@ -1,6 +1,5 @@
 package org.hl7.davinci.ehrserver;
 
-import ca.uhn.fhir.jpa.starter.SecurityProperties;
 import ca.uhn.fhir.rest.api.server.RequestDetails;
 import ca.uhn.fhir.rest.server.interceptor.auth.AuthorizationInterceptor;
 import ca.uhn.fhir.rest.server.interceptor.auth.IAuthRule;

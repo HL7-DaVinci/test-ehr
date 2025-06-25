@@ -1,7 +1,7 @@
 package org.hl7.davinci.ehrserver.authproxy;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "appcontext")

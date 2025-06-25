@@ -1,7 +1,5 @@
 package org.hl7.davinci.ehrserver.authproxy;
 
-import org.hl7.davinci.ehrserver.requestgenerator.database.Key;
-
 public interface PayloadDAO {
 
   public void createPayload(Payload payload);
