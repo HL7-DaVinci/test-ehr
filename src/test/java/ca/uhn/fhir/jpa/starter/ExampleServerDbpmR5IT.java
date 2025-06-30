@@ -35,7 +35,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 	})
 public class ExampleServerDbpmR5IT {
 
-	private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(ExampleServerDstu2IT.class);
+	private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(ExampleServerDbpmR5IT.class);
 	private IGenericClient ourClient;
 	private FhirContext ourCtx;
 

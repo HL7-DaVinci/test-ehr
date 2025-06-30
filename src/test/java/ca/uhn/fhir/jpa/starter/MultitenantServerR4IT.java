@@ -34,7 +34,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MultitenantServerR4IT {
 
 
-	private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(ExampleServerDstu2IT.class);
+	private static final org.slf4j.Logger ourLog = org.slf4j.LoggerFactory.getLogger(MultitenantServerR4IT.class);
 	private static UrlTenantSelectionInterceptor ourClientTenantInterceptor;
 	private IGenericClient ourClient;
 	private FhirContext ourCtx;

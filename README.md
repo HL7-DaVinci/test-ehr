@@ -1,26 +1,20 @@
 # EHR FHIR Server
-This subproject hosts a HAPI FHIR server that is based on the [hapi-fhir-jpaserver-example](https://github.com/jamesagnew/hapi-fhir/tree/master/hapi-fhir-jpaserver-example).
+This subproject hosts a HAPI FHIR server that is based on the [hapi-fhir-jpaserver-example](https://github.com/hapifhir/hapi-fhir-jpaserver-starter).
 
 ## Foundry
 A live demo is hosted by [HL7 FHIR Foundry](https://foundry.hl7.org/products/ee6c4df0-49d8-4e16-ad17-7aba82c47b25).
 
-## Init the test-ehr 
-1. delete `target` and `build` folders from test-ehr if they exist
-2. from Terminal (1) while in test-ehr folder: `gradle bootRun`
-3. from Terminal (2) while in test-ehr folder:   `gradle loadData`
+## Prerequisites
+- Java 17+
+- Maven
 
 ## Running the server
-`gradle bootRun`
+`mvn spring-boot:run`
 
 This will start the server running on http://localhost:8080/test-ehr.
 
 ## Adding resources to the database
-The FHIR server will persist FHIR resources between restarts. You can delete the folder `target` to clear all resources.
-
-To load the data from the json files in fhirResourcesToLoad, run the following script:  
-`gradle loadData` 
-
->Note: 'gradle loadData' can only be run while the FHIR server is running and `use_oauth` is false in         `src/main/resources/fhirServer.properties`
+The database will be initialized with any resources in the `src/main/resources/seed-data` directory.
 
 ## Using OAuth security features
 The FHIR server is open by default, but this can be changed in the `fhirServer.properties` file.  
