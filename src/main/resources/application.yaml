@@ -95,7 +95,7 @@ security:
   redirect_post_token: http://localhost:8080/test-ehr/token
 
 
-initialData:
+initial-data:
   - seed-data
 
 hapi:
