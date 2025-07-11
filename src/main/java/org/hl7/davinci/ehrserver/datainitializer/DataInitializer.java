@@ -1,13 +1,11 @@
 package org.hl7.davinci.ehrserver.datainitializer;
 
 import ca.uhn.fhir.context.FhirContext;
-import ca.uhn.fhir.jpa.api.config.JpaStorageSettings;
-import ca.uhn.fhir.jpa.api.dao.DaoRegistry;
-import ca.uhn.fhir.jpa.api.dao.IFhirResourceDao;
-import ca.uhn.fhir.jpa.starter.AppProperties;
+import ca.uhn.fhir.jpa.api.dao.IFhirSystemDao;
 import ca.uhn.fhir.rest.api.server.SystemRequestDetails;
 import jakarta.annotation.PostConstruct;
 import org.hl7.fhir.instance.model.api.IBaseResource;
+import org.hl7.fhir.r4.model.Bundle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,19 +26,13 @@ public class DataInitializer {
 	private FhirContext fhirContext;
 
 	@Autowired
-	private DaoRegistry daoRegistry;
-
-	@Autowired
-	private AppProperties appProperties;
-
-	@Autowired
 	private DataInitializerProperties dataInitializerProperties;
 
 	@Autowired
 	private ResourceLoader resourceLoader;
 
 	@Autowired
-	private JpaStorageSettings storageSettings;
+	private IFhirSystemDao<Bundle, ?> systemDao;
 
 	@PostConstruct
 	public void initializeData() {
@@ -51,9 +43,6 @@ public class DataInitializer {
 		}
 
 		logger.info("Initializing data");
-
-		// Disable referential integrity checks so that resources can be loaded in any order
-		storageSettings.setEnforceReferentialIntegrityOnWrite(false);
 
 		for (String directoryPath : dataInitializerProperties.getInitialData()) {
 			logger.info("Loading resources from directory: " + directoryPath);
@@ -68,23 +57,32 @@ public class DataInitializer {
 				continue;
 			}
 
+
+			// Using a Bundle transaction to update resources
+			// This way we can read the resources in any order and still maintain referential integrity which maintains indexing
+			Bundle bundle = new Bundle();
+			bundle.setType(Bundle.BundleType.TRANSACTION);
+
+			// Iterate through each resource and add it to the bundle
 			for (Resource resource : resources) {
 				try {
 					String resourceText = new String(
 							FileCopyUtils.copyToByteArray(resource.getInputStream()), StandardCharsets.UTF_8);
 
 					IBaseResource fhirResource = fhirContext.newJsonParser().parseResource(resourceText);
+					bundle.addEntry().setResource((org.hl7.fhir.r4.model.Resource)fhirResource).setRequest(
+							new Bundle.BundleEntryRequestComponent().setMethod(Bundle.HTTPVerb.PUT)
+									.setUrl(fhirResource.getIdElement().getValue()));
 
-					IFhirResourceDao<IBaseResource> dao = daoRegistry.getResourceDao(fhirResource);
-					dao.update(fhirResource, new SystemRequestDetails());
-					logger.info("Loaded resource: " + resource.getFilename());
+					logger.info("Adding resource to bundle: " + resource.getFilename() + " with URL: " + fhirResource.getIdElement().getValue());
 				} catch (Exception e) {
 					logger.error("Error loading resource: " + resource.getFilename(), e);
 				}
 			}
+
+			// Execute the transaction
+			systemDao.transaction(new SystemRequestDetails(), bundle);
 		}
 
-		// Re-enable referential integrity checks if they were previously enabled
-		storageSettings.setEnforceReferentialIntegrityOnWrite(appProperties.getEnforce_referential_integrity_on_write());
 	}
 }
