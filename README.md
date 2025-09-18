@@ -11,13 +11,13 @@ A live demo is hosted by [HL7 FHIR Foundry](https://foundry.hl7.org/products/ee6
 ## Running the server
 `mvn spring-boot:run`
 
-This will start the server running on http://localhost:8080/test-ehr.
+This will start the server with its FHIR endpoint accessible at http://localhost:8080/test-ehr/r4
 
 ## Adding resources to the database
 The database will be initialized with any resources in the `src/main/resources/seed-data` directory.
 
 ## Using OAuth security features
-The FHIR server is open by default, but this can be changed in the `fhirServer.properties` file.  
+The FHIR server is open by default, but this can be changed in the `src/main/resources/application.yaml` file.  
 
 First, change the `use_oauth` flag to `true` to turn on security.  Then set the `client_id`, `client_secret`, and `oauth_token` fields.
 
