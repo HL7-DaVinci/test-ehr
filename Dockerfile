@@ -1,10 +1,12 @@
-# Base image
-FROM gradle:6.9.0-jdk11
+FROM eclipse-temurin:11-jdk-ubi9-minimal
 
-# Set working directory so that all subsequent command runs in this folder
+# Keep the compatible Gradle release on an updated Java 11 base.
+COPY --from=gradle:6.9.4-jdk11-ubi9 /opt/gradle /opt/gradle
+ENV GRADLE_HOME=/opt/gradle
+ENV PATH="${GRADLE_HOME}/bin:${PATH}"
+
 WORKDIR /test-ehr
-# Copy app files to container
-COPY --chown=gradle:gradle . .
+COPY . .
 RUN gradle build
 # Expose port to access the app
 EXPOSE 8080
